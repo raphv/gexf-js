@@ -1,0 +1,12 @@
+JavaScript GEXF Viewer for Gephi
+
+How to use ?
+
+1 - Export your graph from Gephi as a GEXF file
+2 - Replace "default.gexf" in the gexf-js directory by this file.
+
+You can view more Gexf files by pointing your browser to index.html#Filename.gexf
+
+
+-- raph
+http://twitter.com/raphv
