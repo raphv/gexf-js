@@ -1,0 +1,2372 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gexf xmlns="http://www.gexf.net/1.1draft" version="1.1" xmlns:viz="http://www.gexf.net/1.1draft/viz" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.gexf.net/1.1draft http://www.gexf.net/1.1draft/gexf.xsd">
+  <meta lastmodifieddate="2011-09-06">
+    <creator>Gephi 0.8</creator>
+    <description></description>
+  </meta>
+  <graph defaultedgetype="undirected" timeformat="double" mode="dynamic">
+    <attributes class="node" mode="static">
+      <attribute id="type" title="type" type="string"></attribute>
+      <attribute id="degree" title="Degree" type="integer">
+        <default>0</default>
+      </attribute>
+      <attribute id="pageranks" title="PageRank" type="double">
+        <default>0.0</default>
+      </attribute>
+      <attribute id="authority" title="Authority" type="float">
+        <default>0.0</default>
+      </attribute>
+      <attribute id="hub" title="Hub" type="float">
+        <default>0.0</default>
+      </attribute>
+      <attribute id="eccentricity" title="Eccentricity" type="double">
+        <default>0.0</default>
+      </attribute>
+      <attribute id="closnesscentrality" title="Closeness Centrality" type="double">
+        <default>0.0</default>
+      </attribute>
+      <attribute id="betweenesscentrality" title="Betweenness Centrality" type="double">
+        <default>0.0</default>
+      </attribute>
+    </attributes>
+    <nodes>
+      <node id="@julien_c" label="@julien_c">
+        <attvalues>
+          <attvalue for="type" value="user"></attvalue>
+          <attvalue for="degree" value="5"></attvalue>
+          <attvalue for="pageranks" value="0.011577933784128781"></attvalue>
+          <attvalue for="authority" value="0.012793177"></attvalue>
+          <attvalue for="hub" value="0.012793177"></attvalue>
+          <attvalue for="eccentricity" value="4.0"></attvalue>
+          <attvalue for="closnesscentrality" value="2.911111111111111"></attvalue>
+          <attvalue for="betweenesscentrality" value="102.6883976482612"></attvalue>
+        </attvalues>
+        <viz:size value="12.230769"></viz:size>
+        <viz:position x="147.50081" y="-148.90912"></viz:position>
+        <viz:color r="255" g="245" b="0"></viz:color>
+      </node>
+      <node id="@jessicarambar" label="@jessicarambar">
+        <attvalues>
+          <attvalue for="type" value="user"></attvalue>
+          <attvalue for="degree" value="5"></attvalue>
+          <attvalue for="pageranks" value="0.011489019274204542"></attvalue>
+          <attvalue for="authority" value="0.012793177"></attvalue>
+          <attvalue for="hub" value="0.012793177"></attvalue>
+          <attvalue for="eccentricity" value="4.0"></attvalue>
+          <attvalue for="closnesscentrality" value="2.933333333333333"></attvalue>
+          <attvalue for="betweenesscentrality" value="74.87527998432768"></attvalue>
+        </attvalues>
+        <viz:size value="12.230769"></viz:size>
+        <viz:position x="-111.10454" y="71.81143"></viz:position>
+        <viz:color r="255" g="245" b="0"></viz:color>
+      </node>
+      <node id="@jacktouillon" label="@jacktouillon">
+        <attvalues>
+          <attvalue for="type" value="user"></attvalue>
+          <attvalue for="degree" value="4"></attvalue>
+          <attvalue for="pageranks" value="0.009731581330642782"></attvalue>
+          <attvalue for="authority" value="0.010660981"></attvalue>
+          <attvalue for="hub" value="0.010660981"></attvalue>
+          <attvalue for="eccentricity" value="4.0"></attvalue>
+          <attvalue for="closnesscentrality" value="2.977777777777778"></attvalue>
+          <attvalue for="betweenesscentrality" value="64.74603189771241"></attvalue>
+        </attvalues>
+        <viz:size value="11.384615"></viz:size>
+        <viz:position x="103.49513" y="-239.47566"></viz:position>
+        <viz:color r="255" g="245" b="0"></viz:color>
+      </node>
+      <node id="@__marjorie_s" label="@__marjorie_s">
+        <attvalues>
+          <attvalue for="type" value="user"></attvalue>
+          <attvalue for="degree" value="2"></attvalue>
+          <attvalue for="pageranks" value="0.005657062089938358"></attvalue>
+          <attvalue for="authority" value="0.0063965884"></attvalue>
+          <attvalue for="hub" value="0.0063965884"></attvalue>
+          <attvalue for="eccentricity" value="4.0"></attvalue>
+          <attvalue for="closnesscentrality" value="3.2444444444444445"></attvalue>
+          <attvalue for="betweenesscentrality" value="8.50549898409694"></attvalue>
+        </attvalues>
+        <viz:size value="9.692307"></viz:size>
+        <viz:position x="371.99152" y="-72.52501"></viz:position>
+        <viz:color r="255" g="245" b="0"></viz:color>
+      </node>
+      <node id="@marshkxx" label="@marshkxx">
+        <attvalues>
+          <attvalue for="type" value="user"></attvalue>
+          <attvalue for="degree" value="5"></attvalue>
+          <attvalue for="pageranks" value="0.012156643807190136"></attvalue>
+          <attvalue for="authority" value="0.012793177"></attvalue>
+          <attvalue for="hub" value="0.012793177"></attvalue>
+          <attvalue for="eccentricity" value="4.0"></attvalue>
+          <attvalue for="closnesscentrality" value="2.8444444444444446"></attvalue>
+          <attvalue for="betweenesscentrality" value="253.36749351847268"></attvalue>
+        </attvalues>
+        <viz:size value="12.230769"></viz:size>
+        <viz:position x="-74.282814" y="-185.60547"></viz:position>
+        <viz:color r="255" g="245" b="0"></viz:color>
+      </node>
+      <node id="@mtaieb" label="@mtaieb">
+        <attvalues>
+          <attvalue for="type" value="user"></attvalue>
+          <attvalue for="degree" value="1"></attvalue>
+          <attvalue for="pageranks" value="0.0037387318904973923"></attvalue>
+          <attvalue for="authority" value="0.0042643924"></attvalue>
+          <attvalue for="hub" value="0.0042643924"></attvalue>
+          <attvalue for="eccentricity" value="6.0"></attvalue>
+          <attvalue for="closnesscentrality" value="3.6"></attvalue>
+          <attvalue for="betweenesscentrality" value="0.0"></attvalue>
+        </attvalues>
+        <viz:size value="8.846154"></viz:size>
+        <viz:position x="393.14346" y="-155.49002"></viz:position>
+        <viz:color r="255" g="245" b="0"></viz:color>
+      </node>
+      <node id="@raphv" label="@raphv">
+        <attvalues>
+          <attvalue for="type" value="user"></attvalue>
+          <attvalue for="degree" value="5"></attvalue>
+          <attvalue for="pageranks" value="0.01179199000668831"></attvalue>
+          <attvalue for="authority" value="0.012793177"></attvalue>
+          <attvalue for="hub" value="0.012793177"></attvalue>
+          <attvalue for="eccentricity" value="4.0"></attvalue>
+          <attvalue for="closnesscentrality" value="2.6"></attvalue>
+          <attvalue for="betweenesscentrality" value="115.4107792063073"></attvalue>
+        </attvalues>
+        <viz:size value="12.230769"></viz:size>
+        <viz:position x="168.72086" y="65.691"></viz:position>
+        <viz:color r="255" g="245" b="0"></viz:color>
+      </node>
+      <node id="@theodore_brutal" label="@theodore_brutal">
+        <attvalues>
+          <attvalue for="type" value="user"></attvalue>
+          <attvalue for="degree" value="4"></attvalue>
+          <attvalue for="pageranks" value="0.009460075092782579"></attvalue>
+          <attvalue for="authority" value="0.010660981"></attvalue>
+          <attvalue for="hub" value="0.010660981"></attvalue>
+          <attvalue for="eccentricity" value="4.0"></attvalue>
+          <attvalue for="closnesscentrality" value="3.088888888888889"></attvalue>
+          <attvalue for="betweenesscentrality" value="50.45485192740694"></attvalue>
+        </attvalues>
+        <viz:size value="11.384615"></viz:size>
+        <viz:position x="-230.07999" y="-124.38223"></viz:position>
+        <viz:color r="255" g="245" b="0"></viz:color>
+      </node>
+      <node id="@egasser" label="@egasser">
+        <attvalues>
+          <attvalue for="type" value="user"></attvalue>
+          <attvalue for="degree" value="1"></attvalue>
+          <attvalue for="pageranks" value="0.003577822471362943"></attvalue>
+          <attvalue for="authority" value="0.0042643924"></attvalue>
+          <attvalue for="hub" value="0.0042643924"></attvalue>
+          <attvalue for="eccentricity" value="6.0"></attvalue>
+          <attvalue for="closnesscentrality" value="3.5555555555555554"></attvalue>
+          <attvalue for="betweenesscentrality" value="0.0"></attvalue>
+        </attvalues>
+        <viz:size value="8.846154"></viz:size>
+        <viz:position x="-73.3293" y="336.56924"></viz:position>
+        <viz:color r="255" g="245" b="0"></viz:color>
+      </node>
+      <node id="@maetienne" label="@maetienne">
+        <attvalues>
+          <attvalue for="type" value="user"></attvalue>
+          <attvalue for="degree" value="2"></attvalue>
+          <attvalue for="pageranks" value="0.006300684381991757"></attvalue>
+          <attvalue for="authority" value="0.0063965884"></attvalue>
+          <attvalue for="hub" value="0.0063965884"></attvalue>
+          <attvalue for="eccentricity" value="5.0"></attvalue>
+          <attvalue for="closnesscentrality" value="3.3333333333333335"></attvalue>
+          <attvalue for="betweenesscentrality" value="42.48468863061254"></attvalue>
+        </attvalues>
+        <viz:size value="9.692307"></viz:size>
+        <viz:position x="-400.57315" y="55.17722"></viz:position>
+        <viz:color r="255" g="245" b="0"></viz:color>
+      </node>
+      <node id="@adriensgstn" label="@adriensgstn">
+        <attvalues>
+          <attvalue for="type" value="user"></attvalue>
+          <attvalue for="degree" value="6"></attvalue>
+          <attvalue for="pageranks" value="0.013833497339190218"></attvalue>
+          <attvalue for="authority" value="0.014925373"></attvalue>
+          <attvalue for="hub" value="0.014925373"></attvalue>
+          <attvalue for="eccentricity" value="4.0"></attvalue>
+          <attvalue for="closnesscentrality" value="2.8222222222222224"></attvalue>
+          <attvalue for="betweenesscentrality" value="152.87124762014957"></attvalue>
+        </attvalues>
+        <viz:size value="13.076923"></viz:size>
+        <viz:position x="25.510588" y="-316.765"></viz:position>
+        <viz:color r="255" g="245" b="0"></viz:color>
+      </node>
+      <node id="@margaux_e" label="@margaux_e">
+        <attvalues>
+          <attvalue for="type" value="user"></attvalue>
+          <attvalue for="degree" value="2"></attvalue>
+          <attvalue for="pageranks" value="0.005650416903425083"></attvalue>
+          <attvalue for="authority" value="0.0063965884"></attvalue>
+          <attvalue for="hub" value="0.0063965884"></attvalue>
+          <attvalue for="eccentricity" value="4.0"></attvalue>
+          <attvalue for="closnesscentrality" value="3.4444444444444446"></attvalue>
+          <attvalue for="betweenesscentrality" value="8.598950348565749"></attvalue>
+        </attvalues>
+        <viz:size value="9.692307"></viz:size>
+        <viz:position x="-144.53192" y="-332.0471"></viz:position>
+        <viz:color r="255" g="245" b="0"></viz:color>
+      </node>
+      <node id="@nadcorsin" label="@nadcorsin">
+        <attvalues>
+          <attvalue for="type" value="user"></attvalue>
+          <attvalue for="degree" value="1"></attvalue>
+          <attvalue for="pageranks" value="0.0036296768811673007"></attvalue>
+          <attvalue for="authority" value="0.0042643924"></attvalue>
+          <attvalue for="hub" value="0.0042643924"></attvalue>
+          <attvalue for="eccentricity" value="5.0"></attvalue>
+          <attvalue for="closnesscentrality" value="3.533333333333333"></attvalue>
+          <attvalue for="betweenesscentrality" value="0.0"></attvalue>
+        </attvalues>
+        <viz:size value="8.846154"></viz:size>
+        <viz:position x="-272.11032" y="242.18037"></viz:position>
+        <viz:color r="255" g="245" b="0"></viz:color>
+      </node>
+      <node id="@decebalhormuz" label="@decebalhormuz">
+        <attvalues>
+          <attvalue for="type" value="user"></attvalue>
+          <attvalue for="degree" value="1"></attvalue>
+          <attvalue for="pageranks" value="0.010615711084580851"></attvalue>
+          <attvalue for="authority" value="0.0042643924"></attvalue>
+          <attvalue for="hub" value="0.0042643924"></attvalue>
+          <attvalue for="eccentricity" value="1.0"></attvalue>
+          <attvalue for="closnesscentrality" value="1.0"></attvalue>
+          <attvalue for="betweenesscentrality" value="0.0"></attvalue>
+        </attvalues>
+        <viz:size value="8.846154"></viz:size>
+        <viz:position x="-254.40187" y="465.1909"></viz:position>
+        <viz:color r="255" g="245" b="0"></viz:color>
+      </node>
+      <node id="@timdl" label="@timdl">
+        <attvalues>
+          <attvalue for="type" value="user"></attvalue>
+          <attvalue for="degree" value="1"></attvalue>
+          <attvalue for="pageranks" value="0.0037387318904973923"></attvalue>
+          <attvalue for="authority" value="0.0042643924"></attvalue>
+          <attvalue for="hub" value="0.0042643924"></attvalue>
+          <attvalue for="eccentricity" value="6.0"></attvalue>
+          <attvalue for="closnesscentrality" value="3.6"></attvalue>
+          <attvalue for="betweenesscentrality" value="0.0"></attvalue>
+        </attvalues>
+        <viz:size value="8.846154"></viz:size>
+        <viz:position x="347.8305" y="-237.11983"></viz:position>
+        <viz:color r="255" g="245" b="0"></viz:color>
+      </node>
+      <node id="@bertrandchai" label="@bertrandchai">
+        <attvalues>
+          <attvalue for="type" value="user"></attvalue>
+          <attvalue for="degree" value="1"></attvalue>
+          <attvalue for="pageranks" value="0.004263364163511583"></attvalue>
+          <attvalue for="authority" value="0.0042643924"></attvalue>
+          <attvalue for="hub" value="0.0042643924"></attvalue>
+          <attvalue for="eccentricity" value="6.0"></attvalue>
+          <attvalue for="closnesscentrality" value="4.2"></attvalue>
+          <attvalue for="betweenesscentrality" value="0.0"></attvalue>
+        </attvalues>
+        <viz:size value="8.846154"></viz:size>
+        <viz:position x="-473.94623" y="-27.070509"></viz:position>
+        <viz:color r="255" g="245" b="0"></viz:color>
+      </node>
+      <node id="@nirinatweet" label="@nirinatweet">
+        <attvalues>
+          <attvalue for="type" value="user"></attvalue>
+          <attvalue for="degree" value="3"></attvalue>
+          <attvalue for="pageranks" value="0.007532764915358318"></attvalue>
+          <attvalue for="authority" value="0.008528785"></attvalue>
+          <attvalue for="hub" value="0.008528785"></attvalue>
+          <attvalue for="eccentricity" value="4.0"></attvalue>
+          <attvalue for="closnesscentrality" value="3.2222222222222223"></attvalue>
+          <attvalue for="betweenesscentrality" value="21.930173479476796"></attvalue>
+        </attvalues>
+        <viz:size value="10.538462"></viz:size>
+        <viz:position x="-249.2472" y="84.99119"></viz:position>
+        <viz:color r="255" g="245" b="0"></viz:color>
+      </node>
+      <node id="@amidesreseaux" label="@amidesreseaux">
+        <attvalues>
+          <attvalue for="type" value="user"></attvalue>
+          <attvalue for="degree" value="1"></attvalue>
+          <attvalue for="pageranks" value="0.0037599524036434863"></attvalue>
+          <attvalue for="authority" value="0.0042643924"></attvalue>
+          <attvalue for="hub" value="0.0042643924"></attvalue>
+          <attvalue for="eccentricity" value="6.0"></attvalue>
+          <attvalue for="closnesscentrality" value="3.6444444444444444"></attvalue>
+          <attvalue for="betweenesscentrality" value="0.0"></attvalue>
+        </attvalues>
+        <viz:size value="8.846154"></viz:size>
+        <viz:position x="283.5918" y="-315.76184"></viz:position>
+        <viz:color r="255" g="245" b="0"></viz:color>
+      </node>
+      <node id="@pocketpcandgeek" label="@pocketpcandgeek">
+        <attvalues>
+          <attvalue for="type" value="user"></attvalue>
+          <attvalue for="degree" value="1"></attvalue>
+          <attvalue for="pageranks" value="0.003886469827846956"></attvalue>
+          <attvalue for="authority" value="0.0042643924"></attvalue>
+          <attvalue for="hub" value="0.0042643924"></attvalue>
+          <attvalue for="eccentricity" value="6.0"></attvalue>
+          <attvalue for="closnesscentrality" value="3.511111111111111"></attvalue>
+          <attvalue for="betweenesscentrality" value="0.0"></attvalue>
+        </attvalues>
+        <viz:size value="8.846154"></viz:size>
+        <viz:position x="247.78268" y="403.08606"></viz:position>
+        <viz:color r="255" g="245" b="0"></viz:color>
+      </node>
+      <node id="@rouffi" label="@rouffi">
+        <attvalues>
+          <attvalue for="type" value="user"></attvalue>
+          <attvalue for="degree" value="1"></attvalue>
+          <attvalue for="pageranks" value="0.003497276220295011"></attvalue>
+          <attvalue for="authority" value="0.0042643924"></attvalue>
+          <attvalue for="hub" value="0.0042643924"></attvalue>
+          <attvalue for="eccentricity" value="5.0"></attvalue>
+          <attvalue for="closnesscentrality" value="3.533333333333333"></attvalue>
+          <attvalue for="betweenesscentrality" value="0.0"></attvalue>
+        </attvalues>
+        <viz:size value="8.846154"></viz:size>
+        <viz:position x="-70.29815" y="16.271605"></viz:position>
+        <viz:color r="255" g="245" b="0"></viz:color>
+      </node>
+      <node id="@ratzillas" label="@ratzillas">
+        <attvalues>
+          <attvalue for="type" value="user"></attvalue>
+          <attvalue for="degree" value="3"></attvalue>
+          <attvalue for="pageranks" value="0.00797239576824428"></attvalue>
+          <attvalue for="authority" value="0.008528785"></attvalue>
+          <attvalue for="hub" value="0.008528785"></attvalue>
+          <attvalue for="eccentricity" value="6.0"></attvalue>
+          <attvalue for="closnesscentrality" value="2.933333333333333"></attvalue>
+          <attvalue for="betweenesscentrality" value="49.23100703264774"></attvalue>
+        </attvalues>
+        <viz:size value="10.538462"></viz:size>
+        <viz:position x="340.88043" y="0.30885977"></viz:position>
+        <viz:color r="255" g="245" b="0"></viz:color>
+      </node>
+      <node id="@affinyt" label="@affinyt">
+        <attvalues>
+          <attvalue for="type" value="user"></attvalue>
+          <attvalue for="degree" value="1"></attvalue>
+          <attvalue for="pageranks" value="0.0036296768811673007"></attvalue>
+          <attvalue for="authority" value="0.0042643924"></attvalue>
+          <attvalue for="hub" value="0.0042643924"></attvalue>
+          <attvalue for="eccentricity" value="5.0"></attvalue>
+          <attvalue for="closnesscentrality" value="3.533333333333333"></attvalue>
+          <attvalue for="betweenesscentrality" value="0.0"></attvalue>
+        </attvalues>
+        <viz:size value="8.846154"></viz:size>
+        <viz:position x="-233.0643" y="255.41661"></viz:position>
+        <viz:color r="255" g="245" b="0"></viz:color>
+      </node>
+      <node id="@jbertheas" label="@jbertheas">
+        <attvalues>
+          <attvalue for="type" value="user"></attvalue>
+          <attvalue for="degree" value="6"></attvalue>
+          <attvalue for="pageranks" value="0.013594380850237713"></attvalue>
+          <attvalue for="authority" value="0.014925373"></attvalue>
+          <attvalue for="hub" value="0.014925373"></attvalue>
+          <attvalue for="eccentricity" value="4.0"></attvalue>
+          <attvalue for="closnesscentrality" value="2.7777777777777777"></attvalue>
+          <attvalue for="betweenesscentrality" value="166.28828962290794"></attvalue>
+        </attvalues>
+        <viz:size value="13.076923"></viz:size>
+        <viz:position x="-16.711735" y="-155.99568"></viz:position>
+        <viz:color r="255" g="245" b="0"></viz:color>
+      </node>
+      <node id="@msteshi" label="@msteshi">
+        <attvalues>
+          <attvalue for="type" value="user"></attvalue>
+          <attvalue for="degree" value="5"></attvalue>
+          <attvalue for="pageranks" value="0.011586771616842413"></attvalue>
+          <attvalue for="authority" value="0.012793177"></attvalue>
+          <attvalue for="hub" value="0.012793177"></attvalue>
+          <attvalue for="eccentricity" value="4.0"></attvalue>
+          <attvalue for="closnesscentrality" value="2.8444444444444446"></attvalue>
+          <attvalue for="betweenesscentrality" value="96.16006329254421"></attvalue>
+        </attvalues>
+        <viz:size value="12.230769"></viz:size>
+        <viz:position x="-63.535934" y="-34.211617"></viz:position>
+        <viz:color r="255" g="245" b="0"></viz:color>
+      </node>
+      <node id="@joweisz" label="@joweisz">
+        <attvalues>
+          <attvalue for="type" value="user"></attvalue>
+          <attvalue for="degree" value="1"></attvalue>
+          <attvalue for="pageranks" value="0.003601597798408131"></attvalue>
+          <attvalue for="authority" value="0.0042643924"></attvalue>
+          <attvalue for="hub" value="0.0042643924"></attvalue>
+          <attvalue for="eccentricity" value="6.0"></attvalue>
+          <attvalue for="closnesscentrality" value="3.7777777777777777"></attvalue>
+          <attvalue for="betweenesscentrality" value="0.0"></attvalue>
+        </attvalues>
+        <viz:size value="8.846154"></viz:size>
+        <viz:position x="-320.98767" y="-48.30346"></viz:position>
+        <viz:color r="255" g="245" b="0"></viz:color>
+      </node>
+      <node id="@robindangelo" label="@robindangelo">
+        <attvalues>
+          <attvalue for="type" value="user"></attvalue>
+          <attvalue for="degree" value="3"></attvalue>
+          <attvalue for="pageranks" value="0.007431975967202036"></attvalue>
+          <attvalue for="authority" value="0.008528785"></attvalue>
+          <attvalue for="hub" value="0.008528785"></attvalue>
+          <attvalue for="eccentricity" value="4.0"></attvalue>
+          <attvalue for="closnesscentrality" value="3.3333333333333335"></attvalue>
+          <attvalue for="betweenesscentrality" value="15.724510612652164"></attvalue>
+        </attvalues>
+        <viz:size value="10.538462"></viz:size>
+        <viz:position x="-119.20185" y="-289.67206"></viz:position>
+        <viz:color r="255" g="245" b="0"></viz:color>
+      </node>
+      <node id="@davidrahmil" label="@davidrahmil">
+        <attvalues>
+          <attvalue for="type" value="user"></attvalue>
+          <attvalue for="degree" value="1"></attvalue>
+          <attvalue for="pageranks" value="0.004263364163511583"></attvalue>
+          <attvalue for="authority" value="0.0042643924"></attvalue>
+          <attvalue for="hub" value="0.0042643924"></attvalue>
+          <attvalue for="eccentricity" value="6.0"></attvalue>
+          <attvalue for="closnesscentrality" value="4.2"></attvalue>
+          <attvalue for="betweenesscentrality" value="0.0"></attvalue>
+        </attvalues>
+        <viz:size value="8.846154"></viz:size>
+        <viz:position x="-513.9261" y="-40.535877"></viz:position>
+        <viz:color r="255" g="245" b="0"></viz:color>
+      </node>
+      <node id="@androw95" label="@androw95">
+        <attvalues>
+          <attvalue for="type" value="user"></attvalue>
+          <attvalue for="degree" value="5"></attvalue>
+          <attvalue for="pageranks" value="0.011982083362840141"></attvalue>
+          <attvalue for="authority" value="0.012793177"></attvalue>
+          <attvalue for="hub" value="0.012793177"></attvalue>
+          <attvalue for="eccentricity" value="4.0"></attvalue>
+          <attvalue for="closnesscentrality" value="2.688888888888889"></attvalue>
+          <attvalue for="betweenesscentrality" value="125.9812410722204"></attvalue>
+        </attvalues>
+        <viz:size value="12.230769"></viz:size>
+        <viz:position x="187.83664" y="-11.092825"></viz:position>
+        <viz:color r="255" g="245" b="0"></viz:color>
+      </node>
+      <node id="@mael_i" label="@mael_i">
+        <attvalues>
+          <attvalue for="type" value="user"></attvalue>
+          <attvalue for="degree" value="1"></attvalue>
+          <attvalue for="pageranks" value="0.003497276220295011"></attvalue>
+          <attvalue for="authority" value="0.0042643924"></attvalue>
+          <attvalue for="hub" value="0.0042643924"></attvalue>
+          <attvalue for="eccentricity" value="5.0"></attvalue>
+          <attvalue for="closnesscentrality" value="3.533333333333333"></attvalue>
+          <attvalue for="betweenesscentrality" value="0.0"></attvalue>
+        </attvalues>
+        <viz:size value="8.846154"></viz:size>
+        <viz:position x="-48.540306" y="47.480007"></viz:position>
+        <viz:color r="255" g="245" b="0"></viz:color>
+      </node>
+      <node id="@vandicla" label="@vandicla">
+        <attvalues>
+          <attvalue for="type" value="user"></attvalue>
+          <attvalue for="degree" value="1"></attvalue>
+          <attvalue for="pageranks" value="0.0037599524036434863"></attvalue>
+          <attvalue for="authority" value="0.0042643924"></attvalue>
+          <attvalue for="hub" value="0.0042643924"></attvalue>
+          <attvalue for="eccentricity" value="6.0"></attvalue>
+          <attvalue for="closnesscentrality" value="3.6444444444444444"></attvalue>
+          <attvalue for="betweenesscentrality" value="0.0"></attvalue>
+        </attvalues>
+        <viz:size value="8.846154"></viz:size>
+        <viz:position x="219.55563" y="-384.661"></viz:position>
+        <viz:color r="255" g="245" b="0"></viz:color>
+      </node>
+      <node id="@mlleberangere" label="@mlleberangere">
+        <attvalues>
+          <attvalue for="type" value="user"></attvalue>
+          <attvalue for="degree" value="1"></attvalue>
+          <attvalue for="pageranks" value="0.0037599524036434863"></attvalue>
+          <attvalue for="authority" value="0.0042643924"></attvalue>
+          <attvalue for="hub" value="0.0042643924"></attvalue>
+          <attvalue for="eccentricity" value="6.0"></attvalue>
+          <attvalue for="closnesscentrality" value="3.6444444444444444"></attvalue>
+          <attvalue for="betweenesscentrality" value="0.0"></attvalue>
+        </attvalues>
+        <viz:size value="8.846154"></viz:size>
+        <viz:position x="235.11278" y="-348.84103"></viz:position>
+        <viz:color r="255" g="245" b="0"></viz:color>
+      </node>
+      <node id="@fuzzyraptor" label="@fuzzyraptor">
+        <attvalues>
+          <attvalue for="type" value="user"></attvalue>
+          <attvalue for="degree" value="1"></attvalue>
+          <attvalue for="pageranks" value="0.003600213091179319"></attvalue>
+          <attvalue for="authority" value="0.0042643924"></attvalue>
+          <attvalue for="hub" value="0.0042643924"></attvalue>
+          <attvalue for="eccentricity" value="6.0"></attvalue>
+          <attvalue for="closnesscentrality" value="3.911111111111111"></attvalue>
+          <attvalue for="betweenesscentrality" value="0.0"></attvalue>
+        </attvalues>
+        <viz:size value="8.846154"></viz:size>
+        <viz:position x="-263.69318" y="-288.8123"></viz:position>
+        <viz:color r="255" g="245" b="0"></viz:color>
+      </node>
+      <node id="@asurmen" label="@asurmen">
+        <attvalues>
+          <attvalue for="type" value="user"></attvalue>
+          <attvalue for="degree" value="1"></attvalue>
+          <attvalue for="pageranks" value="0.003886469827846956"></attvalue>
+          <attvalue for="authority" value="0.0042643924"></attvalue>
+          <attvalue for="hub" value="0.0042643924"></attvalue>
+          <attvalue for="eccentricity" value="6.0"></attvalue>
+          <attvalue for="closnesscentrality" value="3.511111111111111"></attvalue>
+          <attvalue for="betweenesscentrality" value="0.0"></attvalue>
+        </attvalues>
+        <viz:size value="8.846154"></viz:size>
+        <viz:position x="330.23453" y="331.36255"></viz:position>
+        <viz:color r="255" g="245" b="0"></viz:color>
+      </node>
+      <node id="@bleperchey" label="@bleperchey">
+        <attvalues>
+          <attvalue for="type" value="user"></attvalue>
+          <attvalue for="degree" value="4"></attvalue>
+          <attvalue for="pageranks" value="0.009850653407563335"></attvalue>
+          <attvalue for="authority" value="0.010660981"></attvalue>
+          <attvalue for="hub" value="0.010660981"></attvalue>
+          <attvalue for="eccentricity" value="4.0"></attvalue>
+          <attvalue for="closnesscentrality" value="2.888888888888889"></attvalue>
+          <attvalue for="betweenesscentrality" value="84.09104829287935"></attvalue>
+        </attvalues>
+        <viz:size value="11.384615"></viz:size>
+        <viz:position x="-165.82324" y="39.264725"></viz:position>
+        <viz:color r="255" g="245" b="0"></viz:color>
+      </node>
+      <node id="@lallouds" label="@lallouds">
+        <attvalues>
+          <attvalue for="type" value="user"></attvalue>
+          <attvalue for="degree" value="1"></attvalue>
+          <attvalue for="pageranks" value="0.004263364163511583"></attvalue>
+          <attvalue for="authority" value="0.0042643924"></attvalue>
+          <attvalue for="hub" value="0.0042643924"></attvalue>
+          <attvalue for="eccentricity" value="6.0"></attvalue>
+          <attvalue for="closnesscentrality" value="4.2"></attvalue>
+          <attvalue for="betweenesscentrality" value="0.0"></attvalue>
+        </attvalues>
+        <viz:size value="8.846154"></viz:size>
+        <viz:position x="-530.52075" y="-81.29664"></viz:position>
+        <viz:color r="255" g="245" b="0"></viz:color>
+      </node>
+      <node id="@xyohmx" label="@xyohmx">
+        <attvalues>
+          <attvalue for="type" value="user"></attvalue>
+          <attvalue for="degree" value="1"></attvalue>
+          <attvalue for="pageranks" value="0.004263364163511583"></attvalue>
+          <attvalue for="authority" value="0.0042643924"></attvalue>
+          <attvalue for="hub" value="0.0042643924"></attvalue>
+          <attvalue for="eccentricity" value="6.0"></attvalue>
+          <attvalue for="closnesscentrality" value="4.2"></attvalue>
+          <attvalue for="betweenesscentrality" value="0.0"></attvalue>
+        </attvalues>
+        <viz:size value="8.846154"></viz:size>
+        <viz:position x="-485.9012" y="-167.42671"></viz:position>
+        <viz:color r="255" g="245" b="0"></viz:color>
+      </node>
+      <node id="@leclown" label="@leclown">
+        <attvalues>
+          <attvalue for="type" value="user"></attvalue>
+          <attvalue for="degree" value="4"></attvalue>
+          <attvalue for="pageranks" value="0.009704946137858644"></attvalue>
+          <attvalue for="authority" value="0.010660981"></attvalue>
+          <attvalue for="hub" value="0.010660981"></attvalue>
+          <attvalue for="eccentricity" value="4.0"></attvalue>
+          <attvalue for="closnesscentrality" value="2.7111111111111112"></attvalue>
+          <attvalue for="betweenesscentrality" value="81.22862342259181"></attvalue>
+        </attvalues>
+        <viz:size value="11.384615"></viz:size>
+        <viz:position x="-90.79577" y="141.36934"></viz:position>
+        <viz:color r="255" g="245" b="0"></viz:color>
+      </node>
+      <node id="@captainnir" label="@captainnir">
+        <attvalues>
+          <attvalue for="type" value="user"></attvalue>
+          <attvalue for="degree" value="7"></attvalue>
+          <attvalue for="pageranks" value="0.015706150700017196"></attvalue>
+          <attvalue for="authority" value="0.01705757"></attvalue>
+          <attvalue for="hub" value="0.01705757"></attvalue>
+          <attvalue for="eccentricity" value="4.0"></attvalue>
+          <attvalue for="closnesscentrality" value="2.422222222222222"></attvalue>
+          <attvalue for="betweenesscentrality" value="230.78458774704998"></attvalue>
+        </attvalues>
+        <viz:size value="13.923077"></viz:size>
+        <viz:position x="108.93909" y="-2.631462"></viz:position>
+        <viz:color r="255" g="245" b="0"></viz:color>
+      </node>
+      <node id="@aodl_chris" label="@aodl_chris">
+        <attvalues>
+          <attvalue for="type" value="user"></attvalue>
+          <attvalue for="degree" value="1"></attvalue>
+          <attvalue for="pageranks" value="0.003886469827846956"></attvalue>
+          <attvalue for="authority" value="0.0042643924"></attvalue>
+          <attvalue for="hub" value="0.0042643924"></attvalue>
+          <attvalue for="eccentricity" value="6.0"></attvalue>
+          <attvalue for="closnesscentrality" value="3.511111111111111"></attvalue>
+          <attvalue for="betweenesscentrality" value="0.0"></attvalue>
+        </attvalues>
+        <viz:size value="8.846154"></viz:size>
+        <viz:position x="258.60342" y="364.52322"></viz:position>
+        <viz:color r="255" g="245" b="0"></viz:color>
+      </node>
+      <node id="@samsonmg" label="@samsonmg">
+        <attvalues>
+          <attvalue for="type" value="user"></attvalue>
+          <attvalue for="degree" value="1"></attvalue>
+          <attvalue for="pageranks" value="0.003577822471362943"></attvalue>
+          <attvalue for="authority" value="0.0042643924"></attvalue>
+          <attvalue for="hub" value="0.0042643924"></attvalue>
+          <attvalue for="eccentricity" value="6.0"></attvalue>
+          <attvalue for="closnesscentrality" value="3.5555555555555554"></attvalue>
+          <attvalue for="betweenesscentrality" value="0.0"></attvalue>
+        </attvalues>
+        <viz:size value="8.846154"></viz:size>
+        <viz:position x="-116.18864" y="321.09464"></viz:position>
+        <viz:color r="255" g="245" b="0"></viz:color>
+      </node>
+      <node id="@sul__ly" label="@sul__ly">
+        <attvalues>
+          <attvalue for="type" value="user"></attvalue>
+          <attvalue for="degree" value="4"></attvalue>
+          <attvalue for="pageranks" value="0.01045206345230142"></attvalue>
+          <attvalue for="authority" value="0.010660981"></attvalue>
+          <attvalue for="hub" value="0.010660981"></attvalue>
+          <attvalue for="eccentricity" value="4.0"></attvalue>
+          <attvalue for="closnesscentrality" value="3.2222222222222223"></attvalue>
+          <attvalue for="betweenesscentrality" value="94.93431329387138"></attvalue>
+        </attvalues>
+        <viz:size value="11.384615"></viz:size>
+        <viz:position x="-321.8426" y="-276.11142"></viz:position>
+        <viz:color r="255" g="245" b="0"></viz:color>
+      </node>
+      <node id="@alahouze" label="@alahouze">
+        <attvalues>
+          <attvalue for="type" value="user"></attvalue>
+          <attvalue for="degree" value="1"></attvalue>
+          <attvalue for="pageranks" value="0.003886469827846956"></attvalue>
+          <attvalue for="authority" value="0.0042643924"></attvalue>
+          <attvalue for="hub" value="0.0042643924"></attvalue>
+          <attvalue for="eccentricity" value="6.0"></attvalue>
+          <attvalue for="closnesscentrality" value="3.511111111111111"></attvalue>
+          <attvalue for="betweenesscentrality" value="0.0"></attvalue>
+        </attvalues>
+        <viz:size value="8.846154"></viz:size>
+        <viz:position x="194.82169" y="410.0487"></viz:position>
+        <viz:color r="255" g="245" b="0"></viz:color>
+      </node>
+      <node id="@kirdinn" label="@kirdinn">
+        <attvalues>
+          <attvalue for="type" value="user"></attvalue>
+          <attvalue for="degree" value="5"></attvalue>
+          <attvalue for="pageranks" value="0.011508476787979942"></attvalue>
+          <attvalue for="authority" value="0.012793177"></attvalue>
+          <attvalue for="hub" value="0.012793177"></attvalue>
+          <attvalue for="eccentricity" value="4.0"></attvalue>
+          <attvalue for="closnesscentrality" value="2.8666666666666667"></attvalue>
+          <attvalue for="betweenesscentrality" value="92.80402836396823"></attvalue>
+        </attvalues>
+        <viz:size value="12.230769"></viz:size>
+        <viz:position x="-229.32918" y="14.096987"></viz:position>
+        <viz:color r="255" g="245" b="0"></viz:color>
+      </node>
+      <node id="@lilian_brun" label="@lilian_brun">
+        <attvalues>
+          <attvalue for="type" value="user"></attvalue>
+          <attvalue for="degree" value="1"></attvalue>
+          <attvalue for="pageranks" value="0.0035106868621280923"></attvalue>
+          <attvalue for="authority" value="0.0042643924"></attvalue>
+          <attvalue for="hub" value="0.0042643924"></attvalue>
+          <attvalue for="eccentricity" value="6.0"></attvalue>
+          <attvalue for="closnesscentrality" value="3.6"></attvalue>
+          <attvalue for="betweenesscentrality" value="0.0"></attvalue>
+        </attvalues>
+        <viz:size value="8.846154"></viz:size>
+        <viz:position x="380.38577" y="47.981907"></viz:position>
+        <viz:color r="255" g="245" b="0"></viz:color>
+      </node>
+      <node id="@fredericbezies" label="@fredericbezies">
+        <attvalues>
+          <attvalue for="type" value="user"></attvalue>
+          <attvalue for="degree" value="1"></attvalue>
+          <attvalue for="pageranks" value="0.003600213091179319"></attvalue>
+          <attvalue for="authority" value="0.0042643924"></attvalue>
+          <attvalue for="hub" value="0.0042643924"></attvalue>
+          <attvalue for="eccentricity" value="6.0"></attvalue>
+          <attvalue for="closnesscentrality" value="3.911111111111111"></attvalue>
+          <attvalue for="betweenesscentrality" value="0.0"></attvalue>
+        </attvalues>
+        <viz:size value="8.846154"></viz:size>
+        <viz:position x="-257.93915" y="-329.5265"></viz:position>
+        <viz:color r="255" g="245" b="0"></viz:color>
+      </node>
+      <node id="@matthieumaler" label="@matthieumaler">
+        <attvalues>
+          <attvalue for="type" value="user"></attvalue>
+          <attvalue for="degree" value="7"></attvalue>
+          <attvalue for="pageranks" value="0.015713009269630273"></attvalue>
+          <attvalue for="authority" value="0.01705757"></attvalue>
+          <attvalue for="hub" value="0.01705757"></attvalue>
+          <attvalue for="eccentricity" value="4.0"></attvalue>
+          <attvalue for="closnesscentrality" value="2.422222222222222"></attvalue>
+          <attvalue for="betweenesscentrality" value="239.421089332261"></attvalue>
+        </attvalues>
+        <viz:size value="13.923077"></viz:size>
+        <viz:position x="130.7639" y="128.40068"></viz:position>
+        <viz:color r="255" g="245" b="0"></viz:color>
+      </node>
+      <node id="@matmolard" label="@matmolard">
+        <attvalues>
+          <attvalue for="type" value="user"></attvalue>
+          <attvalue for="degree" value="1"></attvalue>
+          <attvalue for="pageranks" value="0.003774180369501454"></attvalue>
+          <attvalue for="authority" value="0.0042643924"></attvalue>
+          <attvalue for="hub" value="0.0042643924"></attvalue>
+          <attvalue for="eccentricity" value="6.0"></attvalue>
+          <attvalue for="closnesscentrality" value="4.177777777777778"></attvalue>
+          <attvalue for="betweenesscentrality" value="0.0"></attvalue>
+        </attvalues>
+        <viz:size value="8.846154"></viz:size>
+        <viz:position x="-97.04625" y="-465.7586"></viz:position>
+        <viz:color r="255" g="245" b="0"></viz:color>
+      </node>
+      <node id="@taziden" label="@taziden">
+        <attvalues>
+          <attvalue for="type" value="user"></attvalue>
+          <attvalue for="degree" value="1"></attvalue>
+          <attvalue for="pageranks" value="0.003886469827846956"></attvalue>
+          <attvalue for="authority" value="0.0042643924"></attvalue>
+          <attvalue for="hub" value="0.0042643924"></attvalue>
+          <attvalue for="eccentricity" value="6.0"></attvalue>
+          <attvalue for="closnesscentrality" value="3.511111111111111"></attvalue>
+          <attvalue for="betweenesscentrality" value="0.0"></attvalue>
+        </attvalues>
+        <viz:size value="8.846154"></viz:size>
+        <viz:position x="217.52943" y="377.3499"></viz:position>
+        <viz:color r="255" g="245" b="0"></viz:color>
+      </node>
+      <node id="@audrey_bardon" label="@audrey_bardon">
+        <attvalues>
+          <attvalue for="type" value="user"></attvalue>
+          <attvalue for="degree" value="2"></attvalue>
+          <attvalue for="pageranks" value="0.005636188937567115"></attvalue>
+          <attvalue for="authority" value="0.0063965884"></attvalue>
+          <attvalue for="hub" value="0.0063965884"></attvalue>
+          <attvalue for="eccentricity" value="6.0"></attvalue>
+          <attvalue for="closnesscentrality" value="3.4"></attvalue>
+          <attvalue for="betweenesscentrality" value="8.795824516554676"></attvalue>
+        </attvalues>
+        <viz:size value="9.692307"></viz:size>
+        <viz:position x="32.504223" y="-252.4162"></viz:position>
+        <viz:color r="255" g="245" b="0"></viz:color>
+      </node>
+      <node id="@vincib" label="@vincib">
+        <attvalues>
+          <attvalue for="type" value="user"></attvalue>
+          <attvalue for="degree" value="1"></attvalue>
+          <attvalue for="pageranks" value="0.003886469827846956"></attvalue>
+          <attvalue for="authority" value="0.0042643924"></attvalue>
+          <attvalue for="hub" value="0.0042643924"></attvalue>
+          <attvalue for="eccentricity" value="6.0"></attvalue>
+          <attvalue for="closnesscentrality" value="3.511111111111111"></attvalue>
+          <attvalue for="betweenesscentrality" value="0.0"></attvalue>
+        </attvalues>
+        <viz:size value="8.846154"></viz:size>
+        <viz:position x="131.27646" y="357.91974"></viz:position>
+        <viz:color r="255" g="245" b="0"></viz:color>
+      </node>
+      <node id="@dasmtweets" label="@dasmtweets">
+        <attvalues>
+          <attvalue for="type" value="user"></attvalue>
+          <attvalue for="degree" value="5"></attvalue>
+          <attvalue for="pageranks" value="0.011967102712641103"></attvalue>
+          <attvalue for="authority" value="0.012793177"></attvalue>
+          <attvalue for="hub" value="0.012793177"></attvalue>
+          <attvalue for="eccentricity" value="4.0"></attvalue>
+          <attvalue for="closnesscentrality" value="2.577777777777778"></attvalue>
+          <attvalue for="betweenesscentrality" value="145.43901539975423"></attvalue>
+        </attvalues>
+        <viz:size value="12.230769"></viz:size>
+        <viz:position x="93.89421" y="71.26594"></viz:position>
+        <viz:color r="255" g="245" b="0"></viz:color>
+      </node>
+      <node id="@mylordphoenix" label="@mylordphoenix">
+        <attvalues>
+          <attvalue for="type" value="user"></attvalue>
+          <attvalue for="degree" value="4"></attvalue>
+          <attvalue for="pageranks" value="0.009704946137858644"></attvalue>
+          <attvalue for="authority" value="0.010660981"></attvalue>
+          <attvalue for="hub" value="0.010660981"></attvalue>
+          <attvalue for="eccentricity" value="4.0"></attvalue>
+          <attvalue for="closnesscentrality" value="2.7111111111111112"></attvalue>
+          <attvalue for="betweenesscentrality" value="81.22862342259181"></attvalue>
+        </attvalues>
+        <viz:size value="11.384615"></viz:size>
+        <viz:position x="-16.637703" y="150.59196"></viz:position>
+        <viz:color r="255" g="245" b="0"></viz:color>
+      </node>
+      <node id="@quota_atypique" label="@quota_atypique">
+        <attvalues>
+          <attvalue for="type" value="user"></attvalue>
+          <attvalue for="degree" value="1"></attvalue>
+          <attvalue for="pageranks" value="0.003886469827846956"></attvalue>
+          <attvalue for="authority" value="0.0042643924"></attvalue>
+          <attvalue for="hub" value="0.0042643924"></attvalue>
+          <attvalue for="eccentricity" value="6.0"></attvalue>
+          <attvalue for="closnesscentrality" value="3.511111111111111"></attvalue>
+          <attvalue for="betweenesscentrality" value="0.0"></attvalue>
+        </attvalues>
+        <viz:size value="8.846154"></viz:size>
+        <viz:position x="175.37053" y="371.96136"></viz:position>
+        <viz:color r="255" g="245" b="0"></viz:color>
+      </node>
+      <node id="@bouteilledelait" label="@bouteilledelait">
+        <attvalues>
+          <attvalue for="type" value="user"></attvalue>
+          <attvalue for="degree" value="1"></attvalue>
+          <attvalue for="pageranks" value="0.003886469827846956"></attvalue>
+          <attvalue for="authority" value="0.0042643924"></attvalue>
+          <attvalue for="hub" value="0.0042643924"></attvalue>
+          <attvalue for="eccentricity" value="6.0"></attvalue>
+          <attvalue for="closnesscentrality" value="3.511111111111111"></attvalue>
+          <attvalue for="betweenesscentrality" value="0.0"></attvalue>
+        </attvalues>
+        <viz:size value="8.846154"></viz:size>
+        <viz:position x="296.39893" y="373.39215"></viz:position>
+        <viz:color r="255" g="245" b="0"></viz:color>
+      </node>
+      <node id="@daweeed" label="@daweeed">
+        <attvalues>
+          <attvalue for="type" value="user"></attvalue>
+          <attvalue for="degree" value="5"></attvalue>
+          <attvalue for="pageranks" value="0.01158116823314419"></attvalue>
+          <attvalue for="authority" value="0.012793177"></attvalue>
+          <attvalue for="hub" value="0.012793177"></attvalue>
+          <attvalue for="eccentricity" value="4.0"></attvalue>
+          <attvalue for="closnesscentrality" value="2.688888888888889"></attvalue>
+          <attvalue for="betweenesscentrality" value="95.05300624529956"></attvalue>
+        </attvalues>
+        <viz:size value="12.230769"></viz:size>
+        <viz:position x="71.584045" y="160.95628"></viz:position>
+        <viz:color r="255" g="245" b="0"></viz:color>
+      </node>
+      <node id="@adelinefoucher" label="@adelinefoucher">
+        <attvalues>
+          <attvalue for="type" value="user"></attvalue>
+          <attvalue for="degree" value="1"></attvalue>
+          <attvalue for="pageranks" value="0.0037599524036434863"></attvalue>
+          <attvalue for="authority" value="0.0042643924"></attvalue>
+          <attvalue for="hub" value="0.0042643924"></attvalue>
+          <attvalue for="eccentricity" value="6.0"></attvalue>
+          <attvalue for="closnesscentrality" value="3.6444444444444444"></attvalue>
+          <attvalue for="betweenesscentrality" value="0.0"></attvalue>
+        </attvalues>
+        <viz:size value="8.846154"></viz:size>
+        <viz:position x="273.14676" y="-357.46884"></viz:position>
+        <viz:color r="255" g="245" b="0"></viz:color>
+      </node>
+      <node id="@fano" label="@fano">
+        <attvalues>
+          <attvalue for="type" value="user"></attvalue>
+          <attvalue for="degree" value="1"></attvalue>
+          <attvalue for="pageranks" value="0.003886469827846956"></attvalue>
+          <attvalue for="authority" value="0.0042643924"></attvalue>
+          <attvalue for="hub" value="0.0042643924"></attvalue>
+          <attvalue for="eccentricity" value="6.0"></attvalue>
+          <attvalue for="closnesscentrality" value="3.511111111111111"></attvalue>
+          <attvalue for="betweenesscentrality" value="0.0"></attvalue>
+        </attvalues>
+        <viz:size value="8.846154"></viz:size>
+        <viz:position x="146.78593" y="398.1931"></viz:position>
+        <viz:color r="255" g="245" b="0"></viz:color>
+      </node>
+      <node id="@bettou" label="@bettou">
+        <attvalues>
+          <attvalue for="type" value="user"></attvalue>
+          <attvalue for="degree" value="2"></attvalue>
+          <attvalue for="pageranks" value="0.006248829972187399"></attvalue>
+          <attvalue for="authority" value="0.0063965884"></attvalue>
+          <attvalue for="hub" value="0.0063965884"></attvalue>
+          <attvalue for="eccentricity" value="4.0"></attvalue>
+          <attvalue for="closnesscentrality" value="3.2666666666666666"></attvalue>
+          <attvalue for="betweenesscentrality" value="79.8004969842661"></attvalue>
+        </attvalues>
+        <viz:size value="9.692307"></viz:size>
+        <viz:position x="-341.07376" y="111.09987"></viz:position>
+        <viz:color r="255" g="245" b="0"></viz:color>
+      </node>
+      <node id="@27corwyn27" label="@27corwyn27">
+        <attvalues>
+          <attvalue for="type" value="user"></attvalue>
+          <attvalue for="degree" value="5"></attvalue>
+          <attvalue for="pageranks" value="0.012315416392459458"></attvalue>
+          <attvalue for="authority" value="0.012793177"></attvalue>
+          <attvalue for="hub" value="0.012793177"></attvalue>
+          <attvalue for="eccentricity" value="4.0"></attvalue>
+          <attvalue for="closnesscentrality" value="2.9555555555555557"></attvalue>
+          <attvalue for="betweenesscentrality" value="164.7892030052366"></attvalue>
+        </attvalues>
+        <viz:size value="12.230769"></viz:size>
+        <viz:position x="-328.0167" y="-154.63324"></viz:position>
+        <viz:color r="255" g="245" b="0"></viz:color>
+      </node>
+      <node id="@baptisteleroooy" label="@baptisteleroooy">
+        <attvalues>
+          <attvalue for="type" value="user"></attvalue>
+          <attvalue for="degree" value="3"></attvalue>
+          <attvalue for="pageranks" value="0.00745292663821615"></attvalue>
+          <attvalue for="authority" value="0.008528785"></attvalue>
+          <attvalue for="hub" value="0.008528785"></attvalue>
+          <attvalue for="eccentricity" value="4.0"></attvalue>
+          <attvalue for="closnesscentrality" value="3.066666666666667"></attvalue>
+          <attvalue for="betweenesscentrality" value="21.493389784696177"></attvalue>
+        </attvalues>
+        <viz:size value="10.538462"></viz:size>
+        <viz:position x="29.383827" y="114.39663"></viz:position>
+        <viz:color r="255" g="245" b="0"></viz:color>
+      </node>
+      <node id="@connexionmobile" label="@connexionmobile">
+        <attvalues>
+          <attvalue for="type" value="user"></attvalue>
+          <attvalue for="degree" value="4"></attvalue>
+          <attvalue for="pageranks" value="0.009815647090635949"></attvalue>
+          <attvalue for="authority" value="0.010660981"></attvalue>
+          <attvalue for="hub" value="0.010660981"></attvalue>
+          <attvalue for="eccentricity" value="4.0"></attvalue>
+          <attvalue for="closnesscentrality" value="3.111111111111111"></attvalue>
+          <attvalue for="betweenesscentrality" value="58.25267170201"></attvalue>
+        </attvalues>
+        <viz:size value="11.384615"></viz:size>
+        <viz:position x="-31.283148" y="-384.1748"></viz:position>
+        <viz:color r="255" g="245" b="0"></viz:color>
+      </node>
+      <node id="@fredoru" label="@fredoru">
+        <attvalues>
+          <attvalue for="type" value="user"></attvalue>
+          <attvalue for="degree" value="1"></attvalue>
+          <attvalue for="pageranks" value="0.0035106868621280923"></attvalue>
+          <attvalue for="authority" value="0.0042643924"></attvalue>
+          <attvalue for="hub" value="0.0042643924"></attvalue>
+          <attvalue for="eccentricity" value="6.0"></attvalue>
+          <attvalue for="closnesscentrality" value="3.6"></attvalue>
+          <attvalue for="betweenesscentrality" value="0.0"></attvalue>
+        </attvalues>
+        <viz:size value="8.846154"></viz:size>
+        <viz:position x="369.76517" y="89.436"></viz:position>
+        <viz:color r="255" g="245" b="0"></viz:color>
+      </node>
+      <node id="@orfaz" label="@orfaz">
+        <attvalues>
+          <attvalue for="type" value="user"></attvalue>
+          <attvalue for="degree" value="1"></attvalue>
+          <attvalue for="pageranks" value="0.003886469827846956"></attvalue>
+          <attvalue for="authority" value="0.0042643924"></attvalue>
+          <attvalue for="hub" value="0.0042643924"></attvalue>
+          <attvalue for="eccentricity" value="6.0"></attvalue>
+          <attvalue for="closnesscentrality" value="3.511111111111111"></attvalue>
+          <attvalue for="betweenesscentrality" value="0.0"></attvalue>
+        </attvalues>
+        <viz:size value="8.846154"></viz:size>
+        <viz:position x="325.96338" y="254.57333"></viz:position>
+        <viz:color r="255" g="245" b="0"></viz:color>
+      </node>
+      <node id="@giuliant" label="@giuliant">
+        <attvalues>
+          <attvalue for="type" value="user"></attvalue>
+          <attvalue for="degree" value="4"></attvalue>
+          <attvalue for="pageranks" value="0.009856094812706072"></attvalue>
+          <attvalue for="authority" value="0.010660981"></attvalue>
+          <attvalue for="hub" value="0.010660981"></attvalue>
+          <attvalue for="eccentricity" value="4.0"></attvalue>
+          <attvalue for="closnesscentrality" value="2.7333333333333334"></attvalue>
+          <attvalue for="betweenesscentrality" value="78.02778880419471"></attvalue>
+        </attvalues>
+        <viz:size value="11.384615"></viz:size>
+        <viz:position x="301.9132" y="114.3532"></viz:position>
+        <viz:color r="255" g="245" b="0"></viz:color>
+      </node>
+      <node id="@ellyanlan" label="@ellyanlan">
+        <attvalues>
+          <attvalue for="type" value="user"></attvalue>
+          <attvalue for="degree" value="5"></attvalue>
+          <attvalue for="pageranks" value="0.012023690553662432"></attvalue>
+          <attvalue for="authority" value="0.012793177"></attvalue>
+          <attvalue for="hub" value="0.012793177"></attvalue>
+          <attvalue for="eccentricity" value="4.0"></attvalue>
+          <attvalue for="closnesscentrality" value="2.5555555555555554"></attvalue>
+          <attvalue for="betweenesscentrality" value="155.04562778336177"></attvalue>
+        </attvalues>
+        <viz:size value="12.230769"></viz:size>
+        <viz:position x="266.8963" y="-58.311356"></viz:position>
+        <viz:color r="255" g="245" b="0"></viz:color>
+      </node>
+      <node id="@sophiereynal" label="@sophiereynal">
+        <attvalues>
+          <attvalue for="type" value="user"></attvalue>
+          <attvalue for="degree" value="5"></attvalue>
+          <attvalue for="pageranks" value="0.011619620818694786"></attvalue>
+          <attvalue for="authority" value="0.012793177"></attvalue>
+          <attvalue for="hub" value="0.012793177"></attvalue>
+          <attvalue for="eccentricity" value="4.0"></attvalue>
+          <attvalue for="closnesscentrality" value="2.6222222222222222"></attvalue>
+          <attvalue for="betweenesscentrality" value="113.57011890575275"></attvalue>
+        </attvalues>
+        <viz:size value="12.230769"></viz:size>
+        <viz:position x="-47.093307" y="107.26897"></viz:position>
+        <viz:color r="255" g="245" b="0"></viz:color>
+      </node>
+      <node id="@romain_bey" label="@romain_bey">
+        <attvalues>
+          <attvalue for="type" value="user"></attvalue>
+          <attvalue for="degree" value="1"></attvalue>
+          <attvalue for="pageranks" value="0.0037387318904973923"></attvalue>
+          <attvalue for="authority" value="0.0042643924"></attvalue>
+          <attvalue for="hub" value="0.0042643924"></attvalue>
+          <attvalue for="eccentricity" value="6.0"></attvalue>
+          <attvalue for="closnesscentrality" value="3.6"></attvalue>
+          <attvalue for="betweenesscentrality" value="0.0"></attvalue>
+        </attvalues>
+        <viz:size value="8.846154"></viz:size>
+        <viz:position x="388.50546" y="-219.11879"></viz:position>
+        <viz:color r="255" g="245" b="0"></viz:color>
+      </node>
+      <node id="@_strix_" label="@_strix_">
+        <attvalues>
+          <attvalue for="type" value="user"></attvalue>
+          <attvalue for="degree" value="1"></attvalue>
+          <attvalue for="pageranks" value="0.003886469827846956"></attvalue>
+          <attvalue for="authority" value="0.0042643924"></attvalue>
+          <attvalue for="hub" value="0.0042643924"></attvalue>
+          <attvalue for="eccentricity" value="6.0"></attvalue>
+          <attvalue for="closnesscentrality" value="3.511111111111111"></attvalue>
+          <attvalue for="betweenesscentrality" value="0.0"></attvalue>
+        </attvalues>
+        <viz:size value="8.846154"></viz:size>
+        <viz:position x="321.7414" y="293.15472"></viz:position>
+        <viz:color r="255" g="245" b="0"></viz:color>
+      </node>
+      <node id="@aratta" label="@aratta">
+        <attvalues>
+          <attvalue for="type" value="user"></attvalue>
+          <attvalue for="degree" value="1"></attvalue>
+          <attvalue for="pageranks" value="0.0036296768811673007"></attvalue>
+          <attvalue for="authority" value="0.0042643924"></attvalue>
+          <attvalue for="hub" value="0.0042643924"></attvalue>
+          <attvalue for="eccentricity" value="5.0"></attvalue>
+          <attvalue for="closnesscentrality" value="3.533333333333333"></attvalue>
+          <attvalue for="betweenesscentrality" value="0.0"></attvalue>
+        </attvalues>
+        <viz:size value="8.846154"></viz:size>
+        <viz:position x="-289.03482" y="204.63452"></viz:position>
+        <viz:color r="255" g="245" b="0"></viz:color>
+      </node>
+      <node id="@esthete" label="@esthete">
+        <attvalues>
+          <attvalue for="type" value="user"></attvalue>
+          <attvalue for="degree" value="1"></attvalue>
+          <attvalue for="pageranks" value="0.003886469827846956"></attvalue>
+          <attvalue for="authority" value="0.0042643924"></attvalue>
+          <attvalue for="hub" value="0.0042643924"></attvalue>
+          <attvalue for="eccentricity" value="6.0"></attvalue>
+          <attvalue for="closnesscentrality" value="3.511111111111111"></attvalue>
+          <attvalue for="betweenesscentrality" value="0.0"></attvalue>
+        </attvalues>
+        <viz:size value="8.846154"></viz:size>
+        <viz:position x="292.1638" y="332.71738"></viz:position>
+        <viz:color r="255" g="245" b="0"></viz:color>
+      </node>
+      <node id="@hedismida" label="@hedismida">
+        <attvalues>
+          <attvalue for="type" value="user"></attvalue>
+          <attvalue for="degree" value="2"></attvalue>
+          <attvalue for="pageranks" value="0.005496152670803909"></attvalue>
+          <attvalue for="authority" value="0.0063965884"></attvalue>
+          <attvalue for="hub" value="0.0063965884"></attvalue>
+          <attvalue for="eccentricity" value="5.0"></attvalue>
+          <attvalue for="closnesscentrality" value="3.2666666666666666"></attvalue>
+          <attvalue for="betweenesscentrality" value="5.380823644390898"></attvalue>
+        </attvalues>
+        <viz:size value="9.692307"></viz:size>
+        <viz:position x="90.18077" y="225.46063"></viz:position>
+        <viz:color r="255" g="245" b="0"></viz:color>
+      </node>
+      <node id="@laurent_local" label="@laurent_local">
+        <attvalues>
+          <attvalue for="type" value="user"></attvalue>
+          <attvalue for="degree" value="1"></attvalue>
+          <attvalue for="pageranks" value="0.0037387318904973923"></attvalue>
+          <attvalue for="authority" value="0.0042643924"></attvalue>
+          <attvalue for="hub" value="0.0042643924"></attvalue>
+          <attvalue for="eccentricity" value="6.0"></attvalue>
+          <attvalue for="closnesscentrality" value="3.6"></attvalue>
+          <attvalue for="betweenesscentrality" value="0.0"></attvalue>
+        </attvalues>
+        <viz:size value="8.846154"></viz:size>
+        <viz:position x="368.3116" y="-186.74802"></viz:position>
+        <viz:color r="255" g="245" b="0"></viz:color>
+      </node>
+      <node id="@sofialisse" label="@sofialisse">
+        <attvalues>
+          <attvalue for="type" value="user"></attvalue>
+          <attvalue for="degree" value="1"></attvalue>
+          <attvalue for="pageranks" value="0.004263364163511583"></attvalue>
+          <attvalue for="authority" value="0.0042643924"></attvalue>
+          <attvalue for="hub" value="0.0042643924"></attvalue>
+          <attvalue for="eccentricity" value="6.0"></attvalue>
+          <attvalue for="closnesscentrality" value="4.2"></attvalue>
+          <attvalue for="betweenesscentrality" value="0.0"></attvalue>
+        </attvalues>
+        <viz:size value="8.846154"></viz:size>
+        <viz:position x="-524.5623" y="-130.71106"></viz:position>
+        <viz:color r="255" g="245" b="0"></viz:color>
+      </node>
+      <node id="@ghiliottoyoung" label="@ghiliottoyoung">
+        <attvalues>
+          <attvalue for="type" value="user"></attvalue>
+          <attvalue for="degree" value="1"></attvalue>
+          <attvalue for="pageranks" value="0.0037599524036434863"></attvalue>
+          <attvalue for="authority" value="0.0042643924"></attvalue>
+          <attvalue for="hub" value="0.0042643924"></attvalue>
+          <attvalue for="eccentricity" value="6.0"></attvalue>
+          <attvalue for="closnesscentrality" value="3.6444444444444444"></attvalue>
+          <attvalue for="betweenesscentrality" value="0.0"></attvalue>
+        </attvalues>
+        <viz:size value="8.846154"></viz:size>
+        <viz:position x="179.5702" y="-368.16702"></viz:position>
+        <viz:color r="255" g="245" b="0"></viz:color>
+      </node>
+      <node id="@letailli" label="@letailli">
+        <attvalues>
+          <attvalue for="type" value="user"></attvalue>
+          <attvalue for="degree" value="4"></attvalue>
+          <attvalue for="pageranks" value="0.00962045929916772"></attvalue>
+          <attvalue for="authority" value="0.010660981"></attvalue>
+          <attvalue for="hub" value="0.010660981"></attvalue>
+          <attvalue for="eccentricity" value="4.0"></attvalue>
+          <attvalue for="closnesscentrality" value="3.066666666666667"></attvalue>
+          <attvalue for="betweenesscentrality" value="55.04857050561435"></attvalue>
+        </attvalues>
+        <viz:size value="11.384615"></viz:size>
+        <viz:position x="-56.825962" y="-290.70508"></viz:position>
+        <viz:color r="255" g="245" b="0"></viz:color>
+      </node>
+      <node id="@pfontaine_" label="@pfontaine_">
+        <attvalues>
+          <attvalue for="type" value="user"></attvalue>
+          <attvalue for="degree" value="2"></attvalue>
+          <attvalue for="pageranks" value="0.005871935636522772"></attvalue>
+          <attvalue for="authority" value="0.0063965884"></attvalue>
+          <attvalue for="hub" value="0.0063965884"></attvalue>
+          <attvalue for="eccentricity" value="6.0"></attvalue>
+          <attvalue for="closnesscentrality" value="3.111111111111111"></attvalue>
+          <attvalue for="betweenesscentrality" value="15.492643965292215"></attvalue>
+        </attvalues>
+        <viz:size value="9.692307"></viz:size>
+        <viz:position x="52.44723" y="339.51215"></viz:position>
+        <viz:color r="255" g="245" b="0"></viz:color>
+      </node>
+      <node id="#PapyPechno" label="#PapyPechno">
+        <attvalues>
+          <attvalue for="type" value="#addictquizz"></attvalue>
+          <attvalue for="degree" value="10"></attvalue>
+          <attvalue for="pageranks" value="0.031442912947239526"></attvalue>
+          <attvalue for="authority" value="0.023454158"></attvalue>
+          <attvalue for="hub" value="0.023454158"></attvalue>
+          <attvalue for="eccentricity" value="5.0"></attvalue>
+          <attvalue for="closnesscentrality" value="3.2111111111111112"></attvalue>
+          <attvalue for="betweenesscentrality" value="479.75949729763454"></attvalue>
+        </attvalues>
+        <viz:size value="16.461538"></viz:size>
+        <viz:position x="-460.36807" y="-101.05932"></viz:position>
+        <viz:color r="153" g="3" b="3"></viz:color>
+      </node>
+      <node id="#HappyTechno" label="#HappyTechno">
+        <attvalues>
+          <attvalue for="type" value="#addictquizz"></attvalue>
+          <attvalue for="degree" value="13"></attvalue>
+          <attvalue for="pageranks" value="0.02872046521035303"></attvalue>
+          <attvalue for="authority" value="0.029850746"></attvalue>
+          <attvalue for="hub" value="0.029850746"></attvalue>
+          <attvalue for="eccentricity" value="5.0"></attvalue>
+          <attvalue for="closnesscentrality" value="2.7444444444444445"></attvalue>
+          <attvalue for="betweenesscentrality" value="312.6374017627914"></attvalue>
+        </attvalues>
+        <viz:size value="19.0"></viz:size>
+        <viz:position x="-135.53795" y="-126.39136"></viz:position>
+        <viz:color r="153" g="3" b="3"></viz:color>
+      </node>
+      <node id="#DroguéDuBit" label="#DroguéDuBit">
+        <attvalues>
+          <attvalue for="type" value="#addictquizz"></attvalue>
+          <attvalue for="degree" value="18"></attvalue>
+          <attvalue for="pageranks" value="0.04065819314616161"></attvalue>
+          <attvalue for="authority" value="0.040511727"></attvalue>
+          <attvalue for="hub" value="0.040511727"></attvalue>
+          <attvalue for="eccentricity" value="5.0"></attvalue>
+          <attvalue for="closnesscentrality" value="2.611111111111111"></attvalue>
+          <attvalue for="betweenesscentrality" value="491.0510420475835"></attvalue>
+        </attvalues>
+        <viz:size value="23.23077"></viz:size>
+        <viz:position x="254.90714" y="44.376205"></viz:position>
+        <viz:color r="153" g="3" b="3"></viz:color>
+      </node>
+      <node id="#FunkyTroll" label="#FunkyTroll">
+        <attvalues>
+          <attvalue for="type" value="#trollquizz"></attvalue>
+          <attvalue for="degree" value="15"></attvalue>
+          <attvalue for="pageranks" value="0.03506657376979498"></attvalue>
+          <attvalue for="authority" value="0.03411514"></attvalue>
+          <attvalue for="hub" value="0.03411514"></attvalue>
+          <attvalue for="eccentricity" value="5.0"></attvalue>
+          <attvalue for="closnesscentrality" value="2.566666666666667"></attvalue>
+          <attvalue for="betweenesscentrality" value="482.8213159681844"></attvalue>
+        </attvalues>
+        <viz:size value="20.692307"></viz:size>
+        <viz:position x="-53.74756" y="226.14313"></viz:position>
+        <viz:color r="3" g="153" b="153"></viz:color>
+      </node>
+      <node id="#TrollCitoyen" label="#TrollCitoyen">
+        <attvalues>
+          <attvalue for="type" value="#trollquizz"></attvalue>
+          <attvalue for="degree" value="15"></attvalue>
+          <attvalue for="pageranks" value="0.033645169296592004"></attvalue>
+          <attvalue for="authority" value="0.03411514"></attvalue>
+          <attvalue for="hub" value="0.03411514"></attvalue>
+          <attvalue for="eccentricity" value="4.0"></attvalue>
+          <attvalue for="closnesscentrality" value="2.5444444444444443"></attvalue>
+          <attvalue for="betweenesscentrality" value="420.8762091501393"></attvalue>
+        </attvalues>
+        <viz:size value="20.692307"></viz:size>
+        <viz:position x="17.486155" y="16.22246"></viz:position>
+        <viz:color r="3" g="153" b="153"></viz:color>
+      </node>
+      <node id="#TrollOuiOui" label="#TrollOuiOui">
+        <attvalues>
+          <attvalue for="type" value="#trollquizz"></attvalue>
+          <attvalue for="degree" value="6"></attvalue>
+          <attvalue for="pageranks" value="0.014112525854026857"></attvalue>
+          <attvalue for="authority" value="0.014925373"></attvalue>
+          <attvalue for="hub" value="0.014925373"></attvalue>
+          <attvalue for="eccentricity" value="5.0"></attvalue>
+          <attvalue for="closnesscentrality" value="3.2555555555555555"></attvalue>
+          <attvalue for="betweenesscentrality" value="67.83851183180869"></attvalue>
+        </attvalues>
+        <viz:size value="13.076923"></viz:size>
+        <viz:position x="-191.5509" y="-376.04535"></viz:position>
+        <viz:color r="3" g="153" b="153"></viz:color>
+      </node>
+      <node id="#TrollPasMarrant" label="#TrollPasMarrant">
+        <attvalues>
+          <attvalue for="type" value="#trollquizz"></attvalue>
+          <attvalue for="degree" value="1"></attvalue>
+          <attvalue for="pageranks" value="0.010615711084580851"></attvalue>
+          <attvalue for="authority" value="0.0042643924"></attvalue>
+          <attvalue for="hub" value="0.0042643924"></attvalue>
+          <attvalue for="eccentricity" value="1.0"></attvalue>
+          <attvalue for="closnesscentrality" value="1.0"></attvalue>
+          <attvalue for="betweenesscentrality" value="0.0"></attvalue>
+        </attvalues>
+        <viz:size value="8.846154"></viz:size>
+        <viz:position x="-285.0399" y="447.51254"></viz:position>
+        <viz:color r="3" g="153" b="153"></viz:color>
+      </node>
+      <node id="#HackerNé" label="#HackerNé">
+        <attvalues>
+          <attvalue for="type" value="#quizzhacker"></attvalue>
+          <attvalue for="degree" value="26"></attvalue>
+          <attvalue for="pageranks" value="0.07022303886773128"></attvalue>
+          <attvalue for="authority" value="0.057569295"></attvalue>
+          <attvalue for="hub" value="0.057569295"></attvalue>
+          <attvalue for="eccentricity" value="5.0"></attvalue>
+          <attvalue for="closnesscentrality" value="2.522222222222222"></attvalue>
+          <attvalue for="betweenesscentrality" value="1186.8496153445758"></attvalue>
+        </attvalues>
+        <viz:size value="30.0"></viz:size>
+        <viz:position x="209.17448" y="271.62732"></viz:position>
+        <viz:color r="3" g="3" b="153"></viz:color>
+      </node>
+      <node id="#HackerSansLeSavoir" label="#HackerSansLeSavoir">
+        <attvalues>
+          <attvalue for="type" value="#quizzhacker"></attvalue>
+          <attvalue for="degree" value="11"></attvalue>
+          <attvalue for="pageranks" value="0.02600524847107897"></attvalue>
+          <attvalue for="authority" value="0.025586354"></attvalue>
+          <attvalue for="hub" value="0.025586354"></attvalue>
+          <attvalue for="eccentricity" value="5.0"></attvalue>
+          <attvalue for="closnesscentrality" value="2.922222222222222"></attvalue>
+          <attvalue for="betweenesscentrality" value="313.9396373285481"></attvalue>
+        </attvalues>
+        <viz:size value="17.307693"></viz:size>
+        <viz:position x="-192.7581" y="-252.73233"></viz:position>
+        <viz:color r="3" g="3" b="153"></viz:color>
+      </node>
+      <node id="#ApprentiHacker" label="#ApprentiHacker">
+        <attvalues>
+          <attvalue for="type" value="#quizzhacker"></attvalue>
+          <attvalue for="degree" value="6"></attvalue>
+          <attvalue for="pageranks" value="0.015412685307858014"></attvalue>
+          <attvalue for="authority" value="0.014925373"></attvalue>
+          <attvalue for="hub" value="0.014925373"></attvalue>
+          <attvalue for="eccentricity" value="5.0"></attvalue>
+          <attvalue for="closnesscentrality" value="3.188888888888889"></attvalue>
+          <attvalue for="betweenesscentrality" value="145.56858774985318"></attvalue>
+        </attvalues>
+        <viz:size value="13.076923"></viz:size>
+        <viz:position x="-96.04788" y="-388.0382"></viz:position>
+        <viz:color r="3" g="3" b="153"></viz:color>
+      </node>
+      <node id="#ReacDuCybersex" label="#ReacDuCybersex">
+        <attvalues>
+          <attvalue for="type" value="#quizzcybersex"></attvalue>
+          <attvalue for="degree" value="9"></attvalue>
+          <attvalue for="pageranks" value="0.019437548483782537"></attvalue>
+          <attvalue for="authority" value="0.021321962"></attvalue>
+          <attvalue for="hub" value="0.021321962"></attvalue>
+          <attvalue for="eccentricity" value="4.0"></attvalue>
+          <attvalue for="closnesscentrality" value="2.6777777777777776"></attvalue>
+          <attvalue for="betweenesscentrality" value="148.32045821239305"></attvalue>
+        </attvalues>
+        <viz:size value="15.615385"></viz:size>
+        <viz:position x="58.63736" y="-83.00379"></viz:position>
+        <viz:color r="153" g="3" b="153"></viz:color>
+      </node>
+      <node id="#NoobDuCybersex" label="#NoobDuCybersex">
+        <attvalues>
+          <attvalue for="type" value="#quizzcybersex"></attvalue>
+          <attvalue for="degree" value="8"></attvalue>
+          <attvalue for="pageranks" value="0.018925940525886028"></attvalue>
+          <attvalue for="authority" value="0.019189766"></attvalue>
+          <attvalue for="hub" value="0.019189766"></attvalue>
+          <attvalue for="eccentricity" value="5.0"></attvalue>
+          <attvalue for="closnesscentrality" value="2.7888888888888888"></attvalue>
+          <attvalue for="betweenesscentrality" value="226.24597097081525"></attvalue>
+        </attvalues>
+        <viz:size value="14.769231"></viz:size>
+        <viz:position x="-230.41264" y="-51.602097"></viz:position>
+        <viz:color r="153" g="3" b="153"></viz:color>
+      </node>
+      <node id="#AsDuCybersex" label="#AsDuCybersex">
+        <attvalues>
+          <attvalue for="type" value="#quizzcybersex"></attvalue>
+          <attvalue for="degree" value="4"></attvalue>
+          <attvalue for="pageranks" value="0.00963332863115215"></attvalue>
+          <attvalue for="authority" value="0.010660981"></attvalue>
+          <attvalue for="hub" value="0.010660981"></attvalue>
+          <attvalue for="eccentricity" value="5.0"></attvalue>
+          <attvalue for="closnesscentrality" value="3.077777777777778"></attvalue>
+          <attvalue for="betweenesscentrality" value="16.643338195538767"></attvalue>
+        </attvalues>
+        <viz:size value="11.384615"></viz:size>
+        <viz:position x="72.23574" y="-190.14476"></viz:position>
+        <viz:color r="153" g="3" b="153"></viz:color>
+      </node>
+      <node id="#LaC4ntine" label="#LaC4ntine">
+        <attvalues>
+          <attvalue for="type" value="#quizzsilicon"></attvalue>
+          <attvalue for="degree" value="14"></attvalue>
+          <attvalue for="pageranks" value="0.03358287491481961"></attvalue>
+          <attvalue for="authority" value="0.031982943"></attvalue>
+          <attvalue for="hub" value="0.031982943"></attvalue>
+          <attvalue for="eccentricity" value="4.0"></attvalue>
+          <attvalue for="closnesscentrality" value="2.5444444444444443"></attvalue>
+          <attvalue for="betweenesscentrality" value="503.3700686628276"></attvalue>
+        </attvalues>
+        <viz:size value="19.846153"></viz:size>
+        <viz:position x="-194.81493" y="154.18987"></viz:position>
+        <viz:color r="3" g="153" b="3"></viz:color>
+      </node>
+      <node id="#LeC4mping" label="#LeC4mping">
+        <attvalues>
+          <attvalue for="type" value="#quizzsilicon"></attvalue>
+          <attvalue for="degree" value="13"></attvalue>
+          <attvalue for="pageranks" value="0.03285199813772662"></attvalue>
+          <attvalue for="authority" value="0.029850746"></attvalue>
+          <attvalue for="hub" value="0.029850746"></attvalue>
+          <attvalue for="eccentricity" value="5.0"></attvalue>
+          <attvalue for="closnesscentrality" value="2.611111111111111"></attvalue>
+          <attvalue for="betweenesscentrality" value="499.824361116331"></attvalue>
+        </attvalues>
+        <viz:size value="19.0"></viz:size>
+        <viz:position x="286.98257" y="-163.93343"></viz:position>
+        <viz:color r="3" g="153" b="3"></viz:color>
+      </node>
+      <node id="#SiliconM4niacs" label="#SiliconM4niacs">
+        <attvalues>
+          <attvalue for="type" value="#quizzsilicon"></attvalue>
+          <attvalue for="degree" value="4"></attvalue>
+          <attvalue for="pageranks" value="0.00978986327723182"></attvalue>
+          <attvalue for="authority" value="0.010660981"></attvalue>
+          <attvalue for="hub" value="0.010660981"></attvalue>
+          <attvalue for="eccentricity" value="5.0"></attvalue>
+          <attvalue for="closnesscentrality" value="3.3444444444444446"></attvalue>
+          <attvalue for="betweenesscentrality" value="14.702563731146537"></attvalue>
+        </attvalues>
+        <viz:size value="11.384615"></viz:size>
+        <viz:position x="-293.593" y="37.78004"></viz:position>
+        <viz:color r="3" g="153" b="3"></viz:color>
+      </node>
+      <node id="#SiliconXperience" label="#SiliconXperience">
+        <attvalues>
+          <attvalue for="type" value="#quizzsilicon"></attvalue>
+          <attvalue for="degree" value="15"></attvalue>
+          <attvalue for="pageranks" value="0.038280631269625345"></attvalue>
+          <attvalue for="authority" value="0.03411514"></attvalue>
+          <attvalue for="hub" value="0.03411514"></attvalue>
+          <attvalue for="eccentricity" value="5.0"></attvalue>
+          <attvalue for="closnesscentrality" value="2.6555555555555554"></attvalue>
+          <attvalue for="betweenesscentrality" value="594.5514206298277"></attvalue>
+        </attvalues>
+        <viz:size value="20.692307"></viz:size>
+        <viz:position x="196.57996" y="-272.51678"></viz:position>
+        <viz:color r="3" g="153" b="3"></viz:color>
+      </node>
+    </nodes>
+    <edges>
+      <edge source="@julien_c" target="#DroguéDuBit">
+        <attvalues>
+          <attvalue for="weight" value="1.0"></attvalue>
+        </attvalues>
+      </edge>
+      <edge source="@julien_c" target="#TrollCitoyen">
+        <attvalues>
+          <attvalue for="weight" value="1.0"></attvalue>
+        </attvalues>
+      </edge>
+      <edge source="@julien_c" target="#ApprentiHacker">
+        <attvalues>
+          <attvalue for="weight" value="1.0"></attvalue>
+        </attvalues>
+      </edge>
+      <edge source="@julien_c" target="#ReacDuCybersex">
+        <attvalues>
+          <attvalue for="weight" value="1.0"></attvalue>
+        </attvalues>
+      </edge>
+      <edge source="@julien_c" target="#LeC4mping">
+        <attvalues>
+          <attvalue for="weight" value="1.0"></attvalue>
+        </attvalues>
+      </edge>
+      <edge source="@jessicarambar" target="#DroguéDuBit">
+        <attvalues>
+          <attvalue for="weight" value="1.0"></attvalue>
+        </attvalues>
+      </edge>
+      <edge source="@jessicarambar" target="#FunkyTroll">
+        <attvalues>
+          <attvalue for="weight" value="1.0"></attvalue>
+        </attvalues>
+      </edge>
+      <edge source="@jessicarambar" target="#TrollCitoyen">
+        <attvalues>
+          <attvalue for="weight" value="1.0"></attvalue>
+        </attvalues>
+      </edge>
+      <edge source="@jessicarambar" target="#NoobDuCybersex">
+        <attvalues>
+          <attvalue for="weight" value="1.0"></attvalue>
+        </attvalues>
+      </edge>
+      <edge source="@jessicarambar" target="#SiliconM4niacs">
+        <attvalues>
+          <attvalue for="weight" value="1.0"></attvalue>
+        </attvalues>
+      </edge>
+      <edge source="@jacktouillon" target="#DroguéDuBit">
+        <attvalues>
+          <attvalue for="weight" value="1.0"></attvalue>
+        </attvalues>
+      </edge>
+      <edge source="@jacktouillon" target="#HackerSansLeSavoir">
+        <attvalues>
+          <attvalue for="weight" value="1.0"></attvalue>
+        </attvalues>
+      </edge>
+      <edge source="@jacktouillon" target="#AsDuCybersex">
+        <attvalues>
+          <attvalue for="weight" value="1.0"></attvalue>
+        </attvalues>
+      </edge>
+      <edge source="@jacktouillon" target="#SiliconXperience">
+        <attvalues>
+          <attvalue for="weight" value="1.0"></attvalue>
+        </attvalues>
+      </edge>
+      <edge source="@__marjorie_s" target="#DroguéDuBit">
+        <attvalues>
+          <attvalue for="weight" value="1.0"></attvalue>
+        </attvalues>
+      </edge>
+      <edge source="@__marjorie_s" target="#LeC4mping">
+        <attvalues>
+          <attvalue for="weight" value="1.0"></attvalue>
+        </attvalues>
+      </edge>
+      <edge source="@marshkxx" target="#PapyPechno">
+        <attvalues>
+          <attvalue for="weight" value="1.0"></attvalue>
+        </attvalues>
+      </edge>
+      <edge source="@marshkxx" target="#TrollCitoyen">
+        <attvalues>
+          <attvalue for="weight" value="1.0"></attvalue>
+        </attvalues>
+      </edge>
+      <edge source="@marshkxx" target="#HackerSansLeSavoir">
+        <attvalues>
+          <attvalue for="weight" value="1.0"></attvalue>
+        </attvalues>
+      </edge>
+      <edge source="@marshkxx" target="#ReacDuCybersex">
+        <attvalues>
+          <attvalue for="weight" value="1.0"></attvalue>
+        </attvalues>
+      </edge>
+      <edge source="@marshkxx" target="#LeC4mping">
+        <attvalues>
+          <attvalue for="weight" value="1.0"></attvalue>
+        </attvalues>
+      </edge>
+      <edge source="@mtaieb" target="#LeC4mping">
+        <attvalues>
+          <attvalue for="weight" value="1.0"></attvalue>
+        </attvalues>
+      </edge>
+      <edge source="@raphv" target="#DroguéDuBit">
+        <attvalues>
+          <attvalue for="weight" value="1.0"></attvalue>
+        </attvalues>
+      </edge>
+      <edge source="@raphv" target="#FunkyTroll">
+        <attvalues>
+          <attvalue for="weight" value="1.0"></attvalue>
+        </attvalues>
+      </edge>
+      <edge source="@raphv" target="#HackerNé">
+        <attvalues>
+          <attvalue for="weight" value="1.0"></attvalue>
+        </attvalues>
+      </edge>
+      <edge source="@raphv" target="#ReacDuCybersex">
+        <attvalues>
+          <attvalue for="weight" value="1.0"></attvalue>
+        </attvalues>
+      </edge>
+      <edge source="@raphv" target="#SiliconXperience">
+        <attvalues>
+          <attvalue for="weight" value="1.0"></attvalue>
+        </attvalues>
+      </edge>
+      <edge source="@theodore_brutal" target="#HappyTechno">
+        <attvalues>
+          <attvalue for="weight" value="1.0"></attvalue>
+        </attvalues>
+      </edge>
+      <edge source="@theodore_brutal" target="#TrollCitoyen">
+        <attvalues>
+          <attvalue for="weight" value="1.0"></attvalue>
+        </attvalues>
+      </edge>
+      <edge source="@theodore_brutal" target="#HackerSansLeSavoir">
+        <attvalues>
+          <attvalue for="weight" value="1.0"></attvalue>
+        </attvalues>
+      </edge>
+      <edge source="@theodore_brutal" target="#SiliconM4niacs">
+        <attvalues>
+          <attvalue for="weight" value="1.0"></attvalue>
+        </attvalues>
+      </edge>
+      <edge source="@egasser" target="#FunkyTroll">
+        <attvalues>
+          <attvalue for="weight" value="1.0"></attvalue>
+        </attvalues>
+      </edge>
+      <edge source="@maetienne" target="#PapyPechno">
+        <attvalues>
+          <attvalue for="weight" value="1.0"></attvalue>
+        </attvalues>
+      </edge>
+      <edge source="@maetienne" target="#LaC4ntine">
+        <attvalues>
+          <attvalue for="weight" value="1.0"></attvalue>
+        </attvalues>
+      </edge>
+      <edge source="@adriensgstn" target="#HappyTechno">
+        <attvalues>
+          <attvalue for="weight" value="1.0"></attvalue>
+        </attvalues>
+      </edge>
+      <edge source="@adriensgstn" target="#TrollOuiOui">
+        <attvalues>
+          <attvalue for="weight" value="1.0"></attvalue>
+        </attvalues>
+      </edge>
+      <edge source="@adriensgstn" target="#HackerSansLeSavoir">
+        <attvalues>
+          <attvalue for="weight" value="1.0"></attvalue>
+        </attvalues>
+      </edge>
+      <edge source="@adriensgstn" target="#AsDuCybersex">
+        <attvalues>
+          <attvalue for="weight" value="1.0"></attvalue>
+        </attvalues>
+      </edge>
+      <edge source="@adriensgstn" target="#LeC4mping">
+        <attvalues>
+          <attvalue for="weight" value="1.0"></attvalue>
+        </attvalues>
+      </edge>
+      <edge source="@adriensgstn" target="#SiliconXperience">
+        <attvalues>
+          <attvalue for="weight" value="1.0"></attvalue>
+        </attvalues>
+      </edge>
+      <edge source="@margaux_e" target="#HappyTechno">
+        <attvalues>
+          <attvalue for="weight" value="1.0"></attvalue>
+        </attvalues>
+      </edge>
+      <edge source="@margaux_e" target="#ApprentiHacker">
+        <attvalues>
+          <attvalue for="weight" value="1.0"></attvalue>
+        </attvalues>
+      </edge>
+      <edge source="@nadcorsin" target="#LaC4ntine">
+        <attvalues>
+          <attvalue for="weight" value="1.0"></attvalue>
+        </attvalues>
+      </edge>
+      <edge source="@decebalhormuz" target="#TrollPasMarrant">
+        <attvalues>
+          <attvalue for="weight" value="1.0"></attvalue>
+        </attvalues>
+      </edge>
+      <edge source="@timdl" target="#LeC4mping">
+        <attvalues>
+          <attvalue for="weight" value="1.0"></attvalue>
+        </attvalues>
+      </edge>
+      <edge source="@bertrandchai" target="#PapyPechno">
+        <attvalues>
+          <attvalue for="weight" value="1.0"></attvalue>
+        </attvalues>
+      </edge>
+      <edge source="@nirinatweet" target="#HappyTechno">
+        <attvalues>
+          <attvalue for="weight" value="1.0"></attvalue>
+        </attvalues>
+      </edge>
+      <edge source="@nirinatweet" target="#FunkyTroll">
+        <attvalues>
+          <attvalue for="weight" value="1.0"></attvalue>
+        </attvalues>
+      </edge>
+      <edge source="@nirinatweet" target="#SiliconM4niacs">
+        <attvalues>
+          <attvalue for="weight" value="1.0"></attvalue>
+        </attvalues>
+      </edge>
+      <edge source="@amidesreseaux" target="#SiliconXperience">
+        <attvalues>
+          <attvalue for="weight" value="1.0"></attvalue>
+        </attvalues>
+      </edge>
+      <edge source="@pocketpcandgeek" target="#HackerNé">
+        <attvalues>
+          <attvalue for="weight" value="1.0"></attvalue>
+        </attvalues>
+      </edge>
+      <edge source="@rouffi" target="#TrollCitoyen">
+        <attvalues>
+          <attvalue for="weight" value="1.0"></attvalue>
+        </attvalues>
+      </edge>
+      <edge source="@ratzillas" target="#DroguéDuBit">
+        <attvalues>
+          <attvalue for="weight" value="1.0"></attvalue>
+        </attvalues>
+      </edge>
+      <edge source="@ratzillas" target="#HackerNé">
+        <attvalues>
+          <attvalue for="weight" value="1.0"></attvalue>
+        </attvalues>
+      </edge>
+      <edge source="@ratzillas" target="#SiliconXperience">
+        <attvalues>
+          <attvalue for="weight" value="1.0"></attvalue>
+        </attvalues>
+      </edge>
+      <edge source="@affinyt" target="#LaC4ntine">
+        <attvalues>
+          <attvalue for="weight" value="1.0"></attvalue>
+        </attvalues>
+      </edge>
+      <edge source="@jbertheas" target="#HappyTechno">
+        <attvalues>
+          <attvalue for="weight" value="1.0"></attvalue>
+        </attvalues>
+      </edge>
+      <edge source="@jbertheas" target="#TrollCitoyen">
+        <attvalues>
+          <attvalue for="weight" value="1.0"></attvalue>
+        </attvalues>
+      </edge>
+      <edge source="@jbertheas" target="#ApprentiHacker">
+        <attvalues>
+          <attvalue for="weight" value="1.0"></attvalue>
+        </attvalues>
+      </edge>
+      <edge source="@jbertheas" target="#ReacDuCybersex">
+        <attvalues>
+          <attvalue for="weight" value="1.0"></attvalue>
+        </attvalues>
+      </edge>
+      <edge source="@jbertheas" target="#LaC4ntine">
+        <attvalues>
+          <attvalue for="weight" value="1.0"></attvalue>
+        </attvalues>
+      </edge>
+      <edge source="@jbertheas" target="#SiliconXperience">
+        <attvalues>
+          <attvalue for="weight" value="1.0"></attvalue>
+        </attvalues>
+      </edge>
+      <edge source="@msteshi" target="#DroguéDuBit">
+        <attvalues>
+          <attvalue for="weight" value="1.0"></attvalue>
+        </attvalues>
+      </edge>
+      <edge source="@msteshi" target="#FunkyTroll">
+        <attvalues>
+          <attvalue for="weight" value="1.0"></attvalue>
+        </attvalues>
+      </edge>
+      <edge source="@msteshi" target="#HackerSansLeSavoir">
+        <attvalues>
+          <attvalue for="weight" value="1.0"></attvalue>
+        </attvalues>
+      </edge>
+      <edge source="@msteshi" target="#AsDuCybersex">
+        <attvalues>
+          <attvalue for="weight" value="1.0"></attvalue>
+        </attvalues>
+      </edge>
+      <edge source="@msteshi" target="#LaC4ntine">
+        <attvalues>
+          <attvalue for="weight" value="1.0"></attvalue>
+        </attvalues>
+      </edge>
+      <edge source="@joweisz" target="#NoobDuCybersex">
+        <attvalues>
+          <attvalue for="weight" value="1.0"></attvalue>
+        </attvalues>
+      </edge>
+      <edge source="@robindangelo" target="#TrollOuiOui">
+        <attvalues>
+          <attvalue for="weight" value="1.0"></attvalue>
+        </attvalues>
+      </edge>
+      <edge source="@robindangelo" target="#HackerSansLeSavoir">
+        <attvalues>
+          <attvalue for="weight" value="1.0"></attvalue>
+        </attvalues>
+      </edge>
+      <edge source="@robindangelo" target="#ReacDuCybersex">
+        <attvalues>
+          <attvalue for="weight" value="1.0"></attvalue>
+        </attvalues>
+      </edge>
+      <edge source="@davidrahmil" target="#PapyPechno">
+        <attvalues>
+          <attvalue for="weight" value="1.0"></attvalue>
+        </attvalues>
+      </edge>
+      <edge source="@androw95" target="#DroguéDuBit">
+        <attvalues>
+          <attvalue for="weight" value="1.0"></attvalue>
+        </attvalues>
+      </edge>
+      <edge source="@androw95" target="#FunkyTroll">
+        <attvalues>
+          <attvalue for="weight" value="1.0"></attvalue>
+        </attvalues>
+      </edge>
+      <edge source="@androw95" target="#HackerNé">
+        <attvalues>
+          <attvalue for="weight" value="1.0"></attvalue>
+        </attvalues>
+      </edge>
+      <edge source="@androw95" target="#AsDuCybersex">
+        <attvalues>
+          <attvalue for="weight" value="1.0"></attvalue>
+        </attvalues>
+      </edge>
+      <edge source="@androw95" target="#LeC4mping">
+        <attvalues>
+          <attvalue for="weight" value="1.0"></attvalue>
+        </attvalues>
+      </edge>
+      <edge source="@mael_i" target="#TrollCitoyen">
+        <attvalues>
+          <attvalue for="weight" value="1.0"></attvalue>
+        </attvalues>
+      </edge>
+      <edge source="@vandicla" target="#SiliconXperience">
+        <attvalues>
+          <attvalue for="weight" value="1.0"></attvalue>
+        </attvalues>
+      </edge>
+      <edge source="@mlleberangere" target="#SiliconXperience">
+        <attvalues>
+          <attvalue for="weight" value="1.0"></attvalue>
+        </attvalues>
+      </edge>
+      <edge source="@fuzzyraptor" target="#HackerSansLeSavoir">
+        <attvalues>
+          <attvalue for="weight" value="1.0"></attvalue>
+        </attvalues>
+      </edge>
+      <edge source="@asurmen" target="#HackerNé">
+        <attvalues>
+          <attvalue for="weight" value="1.0"></attvalue>
+        </attvalues>
+      </edge>
+      <edge source="@bleperchey" target="#HappyTechno">
+        <attvalues>
+          <attvalue for="weight" value="1.0"></attvalue>
+        </attvalues>
+      </edge>
+      <edge source="@bleperchey" target="#HackerNé">
+        <attvalues>
+          <attvalue for="weight" value="1.0"></attvalue>
+        </attvalues>
+      </edge>
+      <edge source="@bleperchey" target="#NoobDuCybersex">
+        <attvalues>
+          <attvalue for="weight" value="1.0"></attvalue>
+        </attvalues>
+      </edge>
+      <edge source="@bleperchey" target="#SiliconM4niacs">
+        <attvalues>
+          <attvalue for="weight" value="1.0"></attvalue>
+        </attvalues>
+      </edge>
+      <edge source="@lallouds" target="#PapyPechno">
+        <attvalues>
+          <attvalue for="weight" value="1.0"></attvalue>
+        </attvalues>
+      </edge>
+      <edge source="@xyohmx" target="#PapyPechno">
+        <attvalues>
+          <attvalue for="weight" value="1.0"></attvalue>
+        </attvalues>
+      </edge>
+      <edge source="@leclown" target="#HappyTechno">
+        <attvalues>
+          <attvalue for="weight" value="1.0"></attvalue>
+        </attvalues>
+      </edge>
+      <edge source="@leclown" target="#TrollCitoyen">
+        <attvalues>
+          <attvalue for="weight" value="1.0"></attvalue>
+        </attvalues>
+      </edge>
+      <edge source="@leclown" target="#HackerNé">
+        <attvalues>
+          <attvalue for="weight" value="1.0"></attvalue>
+        </attvalues>
+      </edge>
+      <edge source="@leclown" target="#LaC4ntine">
+        <attvalues>
+          <attvalue for="weight" value="1.0"></attvalue>
+        </attvalues>
+      </edge>
+      <edge source="@captainnir" target="#DroguéDuBit">
+        <attvalues>
+          <attvalue for="weight" value="1.0"></attvalue>
+        </attvalues>
+      </edge>
+      <edge source="@captainnir" target="#FunkyTroll">
+        <attvalues>
+          <attvalue for="weight" value="1.0"></attvalue>
+        </attvalues>
+      </edge>
+      <edge source="@captainnir" target="#TrollCitoyen">
+        <attvalues>
+          <attvalue for="weight" value="1.0"></attvalue>
+        </attvalues>
+      </edge>
+      <edge source="@captainnir" target="#HackerNé">
+        <attvalues>
+          <attvalue for="weight" value="1.0"></attvalue>
+        </attvalues>
+      </edge>
+      <edge source="@captainnir" target="#ReacDuCybersex">
+        <attvalues>
+          <attvalue for="weight" value="1.0"></attvalue>
+        </attvalues>
+      </edge>
+      <edge source="@captainnir" target="#NoobDuCybersex">
+        <attvalues>
+          <attvalue for="weight" value="1.0"></attvalue>
+        </attvalues>
+      </edge>
+      <edge source="@captainnir" target="#SiliconXperience">
+        <attvalues>
+          <attvalue for="weight" value="1.0"></attvalue>
+        </attvalues>
+      </edge>
+      <edge source="@aodl_chris" target="#HackerNé">
+        <attvalues>
+          <attvalue for="weight" value="1.0"></attvalue>
+        </attvalues>
+      </edge>
+      <edge source="@samsonmg" target="#FunkyTroll">
+        <attvalues>
+          <attvalue for="weight" value="1.0"></attvalue>
+        </attvalues>
+      </edge>
+      <edge source="@sul__ly" target="#PapyPechno">
+        <attvalues>
+          <attvalue for="weight" value="1.0"></attvalue>
+        </attvalues>
+      </edge>
+      <edge source="@sul__ly" target="#TrollOuiOui">
+        <attvalues>
+          <attvalue for="weight" value="1.0"></attvalue>
+        </attvalues>
+      </edge>
+      <edge source="@sul__ly" target="#ApprentiHacker">
+        <attvalues>
+          <attvalue for="weight" value="1.0"></attvalue>
+        </attvalues>
+      </edge>
+      <edge source="@sul__ly" target="#NoobDuCybersex">
+        <attvalues>
+          <attvalue for="weight" value="1.0"></attvalue>
+        </attvalues>
+      </edge>
+      <edge source="@alahouze" target="#HackerNé">
+        <attvalues>
+          <attvalue for="weight" value="1.0"></attvalue>
+        </attvalues>
+      </edge>
+      <edge source="@kirdinn" target="#HappyTechno">
+        <attvalues>
+          <attvalue for="weight" value="1.0"></attvalue>
+        </attvalues>
+      </edge>
+      <edge source="@kirdinn" target="#FunkyTroll">
+        <attvalues>
+          <attvalue for="weight" value="1.0"></attvalue>
+        </attvalues>
+      </edge>
+      <edge source="@kirdinn" target="#HackerSansLeSavoir">
+        <attvalues>
+          <attvalue for="weight" value="1.0"></attvalue>
+        </attvalues>
+      </edge>
+      <edge source="@kirdinn" target="#NoobDuCybersex">
+        <attvalues>
+          <attvalue for="weight" value="1.0"></attvalue>
+        </attvalues>
+      </edge>
+      <edge source="@kirdinn" target="#LaC4ntine">
+        <attvalues>
+          <attvalue for="weight" value="1.0"></attvalue>
+        </attvalues>
+      </edge>
+      <edge source="@lilian_brun" target="#DroguéDuBit">
+        <attvalues>
+          <attvalue for="weight" value="1.0"></attvalue>
+        </attvalues>
+      </edge>
+      <edge source="@fredericbezies" target="#HackerSansLeSavoir">
+        <attvalues>
+          <attvalue for="weight" value="1.0"></attvalue>
+        </attvalues>
+      </edge>
+      <edge source="@matthieumaler" target="#DroguéDuBit">
+        <attvalues>
+          <attvalue for="weight" value="1.0"></attvalue>
+        </attvalues>
+      </edge>
+      <edge source="@matthieumaler" target="#FunkyTroll">
+        <attvalues>
+          <attvalue for="weight" value="1.0"></attvalue>
+        </attvalues>
+      </edge>
+      <edge source="@matthieumaler" target="#TrollCitoyen">
+        <attvalues>
+          <attvalue for="weight" value="1.0"></attvalue>
+        </attvalues>
+      </edge>
+      <edge source="@matthieumaler" target="#HackerNé">
+        <attvalues>
+          <attvalue for="weight" value="1.0"></attvalue>
+        </attvalues>
+      </edge>
+      <edge source="@matthieumaler" target="#ReacDuCybersex">
+        <attvalues>
+          <attvalue for="weight" value="1.0"></attvalue>
+        </attvalues>
+      </edge>
+      <edge source="@matthieumaler" target="#LaC4ntine">
+        <attvalues>
+          <attvalue for="weight" value="1.0"></attvalue>
+        </attvalues>
+      </edge>
+      <edge source="@matthieumaler" target="#LeC4mping">
+        <attvalues>
+          <attvalue for="weight" value="1.0"></attvalue>
+        </attvalues>
+      </edge>
+      <edge source="@matmolard" target="#ApprentiHacker">
+        <attvalues>
+          <attvalue for="weight" value="1.0"></attvalue>
+        </attvalues>
+      </edge>
+      <edge source="@taziden" target="#HackerNé">
+        <attvalues>
+          <attvalue for="weight" value="1.0"></attvalue>
+        </attvalues>
+      </edge>
+      <edge source="@audrey_bardon" target="#HappyTechno">
+        <attvalues>
+          <attvalue for="weight" value="1.0"></attvalue>
+        </attvalues>
+      </edge>
+      <edge source="@audrey_bardon" target="#SiliconXperience">
+        <attvalues>
+          <attvalue for="weight" value="1.0"></attvalue>
+        </attvalues>
+      </edge>
+      <edge source="@vincib" target="#HackerNé">
+        <attvalues>
+          <attvalue for="weight" value="1.0"></attvalue>
+        </attvalues>
+      </edge>
+      <edge source="@dasmtweets" target="#DroguéDuBit">
+        <attvalues>
+          <attvalue for="weight" value="1.0"></attvalue>
+        </attvalues>
+      </edge>
+      <edge source="@dasmtweets" target="#FunkyTroll">
+        <attvalues>
+          <attvalue for="weight" value="1.0"></attvalue>
+        </attvalues>
+      </edge>
+      <edge source="@dasmtweets" target="#HackerNé">
+        <attvalues>
+          <attvalue for="weight" value="1.0"></attvalue>
+        </attvalues>
+      </edge>
+      <edge source="@dasmtweets" target="#NoobDuCybersex">
+        <attvalues>
+          <attvalue for="weight" value="1.0"></attvalue>
+        </attvalues>
+      </edge>
+      <edge source="@dasmtweets" target="#SiliconXperience">
+        <attvalues>
+          <attvalue for="weight" value="1.0"></attvalue>
+        </attvalues>
+      </edge>
+      <edge source="@mylordphoenix" target="#HappyTechno">
+        <attvalues>
+          <attvalue for="weight" value="1.0"></attvalue>
+        </attvalues>
+      </edge>
+      <edge source="@mylordphoenix" target="#TrollCitoyen">
+        <attvalues>
+          <attvalue for="weight" value="1.0"></attvalue>
+        </attvalues>
+      </edge>
+      <edge source="@mylordphoenix" target="#HackerNé">
+        <attvalues>
+          <attvalue for="weight" value="1.0"></attvalue>
+        </attvalues>
+      </edge>
+      <edge source="@mylordphoenix" target="#LaC4ntine">
+        <attvalues>
+          <attvalue for="weight" value="1.0"></attvalue>
+        </attvalues>
+      </edge>
+      <edge source="@quota_atypique" target="#HackerNé">
+        <attvalues>
+          <attvalue for="weight" value="1.0"></attvalue>
+        </attvalues>
+      </edge>
+      <edge source="@bouteilledelait" target="#HackerNé">
+        <attvalues>
+          <attvalue for="weight" value="1.0"></attvalue>
+        </attvalues>
+      </edge>
+      <edge source="@daweeed" target="#DroguéDuBit">
+        <attvalues>
+          <attvalue for="weight" value="1.0"></attvalue>
+        </attvalues>
+      </edge>
+      <edge source="@daweeed" target="#TrollCitoyen">
+        <attvalues>
+          <attvalue for="weight" value="1.0"></attvalue>
+        </attvalues>
+      </edge>
+      <edge source="@daweeed" target="#HackerNé">
+        <attvalues>
+          <attvalue for="weight" value="1.0"></attvalue>
+        </attvalues>
+      </edge>
+      <edge source="@daweeed" target="#ReacDuCybersex">
+        <attvalues>
+          <attvalue for="weight" value="1.0"></attvalue>
+        </attvalues>
+      </edge>
+      <edge source="@daweeed" target="#LaC4ntine">
+        <attvalues>
+          <attvalue for="weight" value="1.0"></attvalue>
+        </attvalues>
+      </edge>
+      <edge source="@adelinefoucher" target="#SiliconXperience">
+        <attvalues>
+          <attvalue for="weight" value="1.0"></attvalue>
+        </attvalues>
+      </edge>
+      <edge source="@fano" target="#HackerNé">
+        <attvalues>
+          <attvalue for="weight" value="1.0"></attvalue>
+        </attvalues>
+      </edge>
+      <edge source="@bettou" target="#PapyPechno">
+        <attvalues>
+          <attvalue for="weight" value="1.0"></attvalue>
+        </attvalues>
+      </edge>
+      <edge source="@bettou" target="#FunkyTroll">
+        <attvalues>
+          <attvalue for="weight" value="1.0"></attvalue>
+        </attvalues>
+      </edge>
+      <edge source="@27corwyn27" target="#PapyPechno">
+        <attvalues>
+          <attvalue for="weight" value="1.0"></attvalue>
+        </attvalues>
+      </edge>
+      <edge source="@27corwyn27" target="#TrollOuiOui">
+        <attvalues>
+          <attvalue for="weight" value="1.0"></attvalue>
+        </attvalues>
+      </edge>
+      <edge source="@27corwyn27" target="#HackerSansLeSavoir">
+        <attvalues>
+          <attvalue for="weight" value="1.0"></attvalue>
+        </attvalues>
+      </edge>
+      <edge source="@27corwyn27" target="#NoobDuCybersex">
+        <attvalues>
+          <attvalue for="weight" value="1.0"></attvalue>
+        </attvalues>
+      </edge>
+      <edge source="@27corwyn27" target="#LaC4ntine">
+        <attvalues>
+          <attvalue for="weight" value="1.0"></attvalue>
+        </attvalues>
+      </edge>
+      <edge source="@baptisteleroooy" target="#DroguéDuBit">
+        <attvalues>
+          <attvalue for="weight" value="1.0"></attvalue>
+        </attvalues>
+      </edge>
+      <edge source="@baptisteleroooy" target="#TrollCitoyen">
+        <attvalues>
+          <attvalue for="weight" value="1.0"></attvalue>
+        </attvalues>
+      </edge>
+      <edge source="@baptisteleroooy" target="#LaC4ntine">
+        <attvalues>
+          <attvalue for="weight" value="1.0"></attvalue>
+        </attvalues>
+      </edge>
+      <edge source="@connexionmobile" target="#HappyTechno">
+        <attvalues>
+          <attvalue for="weight" value="1.0"></attvalue>
+        </attvalues>
+      </edge>
+      <edge source="@connexionmobile" target="#TrollOuiOui">
+        <attvalues>
+          <attvalue for="weight" value="1.0"></attvalue>
+        </attvalues>
+      </edge>
+      <edge source="@connexionmobile" target="#ApprentiHacker">
+        <attvalues>
+          <attvalue for="weight" value="1.0"></attvalue>
+        </attvalues>
+      </edge>
+      <edge source="@connexionmobile" target="#SiliconXperience">
+        <attvalues>
+          <attvalue for="weight" value="1.0"></attvalue>
+        </attvalues>
+      </edge>
+      <edge source="@fredoru" target="#DroguéDuBit">
+        <attvalues>
+          <attvalue for="weight" value="1.0"></attvalue>
+        </attvalues>
+      </edge>
+      <edge source="@orfaz" target="#HackerNé">
+        <attvalues>
+          <attvalue for="weight" value="1.0"></attvalue>
+        </attvalues>
+      </edge>
+      <edge source="@giuliant" target="#DroguéDuBit">
+        <attvalues>
+          <attvalue for="weight" value="1.0"></attvalue>
+        </attvalues>
+      </edge>
+      <edge source="@giuliant" target="#TrollCitoyen">
+        <attvalues>
+          <attvalue for="weight" value="1.0"></attvalue>
+        </attvalues>
+      </edge>
+      <edge source="@giuliant" target="#HackerNé">
+        <attvalues>
+          <attvalue for="weight" value="1.0"></attvalue>
+        </attvalues>
+      </edge>
+      <edge source="@giuliant" target="#LeC4mping">
+        <attvalues>
+          <attvalue for="weight" value="1.0"></attvalue>
+        </attvalues>
+      </edge>
+      <edge source="@ellyanlan" target="#DroguéDuBit">
+        <attvalues>
+          <attvalue for="weight" value="1.0"></attvalue>
+        </attvalues>
+      </edge>
+      <edge source="@ellyanlan" target="#TrollCitoyen">
+        <attvalues>
+          <attvalue for="weight" value="1.0"></attvalue>
+        </attvalues>
+      </edge>
+      <edge source="@ellyanlan" target="#HackerNé">
+        <attvalues>
+          <attvalue for="weight" value="1.0"></attvalue>
+        </attvalues>
+      </edge>
+      <edge source="@ellyanlan" target="#LeC4mping">
+        <attvalues>
+          <attvalue for="weight" value="1.0"></attvalue>
+        </attvalues>
+      </edge>
+      <edge source="@ellyanlan" target="#SiliconXperience">
+        <attvalues>
+          <attvalue for="weight" value="1.0"></attvalue>
+        </attvalues>
+      </edge>
+      <edge source="@sophiereynal" target="#HappyTechno">
+        <attvalues>
+          <attvalue for="weight" value="1.0"></attvalue>
+        </attvalues>
+      </edge>
+      <edge source="@sophiereynal" target="#FunkyTroll">
+        <attvalues>
+          <attvalue for="weight" value="1.0"></attvalue>
+        </attvalues>
+      </edge>
+      <edge source="@sophiereynal" target="#HackerNé">
+        <attvalues>
+          <attvalue for="weight" value="1.0"></attvalue>
+        </attvalues>
+      </edge>
+      <edge source="@sophiereynal" target="#ReacDuCybersex">
+        <attvalues>
+          <attvalue for="weight" value="1.0"></attvalue>
+        </attvalues>
+      </edge>
+      <edge source="@sophiereynal" target="#LaC4ntine">
+        <attvalues>
+          <attvalue for="weight" value="1.0"></attvalue>
+        </attvalues>
+      </edge>
+      <edge source="@romain_bey" target="#LeC4mping">
+        <attvalues>
+          <attvalue for="weight" value="1.0"></attvalue>
+        </attvalues>
+      </edge>
+      <edge source="@_strix_" target="#HackerNé">
+        <attvalues>
+          <attvalue for="weight" value="1.0"></attvalue>
+        </attvalues>
+      </edge>
+      <edge source="@aratta" target="#LaC4ntine">
+        <attvalues>
+          <attvalue for="weight" value="1.0"></attvalue>
+        </attvalues>
+      </edge>
+      <edge source="@esthete" target="#HackerNé">
+        <attvalues>
+          <attvalue for="weight" value="1.0"></attvalue>
+        </attvalues>
+      </edge>
+      <edge source="@hedismida" target="#DroguéDuBit">
+        <attvalues>
+          <attvalue for="weight" value="1.0"></attvalue>
+        </attvalues>
+      </edge>
+      <edge source="@hedismida" target="#FunkyTroll">
+        <attvalues>
+          <attvalue for="weight" value="1.0"></attvalue>
+        </attvalues>
+      </edge>
+      <edge source="@laurent_local" target="#LeC4mping">
+        <attvalues>
+          <attvalue for="weight" value="1.0"></attvalue>
+        </attvalues>
+      </edge>
+      <edge source="@sofialisse" target="#PapyPechno">
+        <attvalues>
+          <attvalue for="weight" value="1.0"></attvalue>
+        </attvalues>
+      </edge>
+      <edge source="@ghiliottoyoung" target="#SiliconXperience">
+        <attvalues>
+          <attvalue for="weight" value="1.0"></attvalue>
+        </attvalues>
+      </edge>
+      <edge source="@letailli" target="#HappyTechno">
+        <attvalues>
+          <attvalue for="weight" value="1.0"></attvalue>
+        </attvalues>
+      </edge>
+      <edge source="@letailli" target="#TrollOuiOui">
+        <attvalues>
+          <attvalue for="weight" value="1.0"></attvalue>
+        </attvalues>
+      </edge>
+      <edge source="@letailli" target="#HackerSansLeSavoir">
+        <attvalues>
+          <attvalue for="weight" value="1.0"></attvalue>
+        </attvalues>
+      </edge>
+      <edge source="@letailli" target="#LeC4mping">
+        <attvalues>
+          <attvalue for="weight" value="1.0"></attvalue>
+        </attvalues>
+      </edge>
+      <edge source="@pfontaine_" target="#FunkyTroll">
+        <attvalues>
+          <attvalue for="weight" value="1.0"></attvalue>
+        </attvalues>
+      </edge>
+      <edge source="@pfontaine_" target="#HackerNé">
+        <attvalues>
+          <attvalue for="weight" value="1.0"></attvalue>
+        </attvalues>
+      </edge>
+    </edges>
+  </graph>
+</gexf>
