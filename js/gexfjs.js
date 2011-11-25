@@ -1,5 +1,9 @@
-// Namespace
+/* Copyright (c) 2011 Raphaël Velt
+ * Licensed under the MIT License
+ * Thanks to Vincenzo Cosenza for the italian translation
+ * */
 
+// Namespace
 var GexfJS = {
     lensRadius : 200,
     lensGamma : 0.5,
