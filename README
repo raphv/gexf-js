@@ -2,7 +2,9 @@ JavaScript GEXF Viewer for Gephi
 
 Contributors :
     Raphaël Velt (main developer, french and english versions)
+        -- http://raphaelve.lt/ -- tw: @raphv
     Vicenzo Cosenza (italian translations)
+        -- http://www.vincos.it/ -- tw: @vincos
 
 *** HOW TO USE ? ***
 
@@ -47,7 +49,3 @@ Strings to translate :
 11. Zoom In
 12. Zoom Out
 13. Your browser cannot properly display this page. We recommend you use the latest Firefox or Chrome version
-
-
--- raph
-http://twitter.com/raphv
