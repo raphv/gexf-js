@@ -69,6 +69,21 @@ var GexfJS = {
             "zoomIn" : "Zoom In",
             "zoomOut" : "Zoom Out",
             "browserErr" : 'Your browser cannot properly display this page.<br />We recommend you use the latest <a href="http://www.mozilla.com/" target="_blank">Firefox</a> or <a href="http://www.google.com/chrome/" target="_blank">Chrome</a> version'
+        },
+        "it" : {
+            "search" : "Cerca i nodi",
+            "nodeAttr" : "Attributi",
+            "nodes" : "Nodi",
+            "inLinks" : "Link in entrata da :",
+            "outLinks" : "Link in uscita verso :",
+            "undirLinks" : "Link non direzionati con :",
+            "lensOn" : "Attiva la lente d'ingrandimento",
+            "lensOff" : "Disattiva la lente d'ingrandimento",
+            "edgeOn" : "Mostra gli spigoli",
+            "edgeOff" : "Nascondi gli spigoli",
+            "zoomIn" : "Zoom in avanti",
+            "zoomOut" : "Zoom indietro",
+            "browserErr" : 'Il tuo browser non pu&ograve; visualizzare correttamente questa pagina.<br />Ti raccomandiamo l\'uso dell\'ultima versione di  <a href="http://www.mozilla.com/" target="_blank">Firefox</a> o <a href="http://www.google.com/chrome/" target="_blank">Chrome</a>'
         }
     },
     lang : "en"
