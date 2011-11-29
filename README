@@ -2,7 +2,12 @@ JavaScript GEXF Viewer for Gephi
 
 Released under MIT License
 
-Contributors :
+*** NEWEST FEATURES ***
+
+Added configuration options with config.js
+
+*** CONTRIBUTORS ***
+
     Raphaël Velt (main developer, french and english versions)
         -- http://raphaelve.lt/ -- tw: @raphv
     Vicenzo Cosenza (italian translations)
@@ -11,7 +16,8 @@ Contributors :
 *** HOW TO USE ? ***
 
 1 - Export your graph from Gephi as a GEXF file
-2 - Replace "default.gexf" in the gexf-js directory by this file.
+2 - Put it in the gexf-js directory
+3 - Modify config.js to point to your GEXF File and tune the interface 
 
 You can view more Gexf files by pointing your browser to index.html#Filename.gexf
 

@@ -13,13 +13,10 @@ var GexfJS = {
     },
     oldGraphZone : {},
     params : {
-        zoomLevel : 0,
         centreX : 400,
         centreY : 350,
         activeNode : -1,
         currentNode : -1,
-        showEdges : true,
-        useLens : false
     },
     oldParams : {},
     minZoom : -3,
@@ -288,7 +285,7 @@ function initializeMap() {
 function loadGraph() {
     
     $.ajax({
-        url: ( document.location.hash.length > 1 ? document.location.hash.substr(1) : "default.gexf" ),
+        url: ( document.location.hash.length > 1 ? document.location.hash.substr(1) : GexfJS.params.graphFile ),
         dataType: "xml",
         success: function(data) {
             var _s = new Date();
@@ -445,18 +442,22 @@ function calcCoord(x, y, coord) {
 function traceArc(contexte, source, target) {
     contexte.beginPath();
     contexte.moveTo(source.x, source.y);
-    if ( ( source.x == target.x ) && ( source.y == target.y ) ) {
-        var x3 = source.x + 2.8 * source.r;
-        var y3 = source.y - source.r;
-        var x4 = source.x;
-        var y4 = source.y + 2.8 * source.r;
-        contexte.bezierCurveTo(x3,y3,x4,y4,source.x + 1,source.y);
+    if (GexfJS.params.curvedEdges) {
+        if ( ( source.x == target.x ) && ( source.y == target.y ) ) {
+            var x3 = source.x + 2.8 * source.r;
+            var y3 = source.y - source.r;
+            var x4 = source.x;
+            var y4 = source.y + 2.8 * source.r;
+            contexte.bezierCurveTo(x3,y3,x4,y4,source.x + 1,source.y);
+        } else {
+            var x3 = .3 * target.y - .3 * source.y + .8 * source.x + .2 * target.x;
+            var y3 = .8 * source.y + .2 * target.y - .3 * target.x + .3 * source.x;
+            var x4 = .3 * target.y - .3 * source.y + .2 * source.x + .8 * target.x;
+            var y4 = .2 * source.y + .8 * target.y - .3 * target.x + .3 * source.x;
+            contexte.bezierCurveTo(x3,y3,x4,y4,target.x,target.y);
+        }
     } else {
-        var x3 = .3 * target.y - .3 * source.y + .8 * source.x + .2 * target.x;
-        var y3 = .8 * source.y + .2 * target.y - .3 * target.x + .3 * source.x;
-        var x4 = .3 * target.y - .3 * source.y + .2 * source.x + .8 * target.x;
-        var y4 = .2 * source.y + .8 * target.y - .3 * target.x + .3 * source.x;
-        contexte.bezierCurveTo(x3,y3,x4,y4,target.x,target.y);
+        contexte.lineTo(target.x,target.y);
     }
     contexte.stroke();
 }
@@ -483,7 +484,9 @@ function traceMap() {
     GexfJS.decalageX = ( GexfJS.graphZone.width / 2 ) - ( GexfJS.params.centreX * GexfJS.echelleGenerale );
     GexfJS.decalageY = ( GexfJS.graphZone.height / 2 ) - ( GexfJS.params.centreY * GexfJS.echelleGenerale );
     
-    var _sizeFactor = Math.pow(GexfJS.echelleGenerale, -.15),
+    var _sizeFactor = GexfJS.echelleGenerale * Math.pow(GexfJS.echelleGenerale, -.15),
+        _edgeSizeFactor = _sizeFactor * GexfJS.params.edgeWidthFactor,
+        _nodeSizeFactor = _sizeFactor * GexfJS.params.nodeSizeFactor,
         _textSizeFactor = 1,
         _limTxt = 9;
     
@@ -504,7 +507,7 @@ function traceMap() {
         _d.coords.actual = {
             x : GexfJS.echelleGenerale * _d.coords.base.x + GexfJS.decalageX,
             y : GexfJS.echelleGenerale * _d.coords.base.y + GexfJS.decalageY,
-            r : GexfJS.echelleGenerale * _d.coords.base.r * _sizeFactor
+            r : _nodeSizeFactor * _d.coords.base.r 
         }
         _d.withinFrame = ( ( _d.coords.actual.x + _d.coords.actual.r > 0 ) && ( _d.coords.actual.x - _d.coords.actual.r < GexfJS.graphZone.width ) && ( _d.coords.actual.y + _d.coords.actual.r > 0) && (_d.coords.actual.y - _d.coords.actual.r < GexfJS.graphZone.height) );
         _d.visible = ( GexfJS.params.currentNode == -1 || i == _centralNode || GexfJS.params.showEdges );
@@ -541,7 +544,7 @@ function traceMap() {
         }
 
         if ( ( _isLinked || _displayEdges ) && ( _ds.withinFrame || _dt.withinFrame ) &&  _ds.visible && _dt.visible ) {
-            GexfJS.ctxGraphe.lineWidth = GexfJS.echelleGenerale * _sizeFactor * _d.width;
+            GexfJS.ctxGraphe.lineWidth = _edgeSizeFactor * _d.width;
             var _coords = ( ( GexfJS.params.useLens && GexfJS.mousePosition ) ? calcCoord( GexfJS.mousePosition.x , GexfJS.mousePosition.y , _ds.coords.actual ) : _ds.coords.actual );
             _coordt = ( (GexfJS.params.useLens && GexfJS.mousePosition) ? calcCoord( GexfJS.mousePosition.x , GexfJS.mousePosition.y , _dt.coords.actual ) : _dt.coords.actual );
             GexfJS.ctxGraphe.strokeStyle = ( _isLinked ? _d.color : "rgba(100,100,100,0.2)" );
@@ -676,9 +679,9 @@ function updateButtonStates() {
 }
 
 function setParams(paramlist) {
-	for (var i in paramlist) {
-		GexfJS.params[i] = paramlist[i];
-	}
+    for (var i in paramlist) {
+        GexfJS.params[i] = paramlist[i];
+    }
 }
 
 $(document).ready(function() {
