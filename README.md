@@ -8,13 +8,15 @@ Added configuration options with config.js
 
 ### Contributors ##
 
-Raphaël Velt (main developer, french and english versions)
-* http://raphaelve.lt/
-* Twitter: @raphv
+#### Raphaël Velt (main developer, french and english versions)
 
-Vicenzo Cosenza (italian translation)
+* http://raphaelve.lt/
+* Twitter: [@raphv](http://twitter.com/raphv)
+
+#### Vicenzo Cosenza (italian translation)
+
 * http://www.vincos.it/
-* Twitter: @vincos
+* Twitter: [@vincos](http://twitter.com/vincos)
 
 ### How to use ? ##
 
