@@ -1,27 +1,27 @@
-JavaScript GEXF Viewer for Gephi
+# JavaScript GEXF Viewer for Gephi #
 
-Released under MIT License
+### Released under MIT License ###
 
-*** NEWEST FEATURES ***
+## NEWEST FEATURES ##
 
 Added configuration options with config.js
 
-*** CONTRIBUTORS ***
+## CONTRIBUTORS ##
 
     Raphaël Velt (main developer, french and english versions)
         -- http://raphaelve.lt/ -- tw: @raphv
     Vicenzo Cosenza (italian translations)
         -- http://www.vincos.it/ -- tw: @vincos
 
-*** HOW TO USE ? ***
+## HOW TO USE ? ##
 
-1 - Export your graph from Gephi as a GEXF file
-2 - Put it in the gexf-js directory
-3 - Modify config.js to point to your GEXF File and tune the interface 
+1. Export your graph from Gephi as a GEXF file
+2. Put it in the gexf-js directory
+3. Modify config.js to point to your GEXF File and tune the interface 
 
 You can view more Gexf files by pointing your browser to index.html#Filename.gexf
 
-*** COMPATIBILITY ***
+## COMPATIBILITY ##
 
 Gexf-JS uses the canvas element, which might cause compatibility issues with older browsers.
 
@@ -29,14 +29,14 @@ It has been tested with the latest Chrome, Firefox and Internet Explorer version
 
 It doesn't work with Internet Explorer 8 or older.
 
-*** KNOWN ISSUES ***
+## KNOWN ISSUES ##
 
 You may have trouble using the viewer if you launch it from a local drive, as some browsers consider loading files from disk via Ajax to be unsecure.
 It usually works with Firefox, but not with Chrome. In Internet Explorer you'll have a security pop-up asking you to "Allow blocked content".
 
 Another solution is uploading it to a server, where it should work correctly.
 
-*** CONTRIBUTE AS A TRANSLATOR ***
+## CONTRIBUTE AS A TRANSLATOR ##
 
 Gexf JS Viewer is now available in English, French and Italian
 
