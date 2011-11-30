@@ -1,19 +1,22 @@
 # JavaScript GEXF Viewer for Gephi #
 
-### Released under MIT License ###
+#### Released under MIT License ###
 
-## NEWEST FEATURES ##
+### Newest features ##
 
 Added configuration options with config.js
 
-## CONTRIBUTORS ##
+### Contributors ##
 
-    Raphaël Velt (main developer, french and english versions)
-        -- http://raphaelve.lt/ -- tw: @raphv
-    Vicenzo Cosenza (italian translations)
-        -- http://www.vincos.it/ -- tw: @vincos
+Raphaël Velt (main developer, french and english versions)
+* http://raphaelve.lt/
+* Twitter: @raphv
 
-## HOW TO USE ? ##
+Vicenzo Cosenza (italian translation)
+* http://www.vincos.it/
+* Twitter: @vincos
+
+### How to use ? ##
 
 1. Export your graph from Gephi as a GEXF file
 2. Put it in the gexf-js directory
@@ -21,7 +24,7 @@ Added configuration options with config.js
 
 You can view more Gexf files by pointing your browser to index.html#Filename.gexf
 
-## COMPATIBILITY ##
+### Compatibility ##
 
 Gexf-JS uses the canvas element, which might cause compatibility issues with older browsers.
 
@@ -29,14 +32,14 @@ It has been tested with the latest Chrome, Firefox and Internet Explorer version
 
 It doesn't work with Internet Explorer 8 or older.
 
-## KNOWN ISSUES ##
+### Known Issues ##
 
 You may have trouble using the viewer if you launch it from a local drive, as some browsers consider loading files from disk via Ajax to be unsecure.
 It usually works with Firefox, but not with Chrome. In Internet Explorer you'll have a security pop-up asking you to "Allow blocked content".
 
 Another solution is uploading it to a server, where it should work correctly.
 
-## CONTRIBUTE AS A TRANSLATOR ##
+### Contribute as a translator ##
 
 Gexf JS Viewer is now available in English, French and Italian
 
@@ -44,16 +47,16 @@ If you want to translate the interface in your language (and share this translat
 
 Strings to translate :
 
- 1. Search nodes
- 2. Attributes
- 3. Nodes
- 4. Inbound Links from
- 5. Outbound Links to
- 6. Undirected links with
- 7. Activate lens mode
- 8. Deactivate lens mode
- 9. Show edges
-10. Hide edges
-11. Zoom In
-12. Zoom Out
-13. Your browser cannot properly display this page. We recommend you use the latest Firefox or Chrome version
+1. Search nodes
+2. Attributes
+3. Nodes
+4. Inbound Links from
+5. Outbound Links to
+6. Undirected links with
+7. Activate lens mode
+8. Deactivate lens mode
+9. Show edges
+1. Hide edges
+1. Zoom In
+1. Zoom Out
+1. Your browser cannot properly display this page. We recommend you use the latest Firefox or Chrome version
