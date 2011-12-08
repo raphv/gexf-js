@@ -321,7 +321,7 @@ function loadGraph() {
             $(_nodes).each( function() {
                 var _n = $(this),
                     _id = _n.attr("id"),
-                    _label = _n.attr("label"),
+                    _label = _n.attr("label") || _id,
                     _d = {
                         id: _id,
                         label: _label
