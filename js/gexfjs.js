@@ -85,6 +85,33 @@ var GexfJS = {
             "zoomIn" : "Zoom in avanti",
             "zoomOut" : "Zoom indietro",
             "browserErr" : 'Il tuo browser non pu&ograve; visualizzare correttamente questa pagina.<br />Ti raccomandiamo l\'uso dell\'ultima versione di  <a href="http://www.mozilla.com/" target="_blank">Firefox</a> o <a href="http://www.google.com/chrome/" target="_blank">Chrome</a>'
+        },
+        "es" : {
+            "search" : "Buscar un nodo",
+            "nodeAttr" : "Atributos",
+            "nodes" : "Nodos",
+            "inLinks" : "Aristas entrantes desde :",
+            "outLinks" : "Aristas salientes hacia :",
+            "undirLinks" : "Aristas no dirigidas con :",
+            "lensOn" : "Activar el modo lupa",
+            "lensOff" : "Desactivar el modo lupa",
+            "edgeOn" : "Mostrar aristas",
+            "edgeOff" : "Ocultar aristas",
+            "zoomIn" : "Acercar",
+            "zoomOut" : "Alejar",
+            "browserErr" : 'Tu navegador no es capaz de mostrar esta p&aacute;gina correctamente.<br />Le recomendamos utilizar la &uacute;ltima versi&oacute;n de <a href="http://www.mozilla.com/" target="_blank">Firefox</a> o <a href="http://www.google.com/chrome/" target="_blank">Chrome</a>',
+            "modularity_class" : "Clase de modularidad",
+            "degree" : "Grado",
+            "indegree" : "Grado de entrada",
+            "outdegree" : "Grado de salida",
+            "weighted degree" : "Grado ponderado",
+            "weighted indegree" : "Grado de entrada ponderado",
+            "weighted outdegree" : "Grado de salida ponderado",
+            "closnesscentrality" : "Cercan&iacute;a",
+            "betweenesscentrality" : "Intermediaci&oacute;n",
+            "authority" : "Puntuaci&oacute;n de autoridad (HITS)",
+            "hub" : "Puntuaci&oacute; de hub (HITS)",
+            "pageranks" : "Puntuaci&oacute; de PageRank"
         }
     },
     lang : "en"
@@ -789,10 +816,12 @@ $(document).ready(function() {
     });
     $("#lensButton").click(function () {
         GexfJS.params.useLens = !GexfJS.params.useLens;
+        updateButtonStates();
         return false;
     });
     $("#edgesButton").click(function () {
         GexfJS.params.showEdges = !GexfJS.params.showEdges;
+        updateButtonStates();
         return false;
     });
     $("#aUnfold").click(function() {

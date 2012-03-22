@@ -18,6 +18,10 @@ Added configuration options with config.js
 * http://www.vincos.it/
 * Twitter: [@vincos](http://twitter.com/vincos)
 
+#### Eduardo Ramos Ibáñez (spanish translation)
+
+* https://github.com/eduramiba
+
 ### How to use ? ##
 
 1. Export your graph from Gephi as a GEXF file
