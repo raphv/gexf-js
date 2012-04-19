@@ -71,6 +71,21 @@ var GexfJS = {
             "zoomOut" : "Zoom Out",
             "browserErr" : 'Your browser cannot properly display this page.<br />We recommend you use the latest <a href="http://www.mozilla.com/" target="_blank">Firefox</a> or <a href="http://www.google.com/chrome/" target="_blank">Chrome</a> version'
         },
+        "fi" : {
+            "search" : "Etsi solmuja",
+            "nodeAttr" : "Attribuutit",
+            "nodes" : "Solmut",
+            "inLinks" : "Lähtevät yhteydet :",
+            "outLinks" : "Tulevat yhteydet :",
+            "undirLinks" : "Yhteydet :",
+            "lensOn" : "Ota linssitila käyttöön",
+            "lensOff" : "Poista linssitila käytöstä",
+            "edgeOn" : "Näytä kaikki yhteydet",
+            "edgeOff" : "Näytä vain valitun solmun yhteydet",
+            "zoomIn" : "Suurenna",
+            "zoomOut" : "Pienennä",
+            "browserErr" : 'Selaimesi ei voi näyttää tätä sivua.<br />Suosittelemme käyttämään uusinta versiota <a href="http://www.mozilla.com/" target="_blank">Firefox</a>- tai <a href="http://www.google.com/chrome/" target="_blank">Chrome</a>-selaimesta'
+        },
         "it" : {
             "search" : "Cerca i nodi",
             "nodeAttr" : "Attributi",
