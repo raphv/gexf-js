@@ -21,6 +21,12 @@ Added configuration options with config.js
 #### Eduardo Ramos Ibáñez (spanish translation)
 
 * https://github.com/eduramiba
+* Twitter: [@eduramiba](http://twitter.com/eduramiba)
+
+#### Jaakko Salonen (finnish translation)
+
+* https://github.com/jsalonen
+* Twitter: [@jsalonen](http://twitter.com/jsalonen)
 
 ### How to use ? ##
 
