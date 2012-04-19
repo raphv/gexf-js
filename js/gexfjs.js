@@ -137,6 +137,11 @@ function strLang(_str) {
     return ( _l[_str] ? _l[_str] : ( GexfJS.i18n["en"][_str] ? GexfJS.i18n["en"][_str] : _str.replace("_"," ") ) );
 }
 
+function replaceURLWithHyperlinks(text) {
+    var exp = /(\b(https?|ftp|file):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/ig;
+    return text.replace(exp,"<a href='$1' target='_blank'>$1</a>"); 
+}
+
 function displayNode(_nodeIndex, _recentre) {
     GexfJS.params.currentNode = _nodeIndex;
     if (_nodeIndex != -1) {
@@ -156,7 +161,7 @@ function displayNode(_nodeIndex, _recentre) {
         _str += '<h4>' + strLang("nodeAttr") + '</h4>';
         _str += '<ul><li><b>id</b> : ' + _d.id + '</li>';
         for (var i in _d.attributes) {
-            _str += '<li><b>' + strLang(i) + '</b> : ' + _d.attributes[i] + '</li>';
+            _str += '<li><b>' + strLang(i) + '</b> : ' + replaceURLWithHyperlinks( _d.attributes[i] ) + '</li>';
         }
         _str += '</ul><h4>' + ( GexfJS.graph.directed ? strLang("inLinks") : strLang("undirLinks") ) + '</h4><ul>';
         for (var i in GexfJS.graph.edgeList) {
@@ -396,7 +401,7 @@ function loadGraph() {
                 _d.attributes = [];
                 $(_attr).each(function() {
                     var _a = $(this),
-                        _for = _a.attr("for");
+                        _for = _a.attr("for");                    
                     _d.attributes[ _for ? _for : 'attribute_' + _a.attr("id") ] = _a.attr("value");
                 });
                 GexfJS.graph.nodeIndexById.push(_id);

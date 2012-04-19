@@ -102,6 +102,7 @@
       <node id="11.0" label="Valjean">
         <attvalues>
           <attvalue for="modularity_class" value="0"></attvalue>
+          <attvalue for="wikipedia" value="http://en.wikipedia.org/wiki/Jean_Valjean"></attvalue>
         </attvalues>
         <viz:size value="60.0"></viz:size>
         <viz:position x="-65.40625" y="-73.33225"></viz:position>
