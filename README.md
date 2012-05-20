@@ -6,6 +6,8 @@
 
 URLs in attributes can now be replaced by hyperlinks using the replaceUrls option in config.js
 
+Edge weights are now listed. This can be disabled with the showEdgeWeight option in config.js
+
 ### Contributors ##
 
 #### Raphaël Velt (main developer, french and english versions)

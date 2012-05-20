@@ -197,7 +197,7 @@ function displayNode(_nodeIndex, _recentre) {
             var _e = GexfJS.graph.edgeList[i]
             if ( _e.target == _nodeIndex ) {
                 var _n = GexfJS.graph.nodeList[_e.source];
-                _str += '<li><div class="smallpill" style="background: ' + _n.color.base +'"></div><a href="#" onmouseover="GexfJS.params.activeNode = ' + _e.source + '" onclick="displayNode(' + _e.source + ', true); return false;">' + _n.label + '</a></li>';
+                _str += '<li><div class="smallpill" style="background: ' + _n.color.base +'"></div><a href="#" onmouseover="GexfJS.params.activeNode = ' + _e.source + '" onclick="displayNode(' + _e.source + ', true); return false;">' + _n.label + '</a>' + ( GexfJS.params.showEdgeWeight && _e.weight ? ' [' + _e.weight + ']' : '') + '</li>';
             }
         }
         if (GexfJS.graph.directed) _str += '</ul><h4>' + strLang("outLinks") + '</h4><ul>';
@@ -205,7 +205,7 @@ function displayNode(_nodeIndex, _recentre) {
             var _e = GexfJS.graph.edgeList[i]
             if ( _e.source == _nodeIndex ) {
                 var _n = GexfJS.graph.nodeList[_e.target];
-                _str += '<li><div class="smallpill" style="background: ' + _n.color.base +'"></div><a href="#" onmouseover="GexfJS.params.activeNode = ' + _e.target + '" onclick="displayNode(' + _e.target + ', true); return false;">' + _n.label + '</a></li>';
+                _str += '<li><div class="smallpill" style="background: ' + _n.color.base +'"></div><a href="#" onmouseover="GexfJS.params.activeNode = ' + _e.target + '" onclick="displayNode(' + _e.target + ', true); return false;">' + _n.label + '</a>' + ( GexfJS.params.showEdgeWeight && _e.weight ? ' [' + _e.weight + ']' : '') + '</li>';
             }
         }
         _str += '</ul><p></p>';
@@ -353,9 +353,8 @@ function initializeMap() {
         height : GexfJS.overviewHeight
     });
     GexfJS.timeRefresh = setInterval(traceMap,60);
-    if (!GexfJS.graph) {
-        loadGraph();
-    }
+    GexfJS.graph = null;
+    loadGraph();
 }
 
 function loadGraph() {
@@ -472,6 +471,7 @@ function loadGraph() {
                     source : _six,
                     target : _tix,
                     width : ( _w ? _w : 1 ) * _echelle,
+                    weight : _w || false,
                     color : "rgba(" + _r + "," + _g + "," + _b + ",.7)"
                 });
             });
@@ -777,6 +777,8 @@ $(document).ready(function() {
     updateWorkspaceBounds();
     
     initializeMap();
+    
+    window.onhashchange = initializeMap;
     
     $("#searchinput")
         .focus(function() {
