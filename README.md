@@ -4,7 +4,7 @@
 
 ### Newest features ##
 
-Added configuration options with config.js
+URLs in attributes can now be replaced by hyperlinks using the replaceUrls option in config.js
 
 ### Contributors ##
 
@@ -23,10 +23,12 @@ Added configuration options with config.js
 * https://github.com/eduramiba
 * Twitter: [@eduramiba](http://twitter.com/eduramiba)
 
-#### Jaakko Salonen (finnish translation)
+#### Jaakko Salonen (finnish translation and hyperlink replacement)
 
 * https://github.com/jsalonen
 * Twitter: [@jsalonen](http://twitter.com/jsalonen)
+
+#### Zeynep Akata (turkish translation)
 
 ### How to use ? ##
 
