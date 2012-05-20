@@ -1,6 +1,10 @@
 /* Copyright (c) 2011 Raphaël Velt
  * Licensed under the MIT License
- * Thanks to Vincenzo Cosenza for the italian translation
+ * Translations by :
+ *    Vicenzo Cosenza (Italian)
+ *    Eduardo Ramos Ibáñez (Spanish)
+ *    Jaakko Salonen (Finnish)
+ *    Zeynep Akata (Turkish)
  * */
 
 // Namespace
@@ -127,6 +131,21 @@ var GexfJS = {
             "authority" : "Puntuaci&oacute;n de autoridad (HITS)",
             "hub" : "Puntuaci&oacute; de hub (HITS)",
             "pageranks" : "Puntuaci&oacute; de PageRank"
+        },
+        "tr" : {
+            "search" : "Düğüm ara",
+            "nodeAttr" : "Özellikler",
+            "nodes" : "Düğümler",
+            "inLinks" : "Gelen bağlantılar",
+            "outLinks" : "Giden bağlantılar",
+            "undirLinks" : "Yönsüz bağlantılar",
+            "lensOn" : "Merceği etkinleştir",
+            "lensOff" : "Merceği etkisizleştir",
+            "edgeOn" : "Kenar çizgilerini göster",
+            "edgeOff" : "Kenar çizgilerini gizle",
+            "zoomIn" : "Yaklaştır",
+            "zoomOut" : "Uzaklaştır",
+            "browserErr" : "Tarayıcınız sayfayı doğru bir biçimde görüntüleyemiyor.<br />En son Firefox veya Chrome sürümünü kullanmanızı tavsiye ederiz."
         }
     },
     lang : "en"
@@ -138,8 +157,18 @@ function strLang(_str) {
 }
 
 function replaceURLWithHyperlinks(text) {
-    var exp = /(\b(https?|ftp|file):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/ig;
-    return text.replace(exp,"<a href='$1' target='_blank'>$1</a>"); 
+    if (GexfJS.params.replaceUrls) {
+        var _urlExp = /(\b(https?:\/\/)?[-A-Z0-9]+\.[-A-Z0-9.:]+(\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*)?)/ig,
+            _protocolExp = /^https?:\/\//i;
+        return text.replace(_urlExp, function(_found) {
+            return '<a href="'
+                + ( _protocolExp.test(_found) ? '' : 'http://' )
+                + _found + '" target="_blank">'
+                + _found.replace(_protocolExp,'')
+                + "</a>";
+        });
+    }
+    return text;
 }
 
 function displayNode(_nodeIndex, _recentre) {

@@ -8,4 +8,5 @@ setParams({
     edgeWidthFactor : 1, // Change this parameter for wider or narrower edges -- non-user-modifiable at the moment
     nodeSizeFactor : 1, // Change this parameter for smaller or larger nodes -- non-user-modifiable at the moment
     graphFile : "miserables.gexf",
+    replaceUrls : true, // Enable the replacement of Urls by Hyperlinks
 });
