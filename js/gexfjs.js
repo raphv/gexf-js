@@ -5,6 +5,7 @@
  *    Eduardo Ramos Ibáñez (Spanish)
  *    Jaakko Salonen (Finnish)
  *    Zeynep Akata (Turkish)
+ *    Σωτήρης Φραγκίσκος (Greek)
  * */
 
 // Namespace
@@ -33,32 +34,20 @@ var GexfJS = {
     totalScroll : 0,
     autoCompletePosition : 0,
     i18n : {
-        "fr" : {
-            "search" : "Rechercher un n&oelig;ud",
-            "nodeAttr" : "Attributs",
-            "nodes" : "N&oelig;uds",
-            "inLinks" : "Liens entrants depuis :",
-            "outLinks" : "Liens sortants vers :",
-            "undirLinks" : "Liens non-dirigés avec :",
-            "lensOn" : "Activer le mode loupe",
-            "lensOff" : "Désactiver le mode loupe",
-            "edgeOn" : "Afficher les sommets",
-            "edgeOff" : "Cacher les sommets",
-            "zoomIn" : "S'approcher",
-            "zoomOut" : "S'éloigner",
-            "browserErr" : 'Votre navigateur n\'est malheureusement pas compatible avec les fonctionnalités de ce site<br />Nous vous suggérons d\'utiliser une version récente de <a href="http://www.mozilla.com/" target="_blank">Firefox</a> ou <a href="http://www.google.com/chrome/" target="_blank">Chrome</a>',
-            "modularity_class" : "Classe de modularité",
-            "degree" : "Degr&eacute;",
-            "indegree" : "&frac12; degr&eacute; int&eacute;rieur",
-            "outdegree" : "&frac12; degr&eacute; ext&eacute;rieur",
-            "weighted degree" : "Degr&eacute; pond&eacute;r&eacute;",
-            "weighted indegree" : "&frac12; degr&eacute; int&eacute;rieur pond&eacute;r&eacute;",
-            "weighted outdegree" : "&frac12; degr&eacute; ext&eacute;rieur pond&eacute;r&eacute;",
-            "closnesscentrality" : "Centralit&eacute; de proximit&eacute;",
-            "betweenesscentrality" : "Centralit&eacute; d'interm&eacute;diarit&eacute;",
-            "authority" : "Score d'autorit&eacute; (HITS)",
-            "hub" : "Score de hub (HITS)",
-            "pageranks" : "Score de PageRank"
+        "el" : {
+            "search" : "Αναζήτηση Κόμβων",
+            "nodeAttr" : "Χαρακτηριστικά",
+            "nodes" : "Κόμβοι",
+            "inLinks" : "Εισερχόμενοι δεσμοί από",
+            "outLinks" : "Εξερχόμενοι δεσμοί προς",
+            "undirLinks" : "Ακατεύθυντοι δεσμοί με",
+            "lensOn" : "Ενεργοποίηση φακού",
+            "lensOff" : "Απενεργοποίηση φακού",
+            "edgeOn" : "Εμφάνιση ακμών",
+            "edgeOff" : "Απόκρυψη ακμών",
+            "zoomIn" : "Μεγέθυνση",
+            "zoomOut" : "Σμίκρυνση",
+            "browserErr" : 'Ο περιηγητής σας δεν μπορεί να εμφανίσει σωστά αυτή τη σελίδα.<br />Σας προτείνουμε να χρησιμοποιήσετε την τελευταία έκδοση του <a href="http://www.mozilla.com/" target="_blank">Firefox</a> ή του <a href="http://www.google.com/chrome/" target="_blank">Chrome</a>'
         },
         "en" : {
             "search" : "Search nodes",
@@ -74,36 +63,6 @@ var GexfJS = {
             "zoomIn" : "Zoom In",
             "zoomOut" : "Zoom Out",
             "browserErr" : 'Your browser cannot properly display this page.<br />We recommend you use the latest <a href="http://www.mozilla.com/" target="_blank">Firefox</a> or <a href="http://www.google.com/chrome/" target="_blank">Chrome</a> version'
-        },
-        "fi" : {
-            "search" : "Etsi solmuja",
-            "nodeAttr" : "Attribuutit",
-            "nodes" : "Solmut",
-            "inLinks" : "Lähtevät yhteydet :",
-            "outLinks" : "Tulevat yhteydet :",
-            "undirLinks" : "Yhteydet :",
-            "lensOn" : "Ota linssitila käyttöön",
-            "lensOff" : "Poista linssitila käytöstä",
-            "edgeOn" : "Näytä kaikki yhteydet",
-            "edgeOff" : "Näytä vain valitun solmun yhteydet",
-            "zoomIn" : "Suurenna",
-            "zoomOut" : "Pienennä",
-            "browserErr" : 'Selaimesi ei voi näyttää tätä sivua.<br />Suosittelemme käyttämään uusinta versiota <a href="http://www.mozilla.com/" target="_blank">Firefox</a>- tai <a href="http://www.google.com/chrome/" target="_blank">Chrome</a>-selaimesta'
-        },
-        "it" : {
-            "search" : "Cerca i nodi",
-            "nodeAttr" : "Attributi",
-            "nodes" : "Nodi",
-            "inLinks" : "Link in entrata da :",
-            "outLinks" : "Link in uscita verso :",
-            "undirLinks" : "Link non direzionati con :",
-            "lensOn" : "Attiva la lente d'ingrandimento",
-            "lensOff" : "Disattiva la lente d'ingrandimento",
-            "edgeOn" : "Mostra gli spigoli",
-            "edgeOff" : "Nascondi gli spigoli",
-            "zoomIn" : "Zoom in avanti",
-            "zoomOut" : "Zoom indietro",
-            "browserErr" : 'Il tuo browser non pu&ograve; visualizzare correttamente questa pagina.<br />Ti raccomandiamo l\'uso dell\'ultima versione di  <a href="http://www.mozilla.com/" target="_blank">Firefox</a> o <a href="http://www.google.com/chrome/" target="_blank">Chrome</a>'
         },
         "es" : {
             "search" : "Buscar un nodo",
@@ -131,6 +90,63 @@ var GexfJS = {
             "authority" : "Puntuaci&oacute;n de autoridad (HITS)",
             "hub" : "Puntuaci&oacute; de hub (HITS)",
             "pageranks" : "Puntuaci&oacute; de PageRank"
+        },
+        "fi" : {
+            "search" : "Etsi solmuja",
+            "nodeAttr" : "Attribuutit",
+            "nodes" : "Solmut",
+            "inLinks" : "Lähtevät yhteydet :",
+            "outLinks" : "Tulevat yhteydet :",
+            "undirLinks" : "Yhteydet :",
+            "lensOn" : "Ota linssitila käyttöön",
+            "lensOff" : "Poista linssitila käytöstä",
+            "edgeOn" : "Näytä kaikki yhteydet",
+            "edgeOff" : "Näytä vain valitun solmun yhteydet",
+            "zoomIn" : "Suurenna",
+            "zoomOut" : "Pienennä",
+            "browserErr" : 'Selaimesi ei voi näyttää tätä sivua.<br />Suosittelemme käyttämään uusinta versiota <a href="http://www.mozilla.com/" target="_blank">Firefox</a>- tai <a href="http://www.google.com/chrome/" target="_blank">Chrome</a>-selaimesta'
+        },
+        "fr" : {
+            "search" : "Rechercher un n&oelig;ud",
+            "nodeAttr" : "Attributs",
+            "nodes" : "N&oelig;uds",
+            "inLinks" : "Liens entrants depuis :",
+            "outLinks" : "Liens sortants vers :",
+            "undirLinks" : "Liens non-dirigés avec :",
+            "lensOn" : "Activer le mode loupe",
+            "lensOff" : "Désactiver le mode loupe",
+            "edgeOn" : "Afficher les sommets",
+            "edgeOff" : "Cacher les sommets",
+            "zoomIn" : "S'approcher",
+            "zoomOut" : "S'éloigner",
+            "browserErr" : 'Votre navigateur n\'est malheureusement pas compatible avec les fonctionnalités de ce site<br />Nous vous suggérons d\'utiliser une version récente de <a href="http://www.mozilla.com/" target="_blank">Firefox</a> ou <a href="http://www.google.com/chrome/" target="_blank">Chrome</a>',
+            "modularity_class" : "Classe de modularité",
+            "degree" : "Degr&eacute;",
+            "indegree" : "&frac12; degr&eacute; int&eacute;rieur",
+            "outdegree" : "&frac12; degr&eacute; ext&eacute;rieur",
+            "weighted degree" : "Degr&eacute; pond&eacute;r&eacute;",
+            "weighted indegree" : "&frac12; degr&eacute; int&eacute;rieur pond&eacute;r&eacute;",
+            "weighted outdegree" : "&frac12; degr&eacute; ext&eacute;rieur pond&eacute;r&eacute;",
+            "closnesscentrality" : "Centralit&eacute; de proximit&eacute;",
+            "betweenesscentrality" : "Centralit&eacute; d'interm&eacute;diarit&eacute;",
+            "authority" : "Score d'autorit&eacute; (HITS)",
+            "hub" : "Score de hub (HITS)",
+            "pageranks" : "Score de PageRank"
+        },
+        "it" : {
+            "search" : "Cerca i nodi",
+            "nodeAttr" : "Attributi",
+            "nodes" : "Nodi",
+            "inLinks" : "Link in entrata da :",
+            "outLinks" : "Link in uscita verso :",
+            "undirLinks" : "Link non direzionati con :",
+            "lensOn" : "Attiva la lente d'ingrandimento",
+            "lensOff" : "Disattiva la lente d'ingrandimento",
+            "edgeOn" : "Mostra gli spigoli",
+            "edgeOff" : "Nascondi gli spigoli",
+            "zoomIn" : "Zoom in avanti",
+            "zoomOut" : "Zoom indietro",
+            "browserErr" : 'Il tuo browser non pu&ograve; visualizzare correttamente questa pagina.<br />Ti raccomandiamo l\'uso dell\'ultima versione di  <a href="http://www.mozilla.com/" target="_blank">Firefox</a> o <a href="http://www.google.com/chrome/" target="_blank">Chrome</a>'
         },
         "tr" : {
             "search" : "Düğüm ara",
@@ -448,7 +464,7 @@ function loadGraph() {
                     _six = GexfJS.graph.nodeIndexById.indexOf(_sid);
                     _tid = _e.attr("target"),
                     _tix = GexfJS.graph.nodeIndexById.indexOf(_tid);
-                    _w = _e.find('attvalue[for="weight"]').attr('value');
+                    _w = _e.find('attvalue[for="weight"]').attr('value') || _e.attr('weight');
                     _col = _e.find("color");
                 if (_col.length) {
                     var _r = _col.attr("r"),
@@ -762,7 +778,19 @@ function setParams(paramlist) {
 
 $(document).ready(function() {
     
-    var lang = ( navigator.language ? navigator.language.substr(0,2).toLowerCase() : ( navigator.userLanguage ? navigator.userLanguage.substr(0,2).toLowerCase() : "en" ) );
+    var lang = (
+        typeof GexfJS.params.language != "undefined" && GexfJS.params.language
+        ? GexfJS.params.language
+        : (
+            navigator.language
+            ? navigator.language.substr(0,2).toLowerCase()
+            : (
+                navigator.userLanguage
+                ? navigator.userLanguage.substr(0,2).toLowerCase()
+                : "en"
+            )
+        )
+    );
     GexfJS.lang = (GexfJS.i18n[lang] ? lang : "en");
     
     if ( !document.createElement('canvas').getContext ) {

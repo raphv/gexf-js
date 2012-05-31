@@ -8,6 +8,8 @@ URLs in attributes can now be replaced by hyperlinks using the replaceUrls optio
 
 Edge weights are now listed. This can be disabled with the showEdgeWeight option in config.js
 
+Gexf-JS now speaks 7 languages: English, French, Italian, Spanish, Finnish, Turkish and Greek !
+
 ### Contributors ##
 
 #### Raphaël Velt (main developer, french and english versions)
@@ -32,11 +34,13 @@ Edge weights are now listed. This can be disabled with the showEdgeWeight option
 
 #### Zeynep Akata (turkish translation)
 
+#### Σωτήρης Φραγκίσκος (greek translation)
+
 ### How to use ? ##
 
 1. Export your graph from Gephi as a GEXF file
 2. Put it in the gexf-js directory
-3. Modify config.js to point to your GEXF File and tune the interface 
+3. Modify config.js to point to your GEXF File and tune the interface.
 
 You can view more Gexf files by pointing your browser to index.html#Filename.gexf
 
