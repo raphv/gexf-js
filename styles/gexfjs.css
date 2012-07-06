@@ -26,7 +26,6 @@ body {
     position: absolute; left: 0; top: 0; width: 250px; text-align: center;
 }
 
-
 h1 {
     margin:0;
 }
@@ -44,7 +43,9 @@ h1 a {
 #searchinput {
     background: #fff url(../img/search.gif) no-repeat right;
     border: 1px solid #DDD;
-    font-size: 14px; line-height: 14px, height: 14px;
+    font-size: 14px;
+    line-height: 14px;
+    height: 14px;
     left: 250px;
     padding: 1px 4px; margin: 0;
     position: absolute;
@@ -109,8 +110,28 @@ h1 a {
     background-position: -24px 0;
 }
 
-#lensButton, #edgesButton {
+#lensButton, #edgesButton, #zoomReset {
     display: block; width: 36px; height: 36px; background:url(../img/loupe-edges.png); margin: 0 auto;
+}
+
+#zoomReset {
+    background:url(../img/zoom-reset.png);
+}
+
+#zoomReset {
+     background-position: 0px 0;
+}
+
+#zoomReset:hover {
+    background-position: -36px 0;
+}
+
+#zoomReset.off {
+    background-position: -72px 0;
+}
+
+#zoomReset.off:hover {
+    background-position: -108px 0;
 }
 
 #lensButton {
@@ -271,4 +292,61 @@ a:hover {
 
 #autocomplete img {
     float: left; border: 0; width: 24px; height: 24px; margin: 2px 6px;
+}
+
+#overwindow {
+    overflow: hidden;
+}
+
+.box_top {
+    z-index: 1000;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    overflow: auto;
+}
+.box_override {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: .5;
+    z-index: 999;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    background: #000000;
+}
+
+.prog {
+    margin: 35% 80px 0;
+}
+
+#probar {
+    text-align: center;
+    vertical-align: middle;
+    color: white;
+    text-shadow: 0 1px 1px black;
+    padding-top: 2px;
+}
+
+#progb {
+    overflow: hidden;
+    width: 100%;
+    /*display: none;*/
+}
+
+#error {
+    position: absolute;
+    top: 45px;
+    left: 20px;
+    z-index: 2;
+    padding: 6px;
+    background: #fdf5ce;
+    border: 1px dotted #F9E16C;
+    border-top: 0;
+    color: #F9746C;
+    font-size: 10pt;
+    font-weight: bold;
 }
