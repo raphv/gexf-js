@@ -6,6 +6,7 @@
  *    Jaakko Salonen (Finnish)
  *    Zeynep Akata (Turkish)
  *    Σωτήρης Φραγκίσκος (Greek)
+ *    Артём Зубков (Russian)
  * */
 
 // Namespace
@@ -22,8 +23,15 @@ var GexfJS = {
         centreY : 350,
         activeNode : -1,
         currentNode : -1,
+        alphaNode :.7,
+        alphaNodeBorder :.5,
+        showEdgeLabel : true,
+        onErrorLoaded : null,
     },
+    onLoading : null,
+    onLoaded : null,
     oldParams : {},
+    mainCenter : null,
     minZoom : -3,
     maxZoom : 10,
     overviewWidth : 200,
@@ -62,7 +70,38 @@ var GexfJS = {
             "edgeOff" : "Hide edges",
             "zoomIn" : "Zoom In",
             "zoomOut" : "Zoom Out",
-            "browserErr" : 'Your browser cannot properly display this page.<br />We recommend you use the latest <a href="http://www.mozilla.com/" target="_blank">Firefox</a> or <a href="http://www.google.com/chrome/" target="_blank">Chrome</a> version'
+            "browserErr" : 'Your browser cannot properly display this page.<br />We recommend you use the latest <a href="http://www.mozilla.com/" target="_blank">Firefox</a> or <a href="http://www.google.com/chrome/" target="_blank">Chrome</a> version',
+            "zoomReset" : "Reset/Set the zoom and position",
+            "zoomSet" : "Set the zoom and position"
+        },
+        "ru" : {
+            "search" : "Поиск вершин",
+            "nodeAttr" : "Аттрибуты",
+            "nodes" : "Вершины",
+            "inLinks" : "Входящие:",
+            "outLinks" : "Исходящие:",
+            "undirLinks" : "Ненаправленные:",
+            "lensOn" : "Влючить линзу",
+            "lensOff" : "Отключить линзу",
+            "edgeOn" : "Показывать ребра",
+            "edgeOff" : "Спрятать ребра",
+            "zoomIn" : "Увеличить",
+            "zoomOut" : "Уменьшить",
+            "browserErr" : 'Ваш браузер не может правильно отобразить страницу.<br />Мы рекомендуем использовать последнюю версию <a href="http://www.mozilla.com/" target="_blank">Firefox</a> или <a href="http://www.google.com/chrome/" target="_blank">Chrome</a>',
+            "modularity_class" : "Класс модульности",
+            "degree" : "Степень",
+            "indegree" : "Степень заходов",
+            "outdegree" : "Степень исходов",
+            "weighted degree" : "Взвешенная степень",
+            "weighted indegree" : "Взвешенная степень заходов",
+            "weighted outdegree" : "Взвещеная степень исходов",
+            "closnesscentrality" : "Близость",
+            "betweenesscentrality" : "Посреднечиство",
+            "authority" : "Авторитет (HITS)",
+            "hub" : "Хаб (HITS)",
+            "pageranks" : "PageRank",
+            "zoomReset" : "Сброс масштаба и положения",
+            "zoomSet" : "Восстановить масштаб и положение"
         },
         "es" : {
             "search" : "Buscar un nodo",
@@ -213,7 +252,7 @@ function displayNode(_nodeIndex, _recentre) {
             var _e = GexfJS.graph.edgeList[i]
             if ( _e.target == _nodeIndex ) {
                 var _n = GexfJS.graph.nodeList[_e.source];
-                _str += '<li><div class="smallpill" style="background: ' + _n.color.base +'"></div><a href="#" onmouseover="GexfJS.params.activeNode = ' + _e.source + '" onclick="displayNode(' + _e.source + ', true); return false;">' + _n.label + '</a>' + ( GexfJS.params.showEdgeWeight && _e.weight ? ' [' + _e.weight + ']' : '') + '</li>';
+                _str += '<li><div class="smallpill" style="background: ' + _n.color.base +'"></div><a href="#" onmouseover="GexfJS.params.activeNode = ' + _e.source + '" onclick="displayNode(' + _e.source + ', true); return false;">' + ( GexfJS.params.showEdgeLabel && _e.label ? ' (' + _e.label + ') ' : '')  + _n.label + '</a>' + ( GexfJS.params.showEdgeWeight && _e.weight ? ' [' + _e.weight + ']' : '') + '</li>';
             }
         }
         if (GexfJS.graph.directed) _str += '</ul><h4>' + strLang("outLinks") + '</h4><ul>';
@@ -221,7 +260,7 @@ function displayNode(_nodeIndex, _recentre) {
             var _e = GexfJS.graph.edgeList[i]
             if ( _e.source == _nodeIndex ) {
                 var _n = GexfJS.graph.nodeList[_e.target];
-                _str += '<li><div class="smallpill" style="background: ' + _n.color.base +'"></div><a href="#" onmouseover="GexfJS.params.activeNode = ' + _e.target + '" onclick="displayNode(' + _e.target + ', true); return false;">' + _n.label + '</a>' + ( GexfJS.params.showEdgeWeight && _e.weight ? ' [' + _e.weight + ']' : '') + '</li>';
+                _str += '<li><div class="smallpill" style="background: ' + _n.color.base +'"></div><a href="#" onmouseover="GexfJS.params.activeNode = ' + _e.target + '" onclick="displayNode(' + _e.target + ', true); return false;">' + ( GexfJS.params.showEdgeLabel && _e.label ? ' (' + _e.label + ') ' : '')  + _n.label + '</a>' + ( GexfJS.params.showEdgeWeight && _e.weight ? ' [' + _e.weight + ']' : '') + '</li>';
             }
         }
         _str += '</ul><p></p>';
@@ -305,6 +344,7 @@ function changeGraphPosition(evt, echelle) {
 
 function onGraphMove(evt) {
     evt.preventDefault();
+    GexfJS.mainCenter.backX = null;
     if (!GexfJS.graph) {
         return;
     }
@@ -323,11 +363,13 @@ function onGraphMove(evt) {
 
 function onOverviewMove(evt) {
     if (GexfJS.dragOn) {
+        GexfJS.mainCenter.backX = null;
         changeGraphPosition(evt,-GexfJS.overviewScale);
     }
 }
 
 function onGraphScroll(evt, delta) {
+
     GexfJS.totalScroll += delta;
     if (Math.abs(GexfJS.totalScroll) >= 1) {
         if (GexfJS.totalScroll < 0) {
@@ -368,7 +410,6 @@ function initializeMap() {
         width : GexfJS.overviewWidth,
         height : GexfJS.overviewHeight
     });
-    GexfJS.timeRefresh = setInterval(traceMap,60);
     GexfJS.graph = null;
     loadGraph();
 }
@@ -378,6 +419,13 @@ function loadGraph() {
     $.ajax({
         url: ( document.location.hash.length > 1 ? document.location.hash.substr(1) : GexfJS.params.graphFile ),
         dataType: "xml",
+        error : function(jqXHR, textStatus, errorThrown) {
+            $("#error").html(textStatus + "<br/>" + errorThrown);
+            $("#error").slideDown();
+
+            if(GexfJS.onLoaded)
+                GexfJS.onLoaded(this);
+        },
         success: function(data) {
             var _s = new Date();
             var _g = $(data).find("graph"),
@@ -392,109 +440,202 @@ function loadGraph() {
                 edgeList : []
             }
             var _xmin = 1e9, _xmax = -1e9, _ymin = 1e9, _ymax = -1e9; _marge = 30;
-            $(_nodes).each(function() {
-                var _n = $(this),
-                _pos = _n.find("viz\\:position,position"),
-                _x = _pos.attr("x"),
-                _y = _pos.attr("y");
-                _xmin = Math.min(_x, _xmin);
-                _xmax = Math.max(_x, _xmax);
-                _ymin = Math.min(_y, _ymin);
-                _ymax = Math.max(_y, _ymax);
-            });
-            
-            var _echelle = Math.min( ( GexfJS.baseWidth - _marge ) / ( _xmax - _xmin ) , ( GexfJS.baseHeight - _marge ) / ( _ymax - _ymin ) );
-            var _deltax = ( GexfJS.baseWidth - _echelle * ( _xmin + _xmax ) ) / 2;
-            var _deltay = ( GexfJS.baseHeight - _echelle * ( _ymin + _ymax ) ) / 2;
-            
-            GexfJS.ctxMini.clearRect(0, 0, GexfJS.overviewWidth, GexfJS.overviewHeight);
-            
-            $(_nodes).each( function() {
-                var _n = $(this),
-                    _id = _n.attr("id"),
-                    _label = _n.attr("label") || _id,
-                    _d = {
-                        id: _id,
-                        label: _label
-                    },
+
+            var nextMethod = 0;
+
+            var len = $(_nodes).length;
+            var i = 0;
+            var step = 0;
+            var curPos = 0;
+
+            var calcRange = function(focusItem) {
+                if (focusItem) {
+                    var _n = $(focusItem),
                     _pos = _n.find("viz\\:position,position"),
                     _x = _pos.attr("x"),
-                    _y = _pos.attr("y"),
-                    _size = _n.find("viz\\:size,size").attr("value"),
-                    _col = _n.find("viz\\:color,color"),
-                    _r = _col.attr("r"),
-                    _g = _col.attr("g"),
-                    _b = _col.attr("b"),
-                    _attr = _n.find("attvalue");
-                _d.coords = {
-                    base : {
-                        x : _deltax + _echelle * _x,
-                        y : _deltay - _echelle * _y,
-                        r : _echelle * _size
+                    _y = _pos.attr("y");
+                    _xmin = Math.min(_x, _xmin);
+                    _xmax = Math.max(_x, _xmax);
+                    _ymin = Math.min(_y, _ymin);
+                    _ymax = Math.max(_y, _ymax);
+                    if (step < curPos++) {
+                        curPos = 0;
+                        if(GexfJS.onLoading)
+                            GexfJS.onLoading(i, len, "Loading... (" + i + " of " + len + ")");
                     }
                 }
-                _d.color = {
-                    rgb : {
-                        r : _r,
-                        g : _g,
-                        b : _b
-                    },
-                    base : "rgba(" + _r + "," + _g + "," + _b + ",.7)",
-                    gris : "rgba(" + Math.floor(84 + .33 * _r) + "," + Math.floor(84 + .33 * _g) + "," + Math.floor(84 + .33 * _b) + ",.5)"
+                else {
+                    nextMethod++;
+                    if(GexfJS.onLoading)
+                        GexfJS.onLoading(len, len, "Loading... (" + len + " of " + len + ")");
                 }
-                _d.attributes = [];
-                $(_attr).each(function() {
-                    var _a = $(this),
-                        _for = _a.attr("for");                    
-                    _d.attributes[ _for ? _for : 'attribute_' + _a.attr("id") ] = _a.attr("value");
-                });
-                GexfJS.graph.nodeIndexById.push(_id);
-                GexfJS.graph.nodeIndexByLabel.push(_label.toLowerCase());
-                GexfJS.graph.nodeList.push(_d);
-                GexfJS.ctxMini.fillStyle = _d.color.base;
-                GexfJS.ctxMini.beginPath();
-                GexfJS.ctxMini.arc( _d.coords.base.x * GexfJS.overviewScale , _d.coords.base.y * GexfJS.overviewScale , _d.coords.base.r * GexfJS.overviewScale + 1 , 0 , Math.PI*2 , true );
-                GexfJS.ctxMini.closePath();
-                GexfJS.ctxMini.fill();
-            });
-            
-            $(_edges).each(function() {
-                var _e = $(this),
-                    _sid = _e.attr("source"),
-                    _six = GexfJS.graph.nodeIndexById.indexOf(_sid);
-                    _tid = _e.attr("target"),
-                    _tix = GexfJS.graph.nodeIndexById.indexOf(_tid);
-                    _w = _e.find('attvalue[for="weight"]').attr('value') || _e.attr('weight');
-                    _col = _e.find("color");
-                if (_col.length) {
-                    var _r = _col.attr("r"),
+            }
+
+            var _echelle = 0;
+            var _deltax = 0;
+            var _deltay = 0;
+
+            var parseNodes = function(focusItem) {
+                if (focusItem) {
+                    var _n = $(focusItem),
+                        _id = _n.attr("id"),
+                        _label = _n.attr("label") || _id,
+                        _d = {
+                            id: _id,
+                            label: _label
+                        },
+                        _pos = _n.find("viz\\:position,position"),
+                        _x = _pos.attr("x"),
+                        _y = _pos.attr("y"),
+                        _size = _n.find("viz\\:size,size").attr("value"),
+                        _col = _n.find("viz\\:color,color"),
+                        _r = _col.attr("r"),
                         _g = _col.attr("g"),
-                        _b = _col.attr("b");
-                } else {
-                    var _scol = GexfJS.graph.nodeList[_six].color.rgb;
-                    if (GexfJS.graph.directed) {
-                        var _r = _scol.r,
-                            _g = _scol.g,
-                            _b = _scol.b;
-                    } else {
-                        var _tcol = GexfJS.graph.nodeList[_tix].color.rgb,
-                            _r = Math.floor( .5 * _scol.r + .5 * _tcol.r ),
-                            _g = Math.floor( .5 * _scol.g + .5 * _tcol.g ),
-                            _b = Math.floor( .5 * _scol.b + .5 * _tcol.b );
+                        _b = _col.attr("b"),
+                        _attr = _n.find("attvalue");
+                    _d.coords = {
+                        base : {
+                            x : _deltax + _echelle * _x,
+                            y : _deltay - _echelle * _y,
+                            r : _echelle * _size
+                        }
+                    }
+                    _d.color = {
+                        rgb : {
+                            r : _r,
+                            g : _g,
+                            b : _b
+                        },
+                        base : "rgba(" + _r + "," + _g + "," + _b + "," + GexfJS.params.alphaNode + ")",
+                        gris : "rgba(" + Math.floor(84 + .33 * _r) + "," + Math.floor(84 + .33 * _g) + "," + Math.floor(84 + .33 * _b) + "," + GexfJS.params.alphaNodeBorder + ")"
+                    }
+                    _d.attributes = [];
+                    $(_attr).each(function() {
+                        var _a = $(this),
+                            _for = _a.attr("for");
+                        _d.attributes[ _for ? _for : 'attribute_' + _a.attr("id") ] = _a.attr("value");
+                    });
+                    GexfJS.graph.nodeIndexById.push(_id);
+                    GexfJS.graph.nodeIndexByLabel.push(_label.toLowerCase());
+                    GexfJS.graph.nodeList.push(_d);
+                    GexfJS.ctxMini.fillStyle = _d.color.base;
+                    GexfJS.ctxMini.beginPath();
+                    GexfJS.ctxMini.arc( _d.coords.base.x * GexfJS.overviewScale , _d.coords.base.y * GexfJS.overviewScale , _d.coords.base.r * GexfJS.overviewScale + 1 , 0 , Math.PI*2 , true );
+                    GexfJS.ctxMini.closePath();
+                    GexfJS.ctxMini.fill();
+                    if (step < curPos++) {
+                        curPos = 0;
+                        if(GexfJS.onLoading)
+                            GexfJS.onLoading(i, len, "Parsing nodes... (" + i + " of " + len + ")");
                     }
                 }
-                GexfJS.graph.edgeList.push({
-                    source : _six,
-                    target : _tix,
-                    width : ( _w ? _w : 1 ) * _echelle,
-                    weight : _w || false,
-                    color : "rgba(" + _r + "," + _g + "," + _b + ",.7)"
-                });
-            });
-            
-            GexfJS.imageMini = GexfJS.ctxMini.getImageData(0, 0, GexfJS.overviewWidth, GexfJS.overviewHeight);
-        
-        //changeNiveau(0);
+                else {
+                    nextMethod++;
+                    if(GexfJS.onLoading)
+                        GexfJS.onLoading(len, len, "Parsing nodes... (" + len + " of " + len + ")");
+                }
+            }
+
+            var parseEdges = function(focusItem) {
+                if (focusItem) {
+                    var _e = $(focusItem),
+                        _sid = _e.attr("source"),
+                        _six = GexfJS.graph.nodeIndexById.indexOf(_sid);
+                        _tid = _e.attr("target"),
+                        _tix = GexfJS.graph.nodeIndexById.indexOf(_tid);
+                        _label = _e.attr("label") || undefined,
+                        _w = _e.find('attvalue[for="weight"]').attr('value') || _e.attr('weight');
+                        _col = _e.find("color");
+                    if (_col.length) {
+                        var _r = _col.attr("r"),
+                            _g = _col.attr("g"),
+                            _b = _col.attr("b");
+                    } else {
+                        var _scol = GexfJS.graph.nodeList[_six].color.rgb;
+                        if (GexfJS.graph.directed) {
+                            var _r = _scol.r,
+                                _g = _scol.g,
+                                _b = _scol.b;
+                        } else {
+                            var _tcol = GexfJS.graph.nodeList[_tix].color.rgb,
+                                _r = Math.floor( .5 * _scol.r + .5 * _tcol.r ),
+                                _g = Math.floor( .5 * _scol.g + .5 * _tcol.g ),
+                                _b = Math.floor( .5 * _scol.b + .5 * _tcol.b );
+                        }
+                    }
+                    GexfJS.graph.edgeList.push({
+                        source : _six,
+                        target : _tix,
+                        label : _label,
+                        width : ( _w ? _w : 1 ) * _echelle,
+                        weight : _w || false,
+                        color : "rgba(" + _r + "," + _g + "," + _b + ",.7)"
+                    });
+                    if (step < curPos++) {
+                        curPos = 0;
+                        if(GexfJS.onLoading)
+                            GexfJS.onLoading(i, len, "Parsing edges... (" + i + " of " + len + ")");
+                    }
+                }
+                else {
+                    nextMethod++;
+                    if(GexfJS.onLoading)
+                        GexfJS.onLoading(len, len, "Parsing edges... (" + len + " of " + len + ")");
+                }
+            }
+
+            var poolMethods = [ calcRange, parseNodes, parseEdges ];
+            var lastMethod = -1;
+            var curArr = null;
+
+            var run = function() {
+                var changeMethod = lastMethod != nextMethod;
+                var runTime = false;
+
+                if (changeMethod) {
+                    if(GexfJS.onLoading)
+                        GexfJS.onLoading(len, len);
+                    switch (nextMethod){
+                        case 0:
+                            curArr = _nodes;
+                            break;
+                        case 1:
+                            _echelle = Math.min( ( GexfJS.baseWidth - _marge ) / ( _xmax - _xmin ) , ( GexfJS.baseHeight - _marge ) / ( _ymax - _ymin ) );
+                            _deltax = ( GexfJS.baseWidth - _echelle * ( _xmin + _xmax ) ) / 2;
+                            _deltay = ( GexfJS.baseHeight - _echelle * ( _ymin + _ymax ) ) / 2;
+
+                            GexfJS.ctxMini.clearRect(0, 0, GexfJS.overviewWidth, GexfJS.overviewHeight);
+                            break;
+                        case 2:
+                            curArr = _edges;
+
+                            break;
+                    }
+                    len = $(curArr).length;
+                    i = 0;
+                    step = parseInt(len / 25);
+                    lastMethod = nextMethod;
+                }
+                var focusItem = null;
+                if (i < len)
+                    focusItem = curArr[i++];
+                if (nextMethod < poolMethods.length)
+                    setTimeout(function() {
+                        if (poolMethods[nextMethod])
+                            poolMethods[nextMethod](focusItem);
+                        run();
+                    }, 1);
+                else {
+                    GexfJS.imageMini = GexfJS.ctxMini.getImageData(0, 0, GexfJS.overviewWidth, GexfJS.overviewHeight);
+
+                    if(GexfJS.onLoaded)
+                        GexfJS.onLoaded(this);
+
+                    GexfJS.timeRefresh = setInterval(traceMap,60);
+                }
+            }
+            run();
+            //changeNiveau(0);
         }
     });
 }
@@ -612,6 +753,11 @@ function traceMap() {
     }
     
     var _displayEdges = ( GexfJS.params.showEdges && GexfJS.params.currentNode == -1 );
+
+    if (_centralNode != -1) {
+        var _dnc = GexfJS.graph.nodeList[_centralNode];
+        _dnc.coords.real = ( (GexfJS.params.useLens && GexfJS.mousePosition ) ? calcCoord( GexfJS.mousePosition.x , GexfJS.mousePosition.y , _dnc.coords.actual ) : _dnc.coords.actual );
+    }
     
     for (var i in GexfJS.graph.edgeList) {
         var _d = GexfJS.graph.edgeList[i],
@@ -640,16 +786,36 @@ function traceMap() {
             var _coords = ( ( GexfJS.params.useLens && GexfJS.mousePosition ) ? calcCoord( GexfJS.mousePosition.x , GexfJS.mousePosition.y , _ds.coords.actual ) : _ds.coords.actual );
             _coordt = ( (GexfJS.params.useLens && GexfJS.mousePosition) ? calcCoord( GexfJS.mousePosition.x , GexfJS.mousePosition.y , _dt.coords.actual ) : _dt.coords.actual );
             GexfJS.ctxGraphe.strokeStyle = ( _isLinked ? _d.color : "rgba(100,100,100,0.2)" );
+
+            if (_centralNode != -1 &&
+                _d.label &&
+                (_six == _centralNode || _tix == _centralNode)) {
+
+                var _fs = Math.max(_limTxt + 2, (_six == _centralNode ? _coords.r : _coordt.r ) * _textSizeFactor) + 2;
+
+                var x3 = _coords.x;
+                var y3 = _coords.y;
+                var x4 = _coordt.x;
+                var y4 = _coordt.y;
+                if (GexfJS.params.curvedEdges) {
+                    x3 = .3 * _coordt.y - .3 * _coords.y + .8 * _coords.x + .2 * _coordt.x;
+                    y3 = .8 * _coords.y + .2 * _coordt.y - .3 * _coordt.x + .3 * _coords.x;
+                    x4 = .3 * _coordt.y - .3 * _coords.y + .2 * _coords.x + .8 * _coordt.x;
+                    y4 = .2 * _coords.y + .8 * _coordt.y - .3 * _coordt.x + .3 * _coords.x;
+                }
+
+                GexfJS.ctxGraphe.fillStyle = "rgb(0,0,0)";
+                GexfJS.ctxGraphe.font = Math.floor( _fs )+"px Arial";
+                GexfJS.ctxGraphe.textAlign = "center";
+                GexfJS.ctxGraphe.textBaseline = "middle";
+                GexfJS.ctxGraphe.fillText(_d.label, x3 - (x3 - x4)/2, y3 - (y3 - y4) / 2);
+            }
+
             traceArc(GexfJS.ctxGraphe, _coords, _coordt);
         }
     }
     GexfJS.ctxGraphe.lineWidth = 4;
     GexfJS.ctxGraphe.strokeStyle = "rgba(0,100,0,0.8)";
-    
-    if (_centralNode != -1) {
-        var _dnc = GexfJS.graph.nodeList[_centralNode];
-        _dnc.coords.real = ( (GexfJS.params.useLens && GexfJS.mousePosition ) ? calcCoord( GexfJS.mousePosition.x , GexfJS.mousePosition.y , _dnc.coords.actual ) : _dnc.coords.actual );
-    }
     
     for (var i in GexfJS.graph.nodeList) {
         var _d = GexfJS.graph.nodeList[i];
@@ -764,16 +930,43 @@ function updateAutoComplete(_sender) {
 
 function updateButtonStates() {
     $("#lensButton").attr("class",GexfJS.params.useLens?"":"off")
-        .attr("title", strLang( GexfJS.params.showEdges ? "lensOff" : "lensOn" ) );
+        .attr("title", strLang( GexfJS.params.useLens ? "lensOff" : "lensOn" ) );
 
     $("#edgesButton").attr("class",GexfJS.params.showEdges?"":"off")
         .attr("title", strLang( GexfJS.params.showEdges ? "edgeOff" : "edgeOn" ) );
+
+    $("#zoomReset").attr("class",GexfJS.params.zoomReset?"":"off")
+        .attr("title", strLang( GexfJS.params.zoomReset ? "zoomReset" : "zoomSet" ) );
 }
 
 function setParams(paramlist) {
     for (var i in paramlist) {
         GexfJS.params[i] = paramlist[i];
     }
+}
+
+function resetZoom() {
+    var lvl = GexfJS.mainCenter.lvl,
+        x = GexfJS.mainCenter.x,
+        y = GexfJS.mainCenter.y;
+    GexfJS.params.zoomReset = false;
+    if(GexfJS.mainCenter.backX) {
+        GexfJS.params.zoomReset = true;
+        lvl = GexfJS.mainCenter.backZoomLevel;
+        x = GexfJS.mainCenter.backX;
+        y = GexfJS.mainCenter.backY;
+        GexfJS.mainCenter.backX = null;
+    }
+    else {
+        GexfJS.mainCenter.backZoomLevel = GexfJS.params.zoomLevel;
+        GexfJS.mainCenter.backX = GexfJS.params.centreX;
+        GexfJS.mainCenter.backY = GexfJS.params.centreY;
+    }
+    GexfJS.params.centreX = x;
+    GexfJS.params.centreY = y;
+    GexfJS.params.zoomLevel = lvl;
+    updateButtonStates();
+    $("#zoomSlider").slider("value",GexfJS.params.zoomLevel);
 }
 
 $(document).ready(function() {
@@ -797,16 +990,47 @@ $(document).ready(function() {
         $("#bulle").html('<p><b>' + strLang("browserErr") + '</b></p>');
         return;
     }
-    
+
+    GexfJS.proBar = document.getElementById('probar');
+    GexfJS.onLoading = function(pos, maxResults, state) {
+        if(pos && pos < 0)
+            pos = -pos;
+        pos = !maxResults || !pos ? '0%' : (parseInt(pos * 100 / maxResults)) + '%';
+        GexfJS.proBar.style.width = pos;
+        GexfJS.proBar.textContent = pos + " " + (state || "");
+    }
+    GexfJS.params.zoomReset = true;
     updateButtonStates();
     
     GexfJS.ctxGraphe = document.getElementById('carte').getContext('2d');
     GexfJS.ctxMini = document.getElementById('overview').getContext('2d');
     updateWorkspaceBounds();
-    
-    initializeMap();
-    
-    window.onhashchange = initializeMap;
+
+    GexfJS.doHashChange = function() {
+        $("#error").hide();
+        $("#overwindow").show();
+        if (!GexfJS.onHashChange)
+            GexfJS.onHashChange = function() {
+                initializeMap();
+            }
+        $("#top-box-cont > div").hide();
+        $("#progb").show();
+        GexfJS.onLoading();
+        GexfJS.onLoaded = function(item) {
+            $("#overwindow").hide();
+            if (( !GexfJS.graph
+               || !GexfJS.graph.nodeList
+               || GexfJS.graph.nodeList.length < 1)) {
+               if (GexfJS.params.onErrorLoaded)
+                    GexfJS.params.onErrorLoaded();
+            }
+        }
+        GexfJS.onHashChange();
+    }
+
+    GexfJS.doHashChange();
+
+    window.onhashchange = GexfJS.doHashChange;
     
     $("#searchinput")
         .focus(function() {
@@ -886,6 +1110,11 @@ $(document).ready(function() {
         return false;
     })
         .attr("title", strLang("zoomIn"));
+    $("#zoomReset").click(function() {
+            resetZoom();
+            return false;
+    })
+        .attr("title", strLang("zoomReset"));
     $(document).click(function(evt) {
         $("#autocomplete").slideUp();
     });
@@ -926,4 +1155,10 @@ $(document).ready(function() {
         }
         return false;
     });
+    GexfJS.mainCenter = {
+        backX : false,
+        lvl : GexfJS.params.zoomLevel,
+        x   : GexfJS.params.centreX,
+        y   : GexfJS.params.centreY
+    };
 });

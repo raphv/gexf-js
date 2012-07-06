@@ -3,6 +3,7 @@
     <head>
         <title>Gephi: JavaScript GEXF Viewer</title>
         <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+        <link rel="stylesheet" type="text/css" href="styles/probar.css" />
         <link rel="stylesheet" type="text/css" href="styles/gexfjs.css" />
         <link rel="stylesheet" type="text/css" href="styles/jquery-ui.css" />
         <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
@@ -18,9 +19,22 @@
         <script type="text/javascript" src="config.js"></script>
     </head>
     <body>
+        <div id="overwindow">
+            <div id="top-box-cont" class="box_top">
+                <div id="progb">
+                    <div class="prog meter orange nostripes">
+                        <span id="probar" style="width: 926px; "></span>
+                    </div>
+                </div>
+            </div>
+            <div class="box_override"></div>
+        </div>
         <div id="zonecentre" class="gradient">
             <canvas id="carte" width="0" height="0"></canvas>
             <ul id="ctlzoom">
+                <li>
+                    <a href="#" id="zoomReset" title="Reset/Set zoom and position"> </a>
+                </li>
                 <li>
                     <a href="#" id="zoomPlusButton" title="S'approcher"> </a>
                 </li>
