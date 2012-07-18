@@ -14,14 +14,14 @@ var GexfJS = {
     lensGamma : 0.5,
     graphZone : {
         width : 0,
-        height : 0,
+        height : 0
     },
     oldGraphZone : {},
     params : {
         centreX : 400,
         centreY : 350,
         activeNode : -1,
-        currentNode : -1,
+        currentNode : -1
     },
     oldParams : {},
     minZoom : -3,
@@ -486,8 +486,8 @@ function loadGraph() {
                 GexfJS.graph.edgeList.push({
                     source : _six,
                     target : _tix,
-                    width : ( _w ? _w : 1 ) * _echelle,
-                    weight : _w || false,
+                    width : Math.max( GexfJS.params.minEdgeWidth, Math.min( GexfJS.params.maxEdgeWidth, ( _w || 1 ) ) ) * _echelle,
+                    weight : parseFloat(_w || 0),
                     color : "rgba(" + _r + "," + _g + "," + _b + ",.7)"
                 });
             });
