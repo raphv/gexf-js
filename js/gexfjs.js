@@ -333,11 +333,24 @@ function onGraphScroll(evt, delta) {
         if (GexfJS.totalScroll < 0) {
             if (GexfJS.params.zoomLevel > GexfJS.minZoom) {
                 GexfJS.params.zoomLevel--;
+                var _el = $(this),
+                    _off = $(this).offset(),
+                    _deltaX = evt.pageX - _el.width() / 2 - _off.left,
+                    _deltaY = evt.pageY - _el.height() / 2 - _off.top;
+                GexfJS.params.centreX -= ( Math.SQRT2 - 1 ) * _deltaX / GexfJS.echelleGenerale;
+                GexfJS.params.centreY -= ( Math.SQRT2 - 1 ) * _deltaY / GexfJS.echelleGenerale;
                 $("#zoomSlider").slider("value",GexfJS.params.zoomLevel);
             }
         } else {
             if (GexfJS.params.zoomLevel < GexfJS.maxZoom) {
                 GexfJS.params.zoomLevel++;
+                GexfJS.echelleGenerale = Math.pow( Math.SQRT2, GexfJS.params.zoomLevel );
+                var _el = $(this),
+                    _off = $(this).offset(),
+                    _deltaX = evt.pageX - _el.width() / 2 - _off.left,
+                    _deltaY = evt.pageY - _el.height() / 2 - _off.top;
+                GexfJS.params.centreX += ( Math.SQRT2 - 1 ) * _deltaX / GexfJS.echelleGenerale;
+                GexfJS.params.centreY += ( Math.SQRT2 - 1 ) * _deltaY / GexfJS.echelleGenerale;
                 $("#zoomSlider").slider("value",GexfJS.params.zoomLevel);
             }
         }
@@ -572,7 +585,7 @@ function traceMap() {
         }
     }
     
-    GexfJS.echelleGenerale = Math.pow( Math.sqrt(2), GexfJS.params.zoomLevel );
+    GexfJS.echelleGenerale = Math.pow( Math.SQRT2, GexfJS.params.zoomLevel );
     GexfJS.decalageX = ( GexfJS.graphZone.width / 2 ) - ( GexfJS.params.centreX * GexfJS.echelleGenerale );
     GexfJS.decalageY = ( GexfJS.graphZone.height / 2 ) - ( GexfJS.params.centreY * GexfJS.echelleGenerale );
     
