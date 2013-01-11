@@ -439,13 +439,18 @@ function loadGraph() {
                     _g = _col.attr("g"),
                     _b = _col.attr("b"),
                     _attr = _n.find("attvalue"),
-                    _img = _n.attr("img_url") //name of param which contains data about img url;
+                    _shape = _n.find("viz\\:shape,shape"),
+                    _img = _shape ? _shape.attr("uri") : 0; //name of param which contains data about img url
                     
-                _d.img = new Image();
-                _d.img.onload = (funciont(_nd) { return function() { _nd.loaded = true; }})(_d);
-                //_d.img.onerror 
-                _d.src = _img;
-                
+                if (_shape && _img) {
+                    _d.img = new Image();
+                    _d.img.onload = (function(_nd) { return function() {
+                        _nd.imgloaded = true;
+                        GexfJS.params.redraw = true;
+                    }})(_d);
+                    //_d.img.onerror 
+                    _d.img.src = _img;
+                }
                     
                 _d.coords = {
                     base : {
@@ -585,6 +590,7 @@ function traceMap() {
     for (var i in GexfJS.params) {
         _identical = _identical && ( GexfJS.params[i] == GexfJS.oldParams[i] );
     }
+    GexfJS.params.redraw = false;
     if (_identical) {
         return;
     } else {
@@ -681,7 +687,7 @@ function traceMap() {
                 
                 if (_d.img && _d.imgloaded) {
                     //draw image on canvas
-                    GexfJS.ctxGraphe.drawImage(_d.img, _d.coords.real.x - _d.img.width / 2, _d.coords.real.y - _d.img.height / 2);
+                    GexfJS.ctxGraphe.drawImage(_d.img, _d.coords.real.x - _d.coords.real.r / 2, _d.coords.real.y - _d.coords.real.r / 2, _d.coords.real.r, _d.coords.real.r);
                 }
                 else {                
                     GexfJS.ctxGraphe.beginPath();
@@ -723,7 +729,7 @@ function traceMap() {
     if (_centralNode != -1) {
         if (_dnc.img && _dnc.imgloaded) {
             //draw image on canvas
-            GexfJS.ctxGraphe.drawImage(_dnc.img, _dnc.coords.real.x - _dnc.img.width / 2, _dnc.coords.real.y - _dnc.img.height / 2);
+            GexfJS.ctxGraphe.drawImage(_dnc.img, _dnc.coords.real.x - _dnc.coords.real.r / 2, _dnc.coords.real.y - _dnc.coords.real.r / 2, _dnc.coords.real.r, _dnc.coords.real.r);
         }
         else {
             GexfJS.ctxGraphe.fillStyle = _dnc.color.base;
