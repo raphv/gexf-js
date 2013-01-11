@@ -438,7 +438,20 @@ function loadGraph() {
                     _r = _col.attr("r"),
                     _g = _col.attr("g"),
                     _b = _col.attr("b"),
-                    _attr = _n.find("attvalue");
+                    _attr = _n.find("attvalue"),
+                    _shape = _n.find("viz\\:shape,shape"),
+                    _img = _shape ? _shape.attr("uri") : 0; //name of param which contains data about img url
+                    
+                if (_shape && _img) {
+                    _d.img = new Image();
+                    _d.img.onload = (function(_nd) { return function() {
+                        _nd.imgloaded = true;
+                        GexfJS.params.redraw = true;
+                    }})(_d);
+                    //_d.img.onerror 
+                    _d.img.src = _img;
+                }
+                    
                 _d.coords = {
                     base : {
                         x : _deltax + _echelle * _x,
@@ -577,6 +590,7 @@ function traceMap() {
     for (var i in GexfJS.params) {
         _identical = _identical && ( GexfJS.params[i] == GexfJS.oldParams[i] );
     }
+    GexfJS.params.redraw = false;
     if (_identical) {
         return;
     } else {
@@ -670,11 +684,18 @@ function traceMap() {
             if (i != _centralNode) {
                 _d.coords.real = ( ( GexfJS.params.useLens && GexfJS.mousePosition ) ? calcCoord( GexfJS.mousePosition.x , GexfJS.mousePosition.y , _d.coords.actual ) : _d.coords.actual );
                 _d.isTag = ( _tagsMisEnValeur.indexOf(parseInt(i)) != -1 );
-                GexfJS.ctxGraphe.beginPath();
-                GexfJS.ctxGraphe.fillStyle = ( ( _tagsMisEnValeur.length && !_d.isTag ) ? _d.color.gris : _d.color.base );
-                GexfJS.ctxGraphe.arc( _d.coords.real.x , _d.coords.real.y , _d.coords.real.r , 0 , Math.PI*2 , true );
-                GexfJS.ctxGraphe.closePath();
-                GexfJS.ctxGraphe.fill();
+                
+                if (_d.img && _d.imgloaded) {
+                    //draw image on canvas
+                    GexfJS.ctxGraphe.drawImage(_d.img, _d.coords.real.x - _d.coords.real.r / 2, _d.coords.real.y - _d.coords.real.r / 2, _d.coords.real.r, _d.coords.real.r);
+                }
+                else {                
+                    GexfJS.ctxGraphe.beginPath();
+                    GexfJS.ctxGraphe.fillStyle = ( ( _tagsMisEnValeur.length && !_d.isTag ) ? _d.color.gris : _d.color.base );
+                    GexfJS.ctxGraphe.arc( _d.coords.real.x , _d.coords.real.y , _d.coords.real.r , 0 , Math.PI*2 , true );
+                    GexfJS.ctxGraphe.closePath();
+                    GexfJS.ctxGraphe.fill();
+                }
             }
         }
     }
@@ -706,12 +727,18 @@ function traceMap() {
     }
     
     if (_centralNode != -1) {
-        GexfJS.ctxGraphe.fillStyle = _dnc.color.base;
-        GexfJS.ctxGraphe.beginPath();
-        GexfJS.ctxGraphe.arc( _dnc.coords.real.x , _dnc.coords.real.y , _dnc.coords.real.r , 0 , Math.PI*2 , true );
-        GexfJS.ctxGraphe.closePath();
-        GexfJS.ctxGraphe.fill();
-        GexfJS.ctxGraphe.stroke();
+        if (_dnc.img && _dnc.imgloaded) {
+            //draw image on canvas
+            GexfJS.ctxGraphe.drawImage(_dnc.img, _dnc.coords.real.x - _dnc.coords.real.r / 2, _dnc.coords.real.y - _dnc.coords.real.r / 2, _dnc.coords.real.r, _dnc.coords.real.r);
+        }
+        else {
+            GexfJS.ctxGraphe.fillStyle = _dnc.color.base;
+            GexfJS.ctxGraphe.beginPath();
+            GexfJS.ctxGraphe.arc( _dnc.coords.real.x , _dnc.coords.real.y , _dnc.coords.real.r , 0 , Math.PI*2 , true );
+            GexfJS.ctxGraphe.closePath();
+            GexfJS.ctxGraphe.fill();
+            GexfJS.ctxGraphe.stroke();
+        }
         var _fs = Math.max(_limTxt + 2, _dnc.coords.real.r * _textSizeFactor) + 2;
         GexfJS.ctxGraphe.font = "bold " + Math.floor( _fs )+"px Arial";
         GexfJS.ctxGraphe.textAlign = "center";
