@@ -478,7 +478,7 @@ function loadGraph() {
                     _tid = _e.attr("target"),
                     _tix = GexfJS.graph.nodeIndexById.indexOf(_tid);
                     _w = _e.find('attvalue[for="weight"]').attr('value') || _e.attr('weight');
-                    _col = _e.find("color");
+                    _col = _e.find("viz\\:color,color");
                 if (_col.length) {
                     var _r = _col.attr("r"),
                         _g = _col.attr("g"),
