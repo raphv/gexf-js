@@ -592,8 +592,7 @@ function traceMap() {
     var _sizeFactor = GexfJS.echelleGenerale * Math.pow(GexfJS.echelleGenerale, -.15),
         _edgeSizeFactor = _sizeFactor * GexfJS.params.edgeWidthFactor,
         _nodeSizeFactor = _sizeFactor * GexfJS.params.nodeSizeFactor,
-        _textSizeFactor = 1,
-        _limTxt = 9;
+        _textSizeFactor = 1;
     
     GexfJS.ctxGraphe.clearRect(0, 0, GexfJS.graphZone.width, GexfJS.graphZone.height);
     
@@ -688,13 +687,13 @@ function traceMap() {
                     if (_centralNode != -1) {
                         var _dist = Math.sqrt( Math.pow( _d.coords.real.x - _dnc.coords.real.x, 2 ) + Math.pow( _d.coords.real.y - _dnc.coords.real.y, 2 ) );
                         if (_dist > 80) {
-                            _fs = Math.max(_limTxt + 2, _fs);
+                            _fs = Math.max(GexfJS.params.textDisplayThreshold + 2, _fs);
                         }
                     } else {
-                        _fs = Math.max(_limTxt + 2, _fs);
+                        _fs = Math.max(GexfJS.params.textDisplayThreshold + 2, _fs);
                     }
                 }
-                if (_fs > _limTxt) {
+                if (_fs > GexfJS.params.textDisplayThreshold) {
                     GexfJS.ctxGraphe.fillStyle = ( ( i != GexfJS.params.activeNode ) && _tagsMisEnValeur.length && ( ( !_d.isTag ) || ( _centralNode != -1 ) ) ? "rgba(60,60,60,0.7)" : "rgb(0,0,0)" );
                     GexfJS.ctxGraphe.font = Math.floor( _fs )+"px Arial";
                     GexfJS.ctxGraphe.textAlign = "center";
@@ -712,7 +711,7 @@ function traceMap() {
         GexfJS.ctxGraphe.closePath();
         GexfJS.ctxGraphe.fill();
         GexfJS.ctxGraphe.stroke();
-        var _fs = Math.max(_limTxt + 2, _dnc.coords.real.r * _textSizeFactor) + 2;
+        var _fs = Math.max(GexfJS.params.textDisplayThreshold + 2, _dnc.coords.real.r * _textSizeFactor) + 2;
         GexfJS.ctxGraphe.font = "bold " + Math.floor( _fs )+"px Arial";
         GexfJS.ctxGraphe.textAlign = "center";
         GexfJS.ctxGraphe.textBaseline = "middle";
