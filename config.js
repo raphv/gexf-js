@@ -46,6 +46,11 @@ setParams({
             Show the weight of edges in the list
             this setting can't be changed from the User Interface
         */
+    showEdgesWhileDragging : false,
+        /*
+            Show edges when dragging the graph. If False, the display is much quicker
+            this setting can't be changed from the User Interface
+        */
     language: false
         /*
             Set to an ISO language code to switch the interface to that language.

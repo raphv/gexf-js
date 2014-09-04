@@ -247,25 +247,29 @@ function updateWorkspaceBounds() {
     $("#leftcolumn").css(_top);
     GexfJS.graphZone.width = _elZC.width();
     GexfJS.graphZone.height = _elZC.height();
+
     GexfJS.areParamsIdentical = true;
     
     for (var i in GexfJS.graphZone) {
         GexfJS.areParamsIdentical = GexfJS.areParamsIdentical && ( GexfJS.graphZone[i] == GexfJS.oldGraphZone[i] );
     }
+    GexfJS.areParamsIdentical = GexfJS.areParamsIdentical && ( GexfJS.dragOn == GexfJS.oldDragOn );
+
     if (!GexfJS.areParamsIdentical) {
     
-    $("#carte")
-        .attr({
-            width : GexfJS.graphZone.width,
-            height : GexfJS.graphZone.height
-        })
-        .css({
-            width : GexfJS.graphZone.width + "px",
-            height : GexfJS.graphZone.height + "px"
-        });
+        $("#carte")
+            .attr({
+                width : GexfJS.graphZone.width,
+                height : GexfJS.graphZone.height
+            })
+            .css({
+                width : GexfJS.graphZone.width + "px",
+                height : GexfJS.graphZone.height + "px"
+            });
         for (var i in GexfJS.graphZone) {
             GexfJS.oldGraphZone[i] = GexfJS.graphZone[i];
         }
+        GexfJS.oldDragOn = GexfJS.dragOn;
     }
 }
 
@@ -603,9 +607,9 @@ function traceMap() {
         GexfJS.ctxGraphe.closePath();
         GexfJS.ctxGraphe.fill();
     }
-    
+     
     var _centralNode = ( ( GexfJS.params.activeNode != -1 ) ? GexfJS.params.activeNode : GexfJS.params.currentNode );
-    
+  
     for (var i in GexfJS.graph.nodeList) {
         var _d = GexfJS.graph.nodeList[i];
         _d.coords.actual = {
@@ -622,39 +626,11 @@ function traceMap() {
     if ( _centralNode != -1 ) {
         _tagsMisEnValeur = [ _centralNode ];
     }
-    
-    var _displayEdges = ( GexfJS.params.showEdges && GexfJS.params.currentNode == -1 );
-    
-    for (var i in GexfJS.graph.edgeList) {
-        var _d = GexfJS.graph.edgeList[i],
-            _six = _d.source,
-            _tix = _d.target,
-            _ds = GexfJS.graph.nodeList[_six],
-            _dt = GexfJS.graph.nodeList[_tix];
-        var _isLinked = false;
-        if (_centralNode != -1) {
-            if (_six == _centralNode) {
-                _tagsMisEnValeur.push(_tix);
-                _coulTag = _dt.color.base;
-                _isLinked = true;
-                _dt.visible = true;
-            }
-            if (_tix == _centralNode) {
-                _tagsMisEnValeur.push(_six);
-                _coulTag = _ds.color.base;
-                _isLinked = true;
-                _ds.visible = true;
-            }
-        }
 
-        if ( ( _isLinked || _displayEdges ) && ( _ds.withinFrame || _dt.withinFrame ) &&  _ds.visible && _dt.visible ) {
-            GexfJS.ctxGraphe.lineWidth = _edgeSizeFactor * _d.width;
-            var _coords = ( ( GexfJS.params.useLens && GexfJS.mousePosition ) ? calcCoord( GexfJS.mousePosition.x , GexfJS.mousePosition.y , _ds.coords.actual ) : _ds.coords.actual );
-            _coordt = ( (GexfJS.params.useLens && GexfJS.mousePosition) ? calcCoord( GexfJS.mousePosition.x , GexfJS.mousePosition.y , _dt.coords.actual ) : _dt.coords.actual );
-            GexfJS.ctxGraphe.strokeStyle = ( _isLinked ? _d.color : "rgba(100,100,100,0.2)" );
-            traceArc(GexfJS.ctxGraphe, _coords, _coordt);
-        }
+    if(!GexfJS.dragOn || GexfJS.params.showEdgesWhileDragging){
+        traceMap_edges(_centralNode,_sizeFactor,_tagsMisEnValeur);
     }
+
     GexfJS.ctxGraphe.lineWidth = 4;
     GexfJS.ctxGraphe.strokeStyle = "rgba(0,100,0,0.8)";
     
@@ -737,6 +713,43 @@ function traceMap() {
     GexfJS.ctxMini.beginPath();
     GexfJS.ctxMini.fillRect( _x, _y, _w, _h );
     GexfJS.ctxMini.strokeRect( _x, _y, _w, _h );
+}
+
+function traceMap_edges(_centralNode,_sizeFactor,_tagsMisEnValeur) {
+
+    var _displayEdges = ( GexfJS.params.showEdges && GexfJS.params.currentNode == -1 ),
+        _edgeSizeFactor = _sizeFactor * GexfJS.params.edgeWidthFactor;
+
+    for (var i in GexfJS.graph.edgeList) {
+        var _d = GexfJS.graph.edgeList[i],
+            _six = _d.source,
+            _tix = _d.target,
+            _ds = GexfJS.graph.nodeList[_six],
+            _dt = GexfJS.graph.nodeList[_tix];
+        var _isLinked = false;
+        if (_centralNode != -1) {
+            if (_six == _centralNode) {
+                _tagsMisEnValeur.push(_tix);
+                _coulTag = _dt.color.base;
+                _isLinked = true;
+                _dt.visible = true;
+            }
+            if (_tix == _centralNode) {
+                _tagsMisEnValeur.push(_six);
+                _coulTag = _ds.color.base;
+                _isLinked = true;
+                _ds.visible = true;
+            }
+        }
+
+        if ( ( _isLinked || _displayEdges ) && ( _ds.withinFrame || _dt.withinFrame ) &&  _ds.visible && _dt.visible ) {
+            GexfJS.ctxGraphe.lineWidth = _edgeSizeFactor * _d.width;
+            var _coords = ( ( GexfJS.params.useLens && GexfJS.mousePosition ) ? calcCoord( GexfJS.mousePosition.x , GexfJS.mousePosition.y , _ds.coords.actual ) : _ds.coords.actual );
+            _coordt = ( (GexfJS.params.useLens && GexfJS.mousePosition) ? calcCoord( GexfJS.mousePosition.x , GexfJS.mousePosition.y , _dt.coords.actual ) : _dt.coords.actual );
+            GexfJS.ctxGraphe.strokeStyle = ( _isLinked ? _d.color : "rgba(100,100,100,0.2)" );
+            traceArc(GexfJS.ctxGraphe, _coords, _coordt);
+        }
+    }
 }
 
 function hoverAC() {
