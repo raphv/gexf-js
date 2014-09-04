@@ -697,6 +697,10 @@ function traceMap() {
         GexfJS.ctxGraphe.fillText(_dnc.label, _dnc.coords.real.x + 2, _dnc.coords.real.y);
         GexfJS.ctxGraphe.fillText(_dnc.label, _dnc.coords.real.x, _dnc.coords.real.y - 2);
         GexfJS.ctxGraphe.fillText(_dnc.label, _dnc.coords.real.x, _dnc.coords.real.y + 2);
+        GexfJS.ctxGraphe.fillText(_dnc.label, _dnc.coords.real.x - 1, _dnc.coords.real.y +1);
+        GexfJS.ctxGraphe.fillText(_dnc.label, _dnc.coords.real.x + 1, _dnc.coords.real.y +1);
+        GexfJS.ctxGraphe.fillText(_dnc.label, _dnc.coords.real.x - 1, _dnc.coords.real.y -1);
+        GexfJS.ctxGraphe.fillText(_dnc.label, _dnc.coords.real.x + 1, _dnc.coords.real.y -1);
         GexfJS.ctxGraphe.fillStyle = "rgb(0,0,0)";
         GexfJS.ctxGraphe.fillText(_dnc.label, _dnc.coords.real.x, _dnc.coords.real.y);
     }
