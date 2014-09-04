@@ -456,8 +456,9 @@ function loadGraph() {
                         g : _g,
                         b : _b
                     },
-                    base : "rgba(" + _r + "," + _g + "," + _b + ",.7)",
-                    gris : "rgba(" + Math.floor(84 + .33 * _r) + "," + Math.floor(84 + .33 * _g) + "," + Math.floor(84 + .33 * _b) + ",.5)"
+                    base       : "rgba(" + _r + "," + _g + "," + _b + ",.7)",
+                    baseDarker : "rgba(" + Math.floor(62 +  .5 * _r) + "," + Math.floor(62 +  .5 * _g) + "," + Math.floor(62 +  .5 * _b) + ",1)",
+                    gris       : "rgba(" + Math.floor(84 + .33 * _r) + "," + Math.floor(84 + .33 * _g) + "," + Math.floor(84 + .33 * _b) + ",.5)"
                 }
                 _d.attributes = [];
                 $(_attr).each(function() {
@@ -632,7 +633,6 @@ function traceMap() {
     }
 
     GexfJS.ctxGraphe.lineWidth = 4;
-    GexfJS.ctxGraphe.strokeStyle = "rgba(0,100,0,0.8)";
     
     if (_centralNode != -1) {
         var _dnc = GexfJS.graph.nodeList[_centralNode];
@@ -681,6 +681,7 @@ function traceMap() {
     }
     
     if (_centralNode != -1) {
+        GexfJS.ctxGraphe.strokeStyle = _dnc.color.baseDarker;
         GexfJS.ctxGraphe.fillStyle = _dnc.color.base;
         GexfJS.ctxGraphe.beginPath();
         GexfJS.ctxGraphe.arc( _dnc.coords.real.x , _dnc.coords.real.y , _dnc.coords.real.r , 0 , Math.PI*2 , true );
