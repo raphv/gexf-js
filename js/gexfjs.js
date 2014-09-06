@@ -174,7 +174,7 @@ function strLang(_str) {
 
 function replaceURLWithHyperlinks(text) {
     if (GexfJS.params.replaceUrls) {
-        var _urlExp = /(\b(https?:\/\/)?[-A-Z0-9]+\.[-A-Z0-9.:]+(\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*)?)/ig,
+        var _urlExp = /(\b(https?:\/\/)?[-A-Z0-9]+\.[-A-Z0-9.:?=]+(\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*)?)/ig,
             _protocolExp = /^https?:\/\//i;
         return text.replace(_urlExp, function(_found) {
             return '<a href="'
