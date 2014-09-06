@@ -243,11 +243,23 @@ function updateWorkspaceBounds() {
         top : $("#titlebar").height() + "px"
     }
     _elZC.css(_top);
+
+    var _ctl = $("#ctlzoom");
+    if(GexfJS.params.ctlZoomPosition == "right"){
+        _ctl.css({
+            bottom : $("#overviewzone").height()+5+"px" ,
+            right : "5px"
+        });
+    }else{
+        _ctl.css({
+            left: "5px", 
+            bottom: "5px"
+        });
+    }
     
     $("#leftcolumn").css(_top);
     GexfJS.graphZone.width = _elZC.width();
     GexfJS.graphZone.height = _elZC.height();
-
     GexfJS.areParamsIdentical = true;
     
     for (var i in GexfJS.graphZone) {
@@ -832,9 +844,9 @@ $(document).ready(function() {
     
     GexfJS.ctxGraphe = document.getElementById('carte').getContext('2d');
     GexfJS.ctxMini = document.getElementById('overview').getContext('2d');
-    updateWorkspaceBounds();
     
     initializeMap();
+    updateWorkspaceBounds(); // Hm... I don't really know why... maybe an intuition.
     
     window.onhashchange = initializeMap;
     

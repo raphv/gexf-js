@@ -18,6 +18,11 @@ setParams({
         /*
             Default zoom level. At zoom = 0, the graph should fill a 800x700px zone
          */
+    ctlZoomPosition : "left",
+        /*
+            Defines the position of the Zoom Control Buttons : "left" or "right"
+            this setting can't be changed from the User Interface
+         */
     curvedEdges : true,
         /*
             False for curved edges, true for straight edges
