@@ -36,6 +36,14 @@ setParams({
     minEdgeWidth : 1,
     maxEdgeWidth : 50,
     textDisplayThreshold: 9,
+    labelQuadraticFactor : 1,
+        /*
+            If more than 1, makes the big labels even bigger.
+            If 1, nothing changes.
+            If less than 1, makes the big labels smallers
+            If 0, every label has the same size
+           this setting can't be changed from the User Interface
+        */    
     nodeSizeFactor : 1,
         /*
             Change this parameter for smaller or larger nodes

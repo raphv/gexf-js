@@ -408,6 +408,8 @@ function loadGraph() {
         url: ( document.location.hash.length > 1 ? document.location.hash.substr(1) : GexfJS.params.graphFile ),
         dataType: "xml",
         success: function(data) {
+            var _minNodeSize = 99999;
+            var _maxNodeSize = -1;
             var _s = new Date();
             var _g = $(data).find("graph"),
                 _nodes = _g.children().filter("nodes").children(),
@@ -462,6 +464,10 @@ function loadGraph() {
                         r : _echelle * _size
                     }
                 }
+
+                if(_d.coords.base.r<_minNodeSize) _minNodeSize = _d.coords.base.r;
+                if(_d.coords.base.r>_maxNodeSize) _maxNodeSize = _d.coords.base.r;
+
                 _d.color = {
                     rgb : {
                         r : _r,
@@ -522,6 +528,13 @@ function loadGraph() {
                 });
             });
             
+            var _fact = Math.max(0,GexfJS.params.labelQuadraticFactor) ;
+            for(var _ii = 0 ; _ii < GexfJS.graph.nodeList.length ; _ii++) {
+                var _n = GexfJS.graph.nodeList[_ii];
+                _n.labelSize = (_fact == 0 ? 1 : ((_minNodeSize+ Math.pow(_n.coords.base.r-_minNodeSize,_fact))/_n.coords.base.r));
+                //alert("orig: "+_n.coords.base.r+ "\nafter: "+_n.labelSize)//+"\n\nMath.ceil(("+_minNodeSize+"+Math.pow("+_n.coords.base.r+"-"+_minNodeSize+","+_fact+"))/"+_n.coords.base.r+"))");
+            }//nnn
+
             GexfJS.imageMini = GexfJS.ctxMini.getImageData(0, 0, GexfJS.overviewWidth, GexfJS.overviewHeight);
         
         //changeNiveau(0);
@@ -670,7 +683,7 @@ function traceMap() {
         var _d = GexfJS.graph.nodeList[i];
         if (_d.visible && _d.withinFrame) {
             if (i != _centralNode) {
-                var _fs = _d.coords.real.r * _textSizeFactor;
+                var _fs = _d.coords.real.r * _d.labelSize * _textSizeFactor;//nnn
                 if (_d.isTag) {
                     if (_centralNode != -1) {
                         var _dist = Math.sqrt( Math.pow( _d.coords.real.x - _dnc.coords.real.x, 2 ) + Math.pow( _d.coords.real.y - _dnc.coords.real.y, 2 ) );
@@ -700,7 +713,7 @@ function traceMap() {
         GexfJS.ctxGraphe.closePath();
         GexfJS.ctxGraphe.fill();
         GexfJS.ctxGraphe.stroke();
-        var _fs = Math.max(GexfJS.params.textDisplayThreshold + 2, _dnc.coords.real.r * _textSizeFactor) + 2;
+        var _fs = Math.max(GexfJS.params.textDisplayThreshold + 2, _dnc.coords.real.r * _dnc.labelSize *  _textSizeFactor) + 2;
         GexfJS.ctxGraphe.font = "bold " + Math.floor( _fs )+"px Arial";
         GexfJS.ctxGraphe.textAlign = "center";
         GexfJS.ctxGraphe.textBaseline = "middle";
