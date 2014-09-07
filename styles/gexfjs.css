@@ -78,7 +78,7 @@ h1 a {
 /* ZOOM IN OUT */
 
 #ctlzoom {
-    position: absolute; left: 5px; bottom: 5px; list-style: none; padding: 0; margin: 0;
+    position: absolute; list-style: none; padding: 0; margin: 0;
 }
 
 #ctlzoom li {

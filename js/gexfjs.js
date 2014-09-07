@@ -174,7 +174,7 @@ function strLang(_str) {
 
 function replaceURLWithHyperlinks(text) {
     if (GexfJS.params.replaceUrls) {
-        var _urlExp = /(\b(https?:\/\/)?[-A-Z0-9]+\.[-A-Z0-9.:]+(\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*)?)/ig,
+        var _urlExp = /(\b(https?:\/\/)?[-A-Z0-9]+\.[-A-Z0-9.:?=]+(\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*)?)/ig,
             _protocolExp = /^https?:\/\//i;
         return text.replace(_urlExp, function(_found) {
             return '<a href="'
@@ -243,6 +243,19 @@ function updateWorkspaceBounds() {
         top : $("#titlebar").height() + "px"
     }
     _elZC.css(_top);
+
+    var _ctl = $("#ctlzoom");
+    if(GexfJS.params.ctlZoomPosition == "right"){
+        _ctl.css({
+            bottom : $("#overviewzone").height()+5+"px" ,
+            right : "5px"
+        });
+    }else{
+        _ctl.css({
+            left: "5px", 
+            bottom: "5px"
+        });
+    }
     
     $("#leftcolumn").css(_top);
     GexfJS.graphZone.width = _elZC.width();
@@ -252,20 +265,23 @@ function updateWorkspaceBounds() {
     for (var i in GexfJS.graphZone) {
         GexfJS.areParamsIdentical = GexfJS.areParamsIdentical && ( GexfJS.graphZone[i] == GexfJS.oldGraphZone[i] );
     }
+    GexfJS.areParamsIdentical = GexfJS.areParamsIdentical && ( GexfJS.dragOn == GexfJS.oldDragOn );
+
     if (!GexfJS.areParamsIdentical) {
     
-    $("#carte")
-        .attr({
-            width : GexfJS.graphZone.width,
-            height : GexfJS.graphZone.height
-        })
-        .css({
-            width : GexfJS.graphZone.width + "px",
-            height : GexfJS.graphZone.height + "px"
-        });
+        $("#carte")
+            .attr({
+                width : GexfJS.graphZone.width,
+                height : GexfJS.graphZone.height
+            })
+            .css({
+                width : GexfJS.graphZone.width + "px",
+                height : GexfJS.graphZone.height + "px"
+            });
         for (var i in GexfJS.graphZone) {
             GexfJS.oldGraphZone[i] = GexfJS.graphZone[i];
         }
+        GexfJS.oldDragOn = GexfJS.dragOn;
     }
 }
 
@@ -392,6 +408,8 @@ function loadGraph() {
         url: ( document.location.hash.length > 1 ? document.location.hash.substr(1) : GexfJS.params.graphFile ),
         dataType: "xml",
         success: function(data) {
+            var _minNodeSize = 99999;
+            var _maxNodeSize = -1;
             var _s = new Date();
             var _g = $(data).find("graph"),
                 _nodes = _g.children().filter("nodes").children(),
@@ -446,14 +464,19 @@ function loadGraph() {
                         r : _echelle * _size
                     }
                 }
+
+                if(_d.coords.base.r<_minNodeSize) _minNodeSize = _d.coords.base.r;
+                if(_d.coords.base.r>_maxNodeSize) _maxNodeSize = _d.coords.base.r;
+
                 _d.color = {
                     rgb : {
                         r : _r,
                         g : _g,
                         b : _b
                     },
-                    base : "rgba(" + _r + "," + _g + "," + _b + ",.7)",
-                    gris : "rgba(" + Math.floor(84 + .33 * _r) + "," + Math.floor(84 + .33 * _g) + "," + Math.floor(84 + .33 * _b) + ",.5)"
+                    base       : "rgba(" + _r + "," + _g + "," + _b + ",.7)",
+                    baseDarker : "rgba(" + Math.floor(62 +  .5 * _r) + "," + Math.floor(62 +  .5 * _g) + "," + Math.floor(62 +  .5 * _b) + ",1)",
+                    gris       : "rgba(" + Math.floor(84 + .33 * _r) + "," + Math.floor(84 + .33 * _g) + "," + Math.floor(84 + .33 * _b) + ",.5)"
                 }
                 _d.attributes = [];
                 $(_attr).each(function() {
@@ -505,6 +528,13 @@ function loadGraph() {
                 });
             });
             
+            var _fact = Math.max(0,GexfJS.params.labelQuadraticFactor) ;
+            for(var _ii = 0 ; _ii < GexfJS.graph.nodeList.length ; _ii++) {
+                var _n = GexfJS.graph.nodeList[_ii];
+                _n.labelSize = (_fact == 0 ? 1 : ((_minNodeSize+ Math.pow(_n.coords.base.r-_minNodeSize,_fact))/_n.coords.base.r));
+                //alert("orig: "+_n.coords.base.r+ "\nafter: "+_n.labelSize)//+"\n\nMath.ceil(("+_minNodeSize+"+Math.pow("+_n.coords.base.r+"-"+_minNodeSize+","+_fact+"))/"+_n.coords.base.r+"))");
+            }//nnn
+
             GexfJS.imageMini = GexfJS.ctxMini.getImageData(0, 0, GexfJS.overviewWidth, GexfJS.overviewHeight);
         
         //changeNiveau(0);
@@ -603,9 +633,9 @@ function traceMap() {
         GexfJS.ctxGraphe.closePath();
         GexfJS.ctxGraphe.fill();
     }
-    
+     
     var _centralNode = ( ( GexfJS.params.activeNode != -1 ) ? GexfJS.params.activeNode : GexfJS.params.currentNode );
-    
+  
     for (var i in GexfJS.graph.nodeList) {
         var _d = GexfJS.graph.nodeList[i];
         _d.coords.actual = {
@@ -622,9 +652,104 @@ function traceMap() {
     if ( _centralNode != -1 ) {
         _tagsMisEnValeur = [ _centralNode ];
     }
+
+    if(!GexfJS.dragOn || GexfJS.params.showEdgesWhileDragging){
+        traceMap_edges(_centralNode,_sizeFactor,_tagsMisEnValeur);
+    }
+
+    GexfJS.ctxGraphe.lineWidth = 4;
     
-    var _displayEdges = ( GexfJS.params.showEdges && GexfJS.params.currentNode == -1 );
+    if (_centralNode != -1) {
+        var _dnc = GexfJS.graph.nodeList[_centralNode];
+        _dnc.coords.real = ( (GexfJS.params.useLens && GexfJS.mousePosition ) ? calcCoord( GexfJS.mousePosition.x , GexfJS.mousePosition.y , _dnc.coords.actual ) : _dnc.coords.actual );
+    }
     
+    for (var i in GexfJS.graph.nodeList) {
+        var _d = GexfJS.graph.nodeList[i];
+        if (_d.visible && _d.withinFrame) {
+            if (i != _centralNode) {
+                _d.coords.real = ( ( GexfJS.params.useLens && GexfJS.mousePosition ) ? calcCoord( GexfJS.mousePosition.x , GexfJS.mousePosition.y , _d.coords.actual ) : _d.coords.actual );
+                _d.isTag = ( _tagsMisEnValeur.indexOf(parseInt(i)) != -1 );
+                GexfJS.ctxGraphe.beginPath();
+                GexfJS.ctxGraphe.fillStyle = ( ( _tagsMisEnValeur.length && !_d.isTag ) ? _d.color.gris : _d.color.base );
+                GexfJS.ctxGraphe.arc( _d.coords.real.x , _d.coords.real.y , _d.coords.real.r , 0 , Math.PI*2 , true );
+                GexfJS.ctxGraphe.closePath();
+                GexfJS.ctxGraphe.fill();
+            }
+        }
+    }
+    
+    for (var i in GexfJS.graph.nodeList) {
+        var _d = GexfJS.graph.nodeList[i];
+        if (_d.visible && _d.withinFrame) {
+            if (i != _centralNode) {
+                var _fs = _d.coords.real.r * _d.labelSize * _textSizeFactor;//nnn
+                if (_d.isTag) {
+                    if (_centralNode != -1) {
+                        var _dist = Math.sqrt( Math.pow( _d.coords.real.x - _dnc.coords.real.x, 2 ) + Math.pow( _d.coords.real.y - _dnc.coords.real.y, 2 ) );
+                        if (_dist > 80) {
+                            _fs = Math.max(GexfJS.params.textDisplayThreshold + 2, _fs);
+                        }
+                    } else {
+                        _fs = Math.max(GexfJS.params.textDisplayThreshold + 2, _fs);
+                    }
+                }
+                if (_fs > GexfJS.params.textDisplayThreshold) {
+                    GexfJS.ctxGraphe.fillStyle = ( ( i != GexfJS.params.activeNode ) && _tagsMisEnValeur.length && ( ( !_d.isTag ) || ( _centralNode != -1 ) ) ? "rgba(60,60,60,0.7)" : "rgb(0,0,0)" );
+                    GexfJS.ctxGraphe.font = Math.floor( _fs )+"px Arial";
+                    GexfJS.ctxGraphe.textAlign = "center";
+                    GexfJS.ctxGraphe.textBaseline = "middle";
+                    GexfJS.ctxGraphe.fillText(_d.label, _d.coords.real.x, _d.coords.real.y);
+                }
+            }
+        }
+    }
+    
+    if (_centralNode != -1) {
+        GexfJS.ctxGraphe.strokeStyle = _dnc.color.baseDarker;
+        GexfJS.ctxGraphe.fillStyle = _dnc.color.base;
+        GexfJS.ctxGraphe.beginPath();
+        GexfJS.ctxGraphe.arc( _dnc.coords.real.x , _dnc.coords.real.y , _dnc.coords.real.r , 0 , Math.PI*2 , true );
+        GexfJS.ctxGraphe.closePath();
+        GexfJS.ctxGraphe.fill();
+        GexfJS.ctxGraphe.stroke();
+        var _fs = Math.max(GexfJS.params.textDisplayThreshold + 2, _dnc.coords.real.r * _dnc.labelSize *  _textSizeFactor) + 2;
+        GexfJS.ctxGraphe.font = "bold " + Math.floor( _fs )+"px Arial";
+        GexfJS.ctxGraphe.textAlign = "center";
+        GexfJS.ctxGraphe.textBaseline = "middle";
+        GexfJS.ctxGraphe.fillStyle = "rgba(255,255,250,0.8)";
+        GexfJS.ctxGraphe.fillText(_dnc.label, _dnc.coords.real.x - 2, _dnc.coords.real.y);
+        GexfJS.ctxGraphe.fillText(_dnc.label, _dnc.coords.real.x + 2, _dnc.coords.real.y);
+        GexfJS.ctxGraphe.fillText(_dnc.label, _dnc.coords.real.x, _dnc.coords.real.y - 2);
+        GexfJS.ctxGraphe.fillText(_dnc.label, _dnc.coords.real.x, _dnc.coords.real.y + 2);
+        GexfJS.ctxGraphe.fillText(_dnc.label, _dnc.coords.real.x - 1, _dnc.coords.real.y +1);
+        GexfJS.ctxGraphe.fillText(_dnc.label, _dnc.coords.real.x + 1, _dnc.coords.real.y +1);
+        GexfJS.ctxGraphe.fillText(_dnc.label, _dnc.coords.real.x - 1, _dnc.coords.real.y -1);
+        GexfJS.ctxGraphe.fillText(_dnc.label, _dnc.coords.real.x + 1, _dnc.coords.real.y -1);
+        GexfJS.ctxGraphe.fillStyle = "rgb(0,0,0)";
+        GexfJS.ctxGraphe.fillText(_dnc.label, _dnc.coords.real.x, _dnc.coords.real.y);
+    }
+    
+    GexfJS.ctxMini.putImageData(GexfJS.imageMini, 0, 0);
+    var _r = GexfJS.overviewScale / GexfJS.echelleGenerale,
+        _x = - _r * GexfJS.decalageX,
+        _y = - _r * GexfJS.decalageY,
+        _w = _r * GexfJS.graphZone.width,
+        _h = _r * GexfJS.graphZone.height;
+    
+    GexfJS.ctxMini.strokeStyle = "rgb(220,0,0)";
+    GexfJS.ctxMini.lineWidth = 3;
+    GexfJS.ctxMini.fillStyle = "rgba(120,120,120,0.2)";
+    GexfJS.ctxMini.beginPath();
+    GexfJS.ctxMini.fillRect( _x, _y, _w, _h );
+    GexfJS.ctxMini.strokeRect( _x, _y, _w, _h );
+}
+
+function traceMap_edges(_centralNode,_sizeFactor,_tagsMisEnValeur) {
+
+    var _displayEdges = ( GexfJS.params.showEdges && GexfJS.params.currentNode == -1 ),
+        _edgeSizeFactor = _sizeFactor * GexfJS.params.edgeWidthFactor;
+
     for (var i in GexfJS.graph.edgeList) {
         var _d = GexfJS.graph.edgeList[i],
             _six = _d.source,
@@ -655,88 +780,6 @@ function traceMap() {
             traceArc(GexfJS.ctxGraphe, _coords, _coordt);
         }
     }
-    GexfJS.ctxGraphe.lineWidth = 4;
-    GexfJS.ctxGraphe.strokeStyle = "rgba(0,100,0,0.8)";
-    
-    if (_centralNode != -1) {
-        var _dnc = GexfJS.graph.nodeList[_centralNode];
-        _dnc.coords.real = ( (GexfJS.params.useLens && GexfJS.mousePosition ) ? calcCoord( GexfJS.mousePosition.x , GexfJS.mousePosition.y , _dnc.coords.actual ) : _dnc.coords.actual );
-    }
-    
-    for (var i in GexfJS.graph.nodeList) {
-        var _d = GexfJS.graph.nodeList[i];
-        if (_d.visible && _d.withinFrame) {
-            if (i != _centralNode) {
-                _d.coords.real = ( ( GexfJS.params.useLens && GexfJS.mousePosition ) ? calcCoord( GexfJS.mousePosition.x , GexfJS.mousePosition.y , _d.coords.actual ) : _d.coords.actual );
-                _d.isTag = ( _tagsMisEnValeur.indexOf(parseInt(i)) != -1 );
-                GexfJS.ctxGraphe.beginPath();
-                GexfJS.ctxGraphe.fillStyle = ( ( _tagsMisEnValeur.length && !_d.isTag ) ? _d.color.gris : _d.color.base );
-                GexfJS.ctxGraphe.arc( _d.coords.real.x , _d.coords.real.y , _d.coords.real.r , 0 , Math.PI*2 , true );
-                GexfJS.ctxGraphe.closePath();
-                GexfJS.ctxGraphe.fill();
-            }
-        }
-    }
-    
-    for (var i in GexfJS.graph.nodeList) {
-        var _d = GexfJS.graph.nodeList[i];
-        if (_d.visible && _d.withinFrame) {
-            if (i != _centralNode) {
-                var _fs = _d.coords.real.r * _textSizeFactor;
-                if (_d.isTag) {
-                    if (_centralNode != -1) {
-                        var _dist = Math.sqrt( Math.pow( _d.coords.real.x - _dnc.coords.real.x, 2 ) + Math.pow( _d.coords.real.y - _dnc.coords.real.y, 2 ) );
-                        if (_dist > 80) {
-                            _fs = Math.max(GexfJS.params.textDisplayThreshold + 2, _fs);
-                        }
-                    } else {
-                        _fs = Math.max(GexfJS.params.textDisplayThreshold + 2, _fs);
-                    }
-                }
-                if (_fs > GexfJS.params.textDisplayThreshold) {
-                    GexfJS.ctxGraphe.fillStyle = ( ( i != GexfJS.params.activeNode ) && _tagsMisEnValeur.length && ( ( !_d.isTag ) || ( _centralNode != -1 ) ) ? "rgba(60,60,60,0.7)" : "rgb(0,0,0)" );
-                    GexfJS.ctxGraphe.font = Math.floor( _fs )+"px Arial";
-                    GexfJS.ctxGraphe.textAlign = "center";
-                    GexfJS.ctxGraphe.textBaseline = "middle";
-                    GexfJS.ctxGraphe.fillText(_d.label, _d.coords.real.x, _d.coords.real.y);
-                }
-            }
-        }
-    }
-    
-    if (_centralNode != -1) {
-        GexfJS.ctxGraphe.fillStyle = _dnc.color.base;
-        GexfJS.ctxGraphe.beginPath();
-        GexfJS.ctxGraphe.arc( _dnc.coords.real.x , _dnc.coords.real.y , _dnc.coords.real.r , 0 , Math.PI*2 , true );
-        GexfJS.ctxGraphe.closePath();
-        GexfJS.ctxGraphe.fill();
-        GexfJS.ctxGraphe.stroke();
-        var _fs = Math.max(GexfJS.params.textDisplayThreshold + 2, _dnc.coords.real.r * _textSizeFactor) + 2;
-        GexfJS.ctxGraphe.font = "bold " + Math.floor( _fs )+"px Arial";
-        GexfJS.ctxGraphe.textAlign = "center";
-        GexfJS.ctxGraphe.textBaseline = "middle";
-        GexfJS.ctxGraphe.fillStyle = "rgba(255,255,250,0.8)";
-        GexfJS.ctxGraphe.fillText(_dnc.label, _dnc.coords.real.x - 2, _dnc.coords.real.y);
-        GexfJS.ctxGraphe.fillText(_dnc.label, _dnc.coords.real.x + 2, _dnc.coords.real.y);
-        GexfJS.ctxGraphe.fillText(_dnc.label, _dnc.coords.real.x, _dnc.coords.real.y - 2);
-        GexfJS.ctxGraphe.fillText(_dnc.label, _dnc.coords.real.x, _dnc.coords.real.y + 2);
-        GexfJS.ctxGraphe.fillStyle = "rgb(0,0,0)";
-        GexfJS.ctxGraphe.fillText(_dnc.label, _dnc.coords.real.x, _dnc.coords.real.y);
-    }
-    
-    GexfJS.ctxMini.putImageData(GexfJS.imageMini, 0, 0);
-    var _r = GexfJS.overviewScale / GexfJS.echelleGenerale,
-        _x = - _r * GexfJS.decalageX,
-        _y = - _r * GexfJS.decalageY,
-        _w = _r * GexfJS.graphZone.width,
-        _h = _r * GexfJS.graphZone.height;
-    
-    GexfJS.ctxMini.strokeStyle = "rgb(220,0,0)";
-    GexfJS.ctxMini.lineWidth = 3;
-    GexfJS.ctxMini.fillStyle = "rgba(120,120,120,0.2)";
-    GexfJS.ctxMini.beginPath();
-    GexfJS.ctxMini.fillRect( _x, _y, _w, _h );
-    GexfJS.ctxMini.strokeRect( _x, _y, _w, _h );
 }
 
 function hoverAC() {
@@ -814,9 +857,9 @@ $(document).ready(function() {
     
     GexfJS.ctxGraphe = document.getElementById('carte').getContext('2d');
     GexfJS.ctxMini = document.getElementById('overview').getContext('2d');
-    updateWorkspaceBounds();
     
     initializeMap();
+    updateWorkspaceBounds(); // Hm... I don't really know why... maybe an intuition.
     
     window.onhashchange = initializeMap;
     

@@ -18,6 +18,11 @@ setParams({
         /*
             Default zoom level. At zoom = 0, the graph should fill a 800x700px zone
          */
+    ctlZoomPosition : "left",
+        /*
+            Defines the position of the Zoom Control Buttons : "left" or "right"
+            this setting can't be changed from the User Interface
+         */
     curvedEdges : true,
         /*
             False for curved edges, true for straight edges
@@ -31,6 +36,14 @@ setParams({
     minEdgeWidth : 1,
     maxEdgeWidth : 50,
     textDisplayThreshold: 9,
+    labelQuadraticFactor : 1,
+        /*
+            If more than 1, makes the big labels even bigger.
+            If 1, nothing changes.
+            If less than 1, makes the big labels smallers
+            If 0, every label has the same size
+           this setting can't be changed from the User Interface
+        */    
     nodeSizeFactor : 1,
         /*
             Change this parameter for smaller or larger nodes
@@ -44,6 +57,11 @@ setParams({
     showEdgeWeight : true,
         /*
             Show the weight of edges in the list
+            this setting can't be changed from the User Interface
+        */
+    showEdgesWhileDragging : false,
+        /*
+            Show edges when dragging the graph. If False, the display is much quicker
             this setting can't be changed from the User Interface
         */
     language: false
