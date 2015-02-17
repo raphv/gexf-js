@@ -210,18 +210,18 @@ function displayNode(_nodeIndex, _recentre) {
         }
         _str += '</ul><h4>' + ( GexfJS.graph.directed ? strLang("inLinks") : strLang("undirLinks") ) + '</h4><ul>';
         for (var i in GexfJS.graph.edgeList) {
-            var _e = GexfJS.graph.edgeList[i]
+            var _e = GexfJS.graph.edgeList[i];
             if ( _e.target == _nodeIndex ) {
                 var _n = GexfJS.graph.nodeList[_e.source];
-                _str += '<li><div class="smallpill" style="background: ' + _n.color.base +'"></div><a href="#" onmouseover="GexfJS.params.activeNode = ' + _e.source + '" onclick="displayNode(' + _e.source + ', true); return false;">' + _n.label + '</a>' + ( GexfJS.params.showEdgeWeight && _e.weight ? ' [' + _e.weight + ']' : '') + '</li>';
+                _str += '<li><div class="smallpill" style="background: ' + _n.color.base +'"></div><a href="#" onmouseover="GexfJS.params.activeNode = ' + _e.source + '" onclick="displayNode(' + _e.source + ', true); return false;">' + _n.label + '</a>' + ( GexfJS.params.showEdgeLabel && _e.label ? ' &ndash; ' + _e.label : '') + ( GexfJS.params.showEdgeWeight && _e.weight ? ' [' + _e.weight + ']' : '') + '</li>';
             }
         }
         if (GexfJS.graph.directed) _str += '</ul><h4>' + strLang("outLinks") + '</h4><ul>';
         for (var i in GexfJS.graph.edgeList) {
-            var _e = GexfJS.graph.edgeList[i]
+            var _e = GexfJS.graph.edgeList[i];
             if ( _e.source == _nodeIndex ) {
                 var _n = GexfJS.graph.nodeList[_e.target];
-                _str += '<li><div class="smallpill" style="background: ' + _n.color.base +'"></div><a href="#" onmouseover="GexfJS.params.activeNode = ' + _e.target + '" onclick="displayNode(' + _e.target + ', true); return false;">' + _n.label + '</a>' + ( GexfJS.params.showEdgeWeight && _e.weight ? ' [' + _e.weight + ']' : '') + '</li>';
+                _str += '<li><div class="smallpill" style="background: ' + _n.color.base +'"></div><a href="#" onmouseover="GexfJS.params.activeNode = ' + _e.target + '" onclick="displayNode(' + _e.target + ', true); return false;">' + _n.label + '</a>' + ( GexfJS.params.showEdgeLabel && _e.label ? ' &ndash; ' + _e.label : '') + ( GexfJS.params.showEdgeWeight && _e.weight ? ' [' + _e.weight + ']' : '') + '</li>';
             }
         }
         _str += '</ul><p></p>';
@@ -241,7 +241,7 @@ function updateWorkspaceBounds() {
     var _elZC = $("#zonecentre");
     var _top = {
         top : $("#titlebar").height() + "px"
-    }
+    };
     _elZC.css(_top);
     
     $("#leftcolumn").css(_top);
@@ -275,7 +275,7 @@ function startMove(evt) {
     GexfJS.lastMouse = {
         x : evt.pageX,
         y : evt.pageY
-    }
+    };
     GexfJS.mouseHasMoved = false;
 }
 
@@ -311,7 +311,7 @@ function onGraphMove(evt) {
     GexfJS.mousePosition = {
         x : evt.pageX - $(this).offset().left,
         y : evt.pageY - $(this).offset().top
-    }
+    };
     if (GexfJS.dragOn) {
         changeGraphPosition(evt,GexfJS.echelleGenerale);
         GexfJS.mouseHasMoved = true;
@@ -403,7 +403,7 @@ function loadGraph() {
                 nodeIndexById : [],
                 nodeIndexByLabel : [],
                 edgeList : []
-            }
+            };
             var _xmin = 1e9, _xmax = -1e9, _ymin = 1e9, _ymax = -1e9; _marge = 30;
             $(_nodes).each(function() {
                 var _n = $(this),
@@ -445,7 +445,7 @@ function loadGraph() {
                         y : _deltay - _echelle * _y,
                         r : _echelle * _size
                     }
-                }
+                };
                 _d.color = {
                     rgb : {
                         r : _r,
@@ -454,7 +454,7 @@ function loadGraph() {
                     },
                     base : "rgba(" + _r + "," + _g + "," + _b + ",.7)",
                     gris : "rgba(" + Math.floor(84 + .33 * _r) + "," + Math.floor(84 + .33 * _g) + "," + Math.floor(84 + .33 * _b) + ",.5)"
-                }
+                };
                 _d.attributes = [];
                 $(_attr).each(function() {
                     var _a = $(this),
@@ -501,7 +501,8 @@ function loadGraph() {
                     target : _tix,
                     width : Math.max( GexfJS.params.minEdgeWidth, Math.min( GexfJS.params.maxEdgeWidth, ( _w || 1 ) ) ) * _echelle,
                     weight : parseFloat(_w || 0),
-                    color : "rgba(" + _r + "," + _g + "," + _b + ",.7)"
+                    color : "rgba(" + _r + "," + _g + "," + _b + ",.7)",
+                    label: _e.attr("label") || "",
                 });
             });
             
@@ -537,7 +538,7 @@ function calcCoord(x, y, coord) {
             "x" : x + _newr * _cos,
             "y" : y + _newr * _sin,
             "r" : _coeff * coord.r
-        }
+        };
     }
     else {
         return coord;
@@ -612,7 +613,7 @@ function traceMap() {
             x : GexfJS.echelleGenerale * _d.coords.base.x + GexfJS.decalageX,
             y : GexfJS.echelleGenerale * _d.coords.base.y + GexfJS.decalageY,
             r : _nodeSizeFactor * _d.coords.base.r 
-        }
+        };
         _d.withinFrame = ( ( _d.coords.actual.x + _d.coords.actual.r > 0 ) && ( _d.coords.actual.x - _d.coords.actual.r < GexfJS.graphZone.width ) && ( _d.coords.actual.y + _d.coords.actual.r > 0) && (_d.coords.actual.y - _d.coords.actual.r < GexfJS.graphZone.height) );
         _d.visible = ( GexfJS.params.currentNode == -1 || i == _centralNode || GexfJS.params.showEdges );
     }

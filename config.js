@@ -46,6 +46,7 @@ setParams({
             Show the weight of edges in the list
             this setting can't be changed from the User Interface
         */
+    showEdgeLabel : true,
     language: false
         /*
             Set to an ISO language code to switch the interface to that language.
