@@ -1,11 +1,12 @@
-/* Copyright (c) 2011 Raphaël Velt
+/* Lead developer: Raphaël Velt
  * Licensed under the MIT License
- * Translations by :
+ * Translations by:
  *    Vicenzo Cosenza (Italian)
  *    Eduardo Ramos Ibáñez (Spanish)
  *    Jaakko Salonen (Finnish)
  *    Zeynep Akata (Turkish)
  *    Σωτήρης Φραγκίσκος (Greek)
+ *    Martin Eckert (German)
  * */
 
 // Namespace
@@ -34,6 +35,21 @@ var GexfJS = {
     totalScroll : 0,
     autoCompletePosition : 0,
     i18n : {
+        "de": {
+            "search" : "Suche Knoten",
+            "nodeAttr" : "Attribute",
+            "nodes" : "Knoten",
+            "inLinks" : "Ankommende Verknüpfung von",
+            "outLinks" : "Ausgehende Verknüpfung zu",
+            "undirLinks" : "Ungerichtete Verknüpfung mit",
+            "lensOn" : "Vergrößerungsmodus an",
+            "lensOff" : "Vergrößerungsmodus aus",
+            "edgeOn" : "Kanten anzeigen",
+            "edgeOff" : "Kanten verstecken",
+            "zoomIn" : "Vergrößern",
+            "zoomOut" : "Verkleinern",
+            "browserErr" : 'Ihr Browser kann die Seite nicht richtig anzeigen.<br />Wir empfehlen die Verwendung der neusten <a href="http://www.mozilla.com/" target="_blank">Firefox</a> oder <a href="http://www.google.com/chrome/" target="_blank">Chrome</a> Version.'
+        },
         "el" : {
             "search" : "Αναζήτηση Κόμβων",
             "nodeAttr" : "Χαρακτηριστικά",
@@ -165,7 +181,7 @@ var GexfJS = {
         }
     },
     lang : "en"
-}
+};
 
 function strLang(_str) {
     var _l = GexfJS.i18n[GexfJS.lang];
