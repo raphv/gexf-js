@@ -220,7 +220,10 @@ function displayNode(_nodeIndex, _recentre) {
             });
         _str += '<h3><div class="largepill" style="background: ' + _d.color.base +'"></div>' + _d.label + '</h3>';
         _str += '<h4>' + strLang("nodeAttr") + '</h4>';
-        _str += '<ul><li><b>id</b> : ' + _d.id + '</li>';
+        _str += '<ul>';
+	if (GexfJS.params.showId) {
+	    _str += '<li><b>id</b> : ' + _d.id + '</li>';
+	}
         for (var i in _d.attributes) {
             _str += '<li><b>' + strLang(i) + '</b> : ' + replaceURLWithHyperlinks( _d.attributes[i] ) + '</li>';
         }
