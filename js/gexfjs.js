@@ -224,23 +224,41 @@ function displayNode(_nodeIndex, _recentre) {
         for (var i in _d.attributes) {
             _str += '<li><b>' + strLang(i) + '</b> : ' + replaceURLWithHyperlinks( _d.attributes[i] ) + '</li>';
         }
-        _str += '</ul><h4>' + ( GexfJS.graph.directed ? strLang("inLinks") : strLang("undirLinks") ) + '</h4><ul>';
+	_str += '</ul>';
+	var _str_in = "",
+	    _str_out = "",
+	    _str_undir = "";
         for (var i in GexfJS.graph.edgeList) {
             var _e = GexfJS.graph.edgeList[i];
             if ( _e.target == _nodeIndex ) {
                 var _n = GexfJS.graph.nodeList[_e.source];
-                _str += '<li><div class="smallpill" style="background: ' + _n.color.base +'"></div><a href="#" onmouseover="GexfJS.params.activeNode = ' + _e.source + '" onclick="displayNode(' + _e.source + ', true); return false;">' + _n.label + '</a>' + ( GexfJS.params.showEdgeLabel && _e.label ? ' &ndash; ' + _e.label : '') + ( GexfJS.params.showEdgeWeight && _e.weight ? ' [' + _e.weight + ']' : '') + '</li>';
+                tmp = '<li><div class="smallpill" style="background: ' + _n.color.base +'"></div><a href="#" onmouseover="GexfJS.params.activeNode = ' + _e.source + '" onclick="displayNode(' + _e.source + ', true); return false;">' + _n.label + '</a>' + ( GexfJS.params.showEdgeLabel && _e.label ? ' &ndash; ' + _e.label : '') + ( GexfJS.params.showEdgeWeight && _e.weight ? ' [' + _e.weight + ']' : '') + '</li>';
+		if ( _e.directed ) {
+		    _str_in += tmp
+		} else {
+		    _str_undir += tmp
+		}
             }
-        }
-        if (GexfJS.graph.directed) _str += '</ul><h4>' + strLang("outLinks") + '</h4><ul>';
-        for (var i in GexfJS.graph.edgeList) {
-            var _e = GexfJS.graph.edgeList[i];
-            if ( _e.source == _nodeIndex ) {
+	    if ( _e.source == _nodeIndex ) {
                 var _n = GexfJS.graph.nodeList[_e.target];
-                _str += '<li><div class="smallpill" style="background: ' + _n.color.base +'"></div><a href="#" onmouseover="GexfJS.params.activeNode = ' + _e.target + '" onclick="displayNode(' + _e.target + ', true); return false;">' + _n.label + '</a>' + ( GexfJS.params.showEdgeLabel && _e.label ? ' &ndash; ' + _e.label : '') + ( GexfJS.params.showEdgeWeight && _e.weight ? ' [' + _e.weight + ']' : '') + '</li>';
+                tmp = '<li><div class="smallpill" style="background: ' + _n.color.base +'"></div><a href="#" onmouseover="GexfJS.params.activeNode = ' + _e.target + '" onclick="displayNode(' + _e.target + ', true); return false;">' + _n.label + '</a>' + ( GexfJS.params.showEdgeLabel && _e.label ? ' &ndash; ' + _e.label : '') + ( GexfJS.params.showEdgeWeight && _e.weight ? ' [' + _e.weight + ']' : '') + '</li>';
+		if ( _e.directed ) {
+		    _str_out += tmp
+		} else {
+		    _str_undir += tmp
+		}
             }
         }
-        _str += '</ul><p></p>';
+	if ( _str_in != "" ) {
+	    _str += '<h4>' + strLang("inLinks") + '</h4><ul>' + _str_in + '</ul>'
+	}
+	if ( _str_out != "" ) {
+	    _str += '<h4>' + strLang("outLinks") + '</h4><ul>' + _str_out + '</ul>'
+	}
+	if ( _str_undir != "" ) {
+	    _str += '<h4>' + strLang("undirLinks") + '</h4><ul>' + _str_undir + '</ul>'
+	}
+        _str += '<p></p>';
         $("#leftcontent").html(_str);
         if (_recentre) {
             GexfJS.params.centreX = _b.x;
@@ -494,7 +512,10 @@ function loadGraph() {
                     _tid = _e.attr("target"),
                     _tix = GexfJS.graph.nodeIndexById.indexOf(_tid);
                     _w = _e.find('attvalue[for="weight"]').attr('value') || _e.attr('weight');
-                    _col = _e.find("viz\\:color,color");
+                    _col = _e.find("viz\\:color,color"),
+		    _directed = GexfJS.graph.directed;
+		if (_e.attr("type") == "directed") _directed = true;
+		if (_e.attr("type") == "undirected") _directed = false;
                 if (_col.length) {
                     var _r = _col.attr("r"),
                         _g = _col.attr("g"),
@@ -519,6 +540,7 @@ function loadGraph() {
                     weight : parseFloat(_w || 0),
                     color : "rgba(" + _r + "," + _g + "," + _b + ",.7)",
                     label: _e.attr("label") || "",
+		    directed: _directed
                 });
             });
             
