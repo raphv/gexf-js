@@ -596,24 +596,28 @@ function findAngle(sx, sy, ex, ey) {
 }
 
 function drawArrowhead(contexte, locx, locy, angle, sizex, sizey) {
+    tmp = contexte.lineWidth;
     var hx = sizex / 2;
     var hy = sizey / 2;
     contexte.translate((locx ), (locy));
     contexte.rotate(angle);
     contexte.translate(-hx,-hy);
+    contexte.lineWidth = 1;
     contexte.beginPath();
     contexte.moveTo(0,0);
     contexte.lineTo(0,1*sizey);    
     contexte.lineTo(1*sizex,1*hy);
     contexte.closePath();
+    contexte.fillStyle = "#424242";
     contexte.fill();
+    contexte.stroke();
     contexte.translate(hx,hy);
     contexte.rotate(-angle);
     contexte.translate(-locx, -locy);
+    contexte.lineWidth = tmp;
 }
 
-function traceArc(contexte, source, target, draw_arrow) {
-    var arrow_size = 22;
+function traceArc(contexte, source, target, arrow_size, draw_arrow) {
     contexte.beginPath();
     contexte.moveTo(source.x, source.y);
     if (GexfJS.params.curvedEdges) {
@@ -646,8 +650,7 @@ function traceArc(contexte, source, target, draw_arrow) {
 	    var tmp = Math.pow(0.5,2)
 	    var x_prime_middle = 3*tmp*(- x2 - x3 + x4 + x5)
 	    var y_prime_middle = 3*tmp*(- y2 - y3 + y4 + y5)
-	    drawArrowhead(contexte,x_middle,y_middle, findAngle(0,0,x_prime_middle, y_prime_middle), GexfJS.overviewScale*arrow_size, GexfJS.overviewScale*arrow_size);
-	    contexte.stroke();
+	    drawArrowhead(contexte,x_middle,y_middle, findAngle(0,0,x_prime_middle, y_prime_middle), arrow_size, arrow_size);
 	}
     } else {
         contexte.lineTo(target.x,target.y);
@@ -744,7 +747,7 @@ function traceMap() {
             var _coords = ( ( GexfJS.params.useLens && GexfJS.mousePosition ) ? calcCoord( GexfJS.mousePosition.x , GexfJS.mousePosition.y , _ds.coords.actual ) : _ds.coords.actual );
             _coordt = ( (GexfJS.params.useLens && GexfJS.mousePosition) ? calcCoord( GexfJS.mousePosition.x , GexfJS.mousePosition.y , _dt.coords.actual ) : _dt.coords.actual );
             GexfJS.ctxGraphe.strokeStyle = ( _isLinked ? _d.color : "rgba(100,100,100,0.2)" );
-            traceArc(GexfJS.ctxGraphe, _coords, _coordt, GexfJS.params.showEdgeArrow && _d.directed);
+            traceArc(GexfJS.ctxGraphe, _coords, _coordt, _sizeFactor * 5, GexfJS.params.showEdgeArrow && _d.directed);
         }
     }
     GexfJS.ctxGraphe.lineWidth = 4;
