@@ -464,7 +464,7 @@ function onGraphScroll(evt, delta) {
         if (GexfJS.totalScroll < 0) {
             if (GexfJS.params.zoomLevel > GexfJS.minZoom) {
                 GexfJS.params.zoomLevel--;
-                var _el = $('#carte'),
+                var _el = (typeof($(this).offset()) == 'object') ? $(this) : $('#carte'),
                     _off = _el.offset(),
                     _deltaX = evt.pageX - _el.width() / 2 - _off.left,
                     _deltaY = evt.pageY - _el.height() / 2 - _off.top;
@@ -476,7 +476,7 @@ function onGraphScroll(evt, delta) {
             if (GexfJS.params.zoomLevel < GexfJS.maxZoom) {
                 GexfJS.params.zoomLevel++;
                 GexfJS.echelleGenerale = Math.pow( Math.SQRT2, GexfJS.params.zoomLevel );
-                var _el = $('#carte'),
+                var _el = (typeof($(this).offset()) == 'object') ? $(this) : $('#carte'),
                     _off = _el.offset(),
                     _deltaX = evt.pageX - _el.width() / 2 - _off.left,
                     _deltaY = evt.pageY - _el.height() / 2 - _off.top;
