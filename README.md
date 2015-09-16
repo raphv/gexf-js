@@ -4,39 +4,45 @@
 
 ### Newest features ##
 
-URLs in attributes can now be replaced by hyperlinks using the replaceUrls option in config.js
+Hybrid directed/undirected graphs are now supported, and arrows can be shown.
 
-Edge weights are now listed. This can be disabled with the showEdgeWeight option in config.js
-
-Gexf-JS now speaks 7 languages: English, French, Italian, Spanish, Finnish, Turkish and Greek !
+Gexf-JS now speaks 9 languages: Dutch, English, French, Finnish, German, Greek, Italian, Spanish, and Turkish!
 
 ### Contributors ##
 
-#### Raphaël Velt (main developer, french and english versions)
+#### Raphaël Velt (main developer, French and English versions)
 
 * http://raphaelve.lt/
 * Twitter: [@raphv](http://twitter.com/raphv)
 
-#### Vicenzo Cosenza (italian translation)
+#### Vicenzo Cosenza (Italian translation)
 
 * http://www.vincos.it/
 * Twitter: [@vincos](http://twitter.com/vincos)
 
-#### Eduardo Ramos Ibáñez (spanish translation)
+#### Eduardo Ramos Ibáñez (Spanish translation)
 
 * https://github.com/eduramiba
 * Twitter: [@eduramiba](http://twitter.com/eduramiba)
 
-#### Jaakko Salonen (finnish translation and hyperlink replacement)
+#### Jaakko Salonen (Finnish translation and hyperlink replacement)
 
 * https://github.com/jsalonen
 * Twitter: [@jsalonen](http://twitter.com/jsalonen)
 
-#### Zeynep Akata (turkish translation)
+#### Zeynep Akata (Turkish translation)
 
-#### Σωτήρης Φραγκίσκος (greek translation)
+#### Σωτήρης Φραγκίσκος (Greek translation)
 
-#### Martin Eckert (german translation)
+#### Martin Eckert (German translation)
+
+#### Tobias Bora (Arrows and hybrid graphs)
+
+* https://github.com/tobiasBora
+
+#### Jan de Mooij (Dutch translation)
+
+* https://github.com/Ilsontfous
 
 ### How to use ? ##
 
@@ -67,7 +73,7 @@ Gexf JS Viewer is now available in English, French and Italian
 
 If you want to translate the interface in your language (and share this translation with the community), please translate the following sentences, send them to me and I'll upload them to github.
 
-Strings to translate :
+Strings to translate:
 
 1. Search nodes
 2. Attributes

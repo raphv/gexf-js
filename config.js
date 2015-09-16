@@ -68,7 +68,8 @@ setParams({
             - Italian [it]
             - Finnish [fi]
             - Turkish [tr]
-            - Greek [el].
+            - Greek [el]
+            - Dutch [nl]
             If set to false, the language will be that of the user's browser.
         */
 });
