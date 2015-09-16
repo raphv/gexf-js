@@ -192,7 +192,6 @@ var GexfJS = {
             "edgeOff" : "Kanten verbergen",
             "zoomIn" : "Inzoomen",
             "zoomOut" : "Uitzoomen",
-            "browserErr" : 'Your browser cannot properly display this page.<br />We recommend you use the latest <a href="http://www.mozilla.com/" target="_blank">Firefox</a> or <a href="http://www.google.com/chrome/" target="_blank">Chrome</a> version'
             "browserErr" : 'Uw browser kan deze pagina niet correct tonen.<br />We raden aan de meest recente versie van <a href="http://www.mozilla.com/" target="_blank">Firefox</a> of <a href="http://www.google.com/chrome/" target="_blank">Chrome</a> te gebruiken'
         }
     },
@@ -301,6 +300,25 @@ function updateWorkspaceBounds() {
     }
 }
 
+function onTouchStart(evt)
+{
+    
+    var coords = evt.originalEvent.targetTouches[0];
+    if(evt.originalEvent.targetTouches.length == 1)
+    {
+        GexfJS.lastMouse = {
+            x : coords.pageX,
+            y : coords.pageY
+        }
+        GexfJS.dragOn = true;
+        GexfJS.mouseHasMoved = false;
+    } else {
+        GexfJS.lastPinch = getPinchDistance(evt);
+        GexfJS.pinchOn = true;  
+    }
+    
+}
+
 function startMove(evt) {
     evt.preventDefault();
     GexfJS.dragOn = true;
@@ -311,6 +329,13 @@ function startMove(evt) {
     GexfJS.mouseHasMoved = false;
 }
 
+function onTouchEnd(evt)
+{
+    GexfJS.dragOn = false;
+    GexfJS.pinchOn = false;
+    GexfJS.mouseHasMoved = false;
+}
+
 function endMove(evt) {
     document.body.style.cursor = "default";
     GexfJS.dragOn = false;
@@ -318,7 +343,7 @@ function endMove(evt) {
 }
 
 function onGraphClick(evt) {
-    if (!GexfJS.mouseHasMoved) {
+    if (!GexfJS.mouseHasMoved && !GexfJS.pinchOn) {
         displayNode(GexfJS.params.activeNode);
     }
     endMove();
@@ -353,8 +378,82 @@ function onGraphMove(evt) {
     }
 }
 
+function onGraphDrag(evt)
+{
+    evt.preventDefault();
+    if (!GexfJS.graph) {
+        return;
+    }
+    if(evt.originalEvent.targetTouches.length == 1)
+    {
+        var coords = evt.originalEvent.targetTouches[0];
+        GexfJS.mousePosition = {
+            x : coords.pageX - $(this).offset().left,
+            y : coords.pageY - $(this).offset().top
+        };
+        if (GexfJS.dragOn) {
+            evt.pageX = coords.pageX;
+            evt.pageY = coords.pageY;
+            changeGraphPosition(evt,GexfJS.echelleGenerale);
+            GexfJS.mouseHasMoved = true;
+        } else {
+            GexfJS.params.activeNode = getNodeFromPos(GexfJS.mousePosition);
+        }
+    } else {
+
+        evt.pageX = evt.originalEvent.targetTouches[0].pageX + 
+            (
+                (
+                    evt.originalEvent.targetTouches[1].pageX - 
+                    evt.originalEvent.targetTouches[0].pageX
+                ) /2 
+            );
+        evt.pageY = evt.originalEvent.targetTouches[0].pageY + 
+        (
+            (
+                evt.originalEvent.targetTouches[1].pageY - 
+                evt.originalEvent.targetTouches[0].pageY 
+            ) / 2
+        );
+
+        var currentPinch = getPinchDistance(evt);
+        
+        var delta = currentPinch - GexfJS.lastPinch;
+        if(Math.abs(delta) >= 20)
+        {
+            GexfJS.lastPinch = currentPinch;
+            onGraphScroll(evt, delta);
+        } else {
+            GexfJS.totalScroll = 0;
+        }
+    }
+}
+
+function getPinchDistance(evt)
+{
+    return Math.sqrt(
+        Math.pow(
+            evt.originalEvent.targetTouches[0].pageX - 
+            evt.originalEvent.targetTouches[1].pageX, 2) +
+        Math.pow(
+            evt.originalEvent.targetTouches[0].pageY - 
+            evt.originalEvent.targetTouches[1].pageY, 2
+        )
+    );
+}
+
 function onOverviewMove(evt) {
     if (GexfJS.dragOn) {
+        changeGraphPosition(evt,-GexfJS.overviewScale);
+    }
+}
+
+function onOverviewDrag(evt)
+{
+    var coords = evt.originalEvent.targetTouches[0];
+    evt.pageX = coords.pageX;
+    evt.pageY = coords.pageY;
+    if(GexfJS.dragOn) {
         changeGraphPosition(evt,-GexfJS.overviewScale);
     }
 }
@@ -365,8 +464,8 @@ function onGraphScroll(evt, delta) {
         if (GexfJS.totalScroll < 0) {
             if (GexfJS.params.zoomLevel > GexfJS.minZoom) {
                 GexfJS.params.zoomLevel--;
-                var _el = $(this),
-                    _off = $(this).offset(),
+                var _el = $('#carte'),
+                    _off = _el.offset(),
                     _deltaX = evt.pageX - _el.width() / 2 - _off.left,
                     _deltaY = evt.pageY - _el.height() / 2 - _off.top;
                 GexfJS.params.centreX -= ( Math.SQRT2 - 1 ) * _deltaX / GexfJS.echelleGenerale;
@@ -377,8 +476,8 @@ function onGraphScroll(evt, delta) {
             if (GexfJS.params.zoomLevel < GexfJS.maxZoom) {
                 GexfJS.params.zoomLevel++;
                 GexfJS.echelleGenerale = Math.pow( Math.SQRT2, GexfJS.params.zoomLevel );
-                var _el = $(this),
-                    _off = $(this).offset(),
+                var _el = $('#carte'),
+                    _off = _el.offset(),
                     _deltaX = evt.pageX - _el.width() / 2 - _off.left,
                     _deltaY = evt.pageY - _el.height() / 2 - _off.top;
                 GexfJS.params.centreX += ( Math.SQRT2 - 1 ) * _deltaX / GexfJS.echelleGenerale;
@@ -906,17 +1005,27 @@ $(document).ready(function() {
     });
     $("#carte")
         .mousemove(onGraphMove)
+        .bind('touchmove', onGraphDrag)
         .click(onGraphClick)
+        .bind('touchend', onGraphClick)
         .mousedown(startMove)
+        .bind('touchstart', onTouchStart)
         .mouseout(function() {
             GexfJS.mousePosition = null;
             endMove();
         })
+        .bind('touchend', function(){
+            GexfJS.mousePosition = null;
+            onTouchEnd();
+        })
         .mousewheel(onGraphScroll);
     $("#overview")
         .mousemove(onOverviewMove)
+        .bind('touchmove', onOverviewDrag)
         .mousedown(startMove)
+        .bind('touchstart', onTouchStart)
         .mouseup(endMove)
+        .bind('touchend', onTouchEnd)
         .mouseout(endMove)
         .mousewheel(onGraphScroll);
     $("#zoomMinusButton").click(function() {
