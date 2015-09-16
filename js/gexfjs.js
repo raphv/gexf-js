@@ -178,6 +178,22 @@ var GexfJS = {
             "zoomIn" : "Yaklaştır",
             "zoomOut" : "Uzaklaştır",
             "browserErr" : "Tarayıcınız sayfayı doğru bir biçimde görüntüleyemiyor.<br />En son Firefox veya Chrome sürümünü kullanmanızı tavsiye ederiz."
+        },
+        "nl" : {
+            "search" : "Knooppunten doorzoeken",
+            "nodeAttr" : "Attributen",
+            "nodes" : "Knooppunten",
+            "inLinks" : "Binnenkomende verbindingen van :",
+            "outLinks" : "Uitgaande verbindingen naar :",
+            "undirLinks" : "Ongerichtte verbindingen met:",
+            "lensOn" : "Loepmodus activeren",
+            "lensOff" : "Loepmodus deactiveren",
+            "edgeOn" : "Kanten tonen",
+            "edgeOff" : "Kanten verbergen",
+            "zoomIn" : "Inzoomen",
+            "zoomOut" : "Uitzoomen",
+            "browserErr" : 'Your browser cannot properly display this page.<br />We recommend you use the latest <a href="http://www.mozilla.com/" target="_blank">Firefox</a> or <a href="http://www.google.com/chrome/" target="_blank">Chrome</a> version'
+            "browserErr" : 'Uw browser kan deze pagina niet correct tonen.<br />We raden aan de meest recente versie van <a href="http://www.mozilla.com/" target="_blank">Firefox</a> of <a href="http://www.google.com/chrome/" target="_blank">Chrome</a> te gebruiken'
         }
     },
     lang : "en"
