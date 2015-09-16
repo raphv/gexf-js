@@ -47,6 +47,16 @@ setParams({
             this setting can't be changed from the User Interface
         */
     showEdgeLabel : true,
+    showId : true,
+        /*
+            Show the id of the node in the list
+            this setting can't be changed from the User Interface
+        */
+    showEdgeArrow : true,
+        /*
+            Show the edge arrows when the edge is directed
+            this setting can't be changed from the User Interface
+        */
     language: false,
         /*
             Set to an ISO language code to switch the interface to that language.

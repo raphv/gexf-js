@@ -220,27 +220,48 @@ function displayNode(_nodeIndex, _recentre) {
             });
         _str += '<h3><div class="largepill" style="background: ' + _d.color.base +'"></div>' + _d.label + '</h3>';
         _str += '<h4>' + strLang("nodeAttr") + '</h4>';
-        _str += '<ul><li><b>id</b> : ' + _d.id + '</li>';
+        _str += '<ul>';
+	if (GexfJS.params.showId) {
+	    _str += '<li><b>id</b> : ' + _d.id + '</li>';
+	}
         for (var i in _d.attributes) {
             _str += '<li><b>' + strLang(i) + '</b> : ' + replaceURLWithHyperlinks( _d.attributes[i] ) + '</li>';
         }
-        _str += '</ul><h4>' + ( GexfJS.graph.directed ? strLang("inLinks") : strLang("undirLinks") ) + '</h4><ul>';
+	_str += '</ul>';
+	var _str_in = "",
+	    _str_out = "",
+	    _str_undir = "";
         for (var i in GexfJS.graph.edgeList) {
             var _e = GexfJS.graph.edgeList[i];
             if ( _e.target == _nodeIndex ) {
                 var _n = GexfJS.graph.nodeList[_e.source];
-                _str += '<li><div class="smallpill" style="background: ' + _n.color.base +'"></div><a href="#" onmouseover="GexfJS.params.activeNode = ' + _e.source + '" onclick="displayNode(' + _e.source + ', true); return false;">' + _n.label + '</a>' + ( GexfJS.params.showEdgeLabel && _e.label ? ' &ndash; ' + _e.label : '') + ( GexfJS.params.showEdgeWeight && _e.weight ? ' [' + _e.weight + ']' : '') + '</li>';
+                tmp = '<li><div class="smallpill" style="background: ' + _n.color.base +'"></div><a href="#" onmouseover="GexfJS.params.activeNode = ' + _e.source + '" onclick="displayNode(' + _e.source + ', true); return false;">' + _n.label + '</a>' + ( GexfJS.params.showEdgeLabel && _e.label ? ' &ndash; ' + _e.label : '') + ( GexfJS.params.showEdgeWeight && _e.weight ? ' [' + _e.weight + ']' : '') + '</li>';
+		if ( _e.directed ) {
+		    _str_in += tmp
+		} else {
+		    _str_undir += tmp
+		}
             }
-        }
-        if (GexfJS.graph.directed) _str += '</ul><h4>' + strLang("outLinks") + '</h4><ul>';
-        for (var i in GexfJS.graph.edgeList) {
-            var _e = GexfJS.graph.edgeList[i];
-            if ( _e.source == _nodeIndex ) {
+	    if ( _e.source == _nodeIndex ) {
                 var _n = GexfJS.graph.nodeList[_e.target];
-                _str += '<li><div class="smallpill" style="background: ' + _n.color.base +'"></div><a href="#" onmouseover="GexfJS.params.activeNode = ' + _e.target + '" onclick="displayNode(' + _e.target + ', true); return false;">' + _n.label + '</a>' + ( GexfJS.params.showEdgeLabel && _e.label ? ' &ndash; ' + _e.label : '') + ( GexfJS.params.showEdgeWeight && _e.weight ? ' [' + _e.weight + ']' : '') + '</li>';
+                tmp = '<li><div class="smallpill" style="background: ' + _n.color.base +'"></div><a href="#" onmouseover="GexfJS.params.activeNode = ' + _e.target + '" onclick="displayNode(' + _e.target + ', true); return false;">' + _n.label + '</a>' + ( GexfJS.params.showEdgeLabel && _e.label ? ' &ndash; ' + _e.label : '') + ( GexfJS.params.showEdgeWeight && _e.weight ? ' [' + _e.weight + ']' : '') + '</li>';
+		if ( _e.directed ) {
+		    _str_out += tmp
+		} else {
+		    _str_undir += tmp
+		}
             }
         }
-        _str += '</ul><p></p>';
+	if ( _str_in != "" ) {
+	    _str += '<h4>' + strLang("inLinks") + '</h4><ul>' + _str_in + '</ul>'
+	}
+	if ( _str_out != "" ) {
+	    _str += '<h4>' + strLang("outLinks") + '</h4><ul>' + _str_out + '</ul>'
+	}
+	if ( _str_undir != "" ) {
+	    _str += '<h4>' + strLang("undirLinks") + '</h4><ul>' + _str_undir + '</ul>'
+	}
+        _str += '<p></p>';
         $("#leftcontent").html(_str);
         if (_recentre) {
             GexfJS.params.centreX = _b.x;
@@ -494,7 +515,10 @@ function loadGraph() {
                     _tid = _e.attr("target"),
                     _tix = GexfJS.graph.nodeIndexById.indexOf(_tid);
                     _w = _e.find('attvalue[for="weight"]').attr('value') || _e.attr('weight');
-                    _col = _e.find("viz\\:color,color");
+                    _col = _e.find("viz\\:color,color"),
+		    _directed = GexfJS.graph.directed;
+		if (_e.attr("type") == "directed") _directed = true;
+		if (_e.attr("type") == "undirected") _directed = false;
                 if (_col.length) {
                     var _r = _col.attr("r"),
                         _g = _col.attr("g"),
@@ -519,6 +543,7 @@ function loadGraph() {
                     weight : parseFloat(_w || 0),
                     color : "rgba(" + _r + "," + _g + "," + _b + ",.7)",
                     label: _e.attr("label") || "",
+		    directed: _directed
                 });
             });
             
@@ -561,27 +586,80 @@ function calcCoord(x, y, coord) {
     }
 }
 
-function traceArc(contexte, source, target) {
+function findAngle(sx, sy, ex, ey) {
+    var tmp = Math.atan((ey - sy) / (ex - sx));
+    if (ex - sx >= 0) {
+	return tmp
+    } else {
+	return tmp + Math.PI
+    }
+}
+
+function drawArrowhead(contexte, locx, locy, angle, sizex, sizey) {
+    tmp = contexte.lineWidth;
+    var hx = sizex / 2;
+    var hy = sizey / 2;
+    contexte.translate((locx ), (locy));
+    contexte.rotate(angle);
+    contexte.translate(-hx,-hy);
+    contexte.lineWidth = 1;
+    contexte.beginPath();
+    contexte.moveTo(0,0);
+    contexte.lineTo(0,1*sizey);    
+    contexte.lineTo(1*sizex,1*hy);
+    contexte.closePath();
+    contexte.fillStyle = "#424242";
+    contexte.fill();
+    contexte.stroke();
+    contexte.translate(hx,hy);
+    contexte.rotate(-angle);
+    contexte.translate(-locx, -locy);
+    contexte.lineWidth = tmp;
+}
+
+function traceArc(contexte, source, target, arrow_size, draw_arrow) {
     contexte.beginPath();
     contexte.moveTo(source.x, source.y);
     if (GexfJS.params.curvedEdges) {
+	var x2,y2,x3,y3,x4,y4,x5,y5;
+	x2 = source.x;
+	y2 = source.y;
         if ( ( source.x == target.x ) && ( source.y == target.y ) ) {
-            var x3 = source.x + 2.8 * source.r;
-            var y3 = source.y - source.r;
-            var x4 = source.x;
-            var y4 = source.y + 2.8 * source.r;
-            contexte.bezierCurveTo(x3,y3,x4,y4,source.x + 1,source.y);
+            x3 = source.x + 2.8 * source.r;
+            y3 = source.y - source.r;
+            x4 = source.x;
+            y4 = source.y + 2.8 * source.r;
+	    x5 = source.x + 1;
+	    y5 = source.y;
         } else {
-            var x3 = .3 * target.y - .3 * source.y + .8 * source.x + .2 * target.x;
-            var y3 = .8 * source.y + .2 * target.y - .3 * target.x + .3 * source.x;
-            var x4 = .3 * target.y - .3 * source.y + .2 * source.x + .8 * target.x;
-            var y4 = .2 * source.y + .8 * target.y - .3 * target.x + .3 * source.x;
-            contexte.bezierCurveTo(x3,y3,x4,y4,target.x,target.y);
+            x3 = .3 * target.y - .3 * source.y + .8 * source.x + .2 * target.x;
+            y3 = .8 * source.y + .2 * target.y - .3 * target.x + .3 * source.x;
+            x4 = .3 * target.y - .3 * source.y + .2 * source.x + .8 * target.x;
+            y4 = .2 * source.y + .8 * target.y - .3 * target.x + .3 * source.x;
+	    x5 = target.x;
+	    y5 = target.y;
         }
+	contexte.bezierCurveTo(x3,y3,x4,y4,x5,y5);
+	contexte.stroke();
+	if (draw_arrow){
+	    // Find the middle of the bezierCurve
+	    var tmp = Math.pow(0.5, 3)
+	    var x_middle = tmp * (x2 + 3*x3 + 3*x4 + x5)
+	    var y_middle = tmp * (y2 + 3*y3 + 3*y4 + y5)
+	    // Find the angle of the bezierCurve at the middle point
+	    var tmp = Math.pow(0.5,2)
+	    var x_prime_middle = 3*tmp*(- x2 - x3 + x4 + x5)
+	    var y_prime_middle = 3*tmp*(- y2 - y3 + y4 + y5)
+	    drawArrowhead(contexte,x_middle,y_middle, findAngle(0,0,x_prime_middle, y_prime_middle), arrow_size, arrow_size);
+	}
     } else {
         contexte.lineTo(target.x,target.y);
+	contexte.stroke();
+	if (draw_arrow) {
+	    drawArrowhead(contexte,(source.x+target.x)/2, (source.y + target.y)/2, findAngle(source.x, source.y, target.x, target.y), GexfJS.overviewScale*arrow_size, GexfJS.overviewScale*arrow_size);
+	    contexte.stroke();
+	}
     }
-    contexte.stroke();
 }
 
 function traceMap() {
@@ -669,7 +747,7 @@ function traceMap() {
             var _coords = ( ( GexfJS.params.useLens && GexfJS.mousePosition ) ? calcCoord( GexfJS.mousePosition.x , GexfJS.mousePosition.y , _ds.coords.actual ) : _ds.coords.actual );
             _coordt = ( (GexfJS.params.useLens && GexfJS.mousePosition) ? calcCoord( GexfJS.mousePosition.x , GexfJS.mousePosition.y , _dt.coords.actual ) : _dt.coords.actual );
             GexfJS.ctxGraphe.strokeStyle = ( _isLinked ? _d.color : "rgba(100,100,100,0.2)" );
-            traceArc(GexfJS.ctxGraphe, _coords, _coordt);
+            traceArc(GexfJS.ctxGraphe, _coords, _coordt, _sizeFactor * 3.5, GexfJS.params.showEdgeArrow && _d.directed);
         }
     }
     GexfJS.ctxGraphe.lineWidth = 4;
