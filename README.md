@@ -40,7 +40,7 @@ Gexf-JS now speaks 9 languages: Dutch, English, French, Finnish, German, Greek, 
 
 * https://github.com/tobiasBora
 
-#### Jan de Mooij (Dutch translation)
+#### Jan de Mooij (Dutch translation and touch-screen compatibility)
 
 * https://github.com/Ilsontfous
 
