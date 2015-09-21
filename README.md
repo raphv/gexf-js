@@ -2,13 +2,28 @@
 
 #### Released under MIT License ###
 
-### Newest features ##
+### Known Issues
+
+**The issue below is the source of 90% of support emails I receive, please read carefully**
+
+Gexf-JS won't work on chrome if launched from your local drive (with a file:/// URI scheme).
+This is a known security limitation, and there are 2 known workarounds:
+
+1. Use Firefox.
+2. Use a server (upload it or use a local server). If you have Python on your computer, the simplest is to launch a SimpleHTTPServer with the Command Line:
+
+     $ cd /path/to/gexf-js
+     $ python -m SimpleHTTPServer
+
+There used to a third workaround (The --allow-file-access-from-files flag), but it is no longer available on newest Chrome versions since 2014.
+
+### Newest features
 
 Hybrid directed/undirected graphs are now supported, and arrows can be shown.
 
 Gexf-JS now speaks 9 languages: Dutch, English, French, Finnish, German, Greek, Italian, Spanish, and Turkish!
 
-### Contributors ##
+### Contributors
 
 #### Raphaël Velt (main developer, French and English versions)
 
@@ -44,7 +59,7 @@ Gexf-JS now speaks 9 languages: Dutch, English, French, Finnish, German, Greek, 
 
 * https://github.com/Ilsontfous
 
-### How to use ? ##
+### How to use ?
 
 1. Export your graph from Gephi as a GEXF file
 2. Put it in the gexf-js directory
@@ -52,7 +67,7 @@ Gexf-JS now speaks 9 languages: Dutch, English, French, Finnish, German, Greek, 
 
 You can view more Gexf files by pointing your browser to index.html#Filename.gexf
 
-### Compatibility ##
+### Compatibility
 
 Gexf-JS uses the canvas element, which might cause compatibility issues with older browsers.
 
@@ -60,14 +75,7 @@ It has been tested with the latest Chrome, Firefox and Internet Explorer version
 
 It doesn't work with Internet Explorer 8 or older.
 
-### Known Issues ##
-
-You may have trouble using the viewer if you launch it from a local drive, as some browsers consider loading files from disk via Ajax to be unsecure.
-It usually works with Firefox, but not with Chrome. In Internet Explorer you'll have a security pop-up asking you to "Allow blocked content".
-
-Another solution is uploading it to a server, where it should work correctly.
-
-### Contribute as a translator ##
+### Contribute as a translator
 
 Gexf JS Viewer is now available in English, French and Italian
 
