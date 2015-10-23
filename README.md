@@ -12,8 +12,8 @@ This is a known security limitation, and there are 2 known workarounds:
 1. Use Firefox.
 2. Use a server (upload it or use a local server). If you have Python on your computer, the simplest is to launch a SimpleHTTPServer with the Command Line:
 
-     $ cd /path/to/gexf-js
-     $ python -m SimpleHTTPServer
+    $ cd /path/to/gexf-js
+    $ python -m SimpleHTTPServer
 
 There used to a third workaround (The --allow-file-access-from-files flag), but it is no longer available on newest Chrome versions since 2014.
 
@@ -58,6 +58,8 @@ Gexf-JS now speaks 9 languages: Dutch, English, French, Finnish, German, Greek, 
 #### Jan de Mooij (Dutch translation and touch-screen compatibility)
 
 * https://github.com/Ilsontfous
+
+#### Bruna Delzari (Portuguese translation)
 
 ### How to use ?
 

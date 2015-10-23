@@ -1,4 +1,6 @@
 /* Lead developer: Raphaël Velt
+ * Other developers: Jakko Salonen, Tobias Bora, Jan de Mooij
+ *
  * Licensed under the MIT License
  * Translations by:
  *    Vicenzo Cosenza (Italian)
@@ -7,6 +9,8 @@
  *    Zeynep Akata (Turkish)
  *    Σωτήρης Φραγκίσκος (Greek)
  *    Martin Eckert (German)
+ *    Jan de Mooij (Dutch)
+ *    Bruna Delazeri (Brazilian Portuguese)
  * */
 
 // Namespace
@@ -164,21 +168,6 @@ var GexfJS = {
             "zoomOut" : "Zoom indietro",
             "browserErr" : 'Il tuo browser non pu&ograve; visualizzare correttamente questa pagina.<br />Ti raccomandiamo l\'uso dell\'ultima versione di  <a href="http://www.mozilla.com/" target="_blank">Firefox</a> o <a href="http://www.google.com/chrome/" target="_blank">Chrome</a>'
         },
-        "nl" : {
-            "search" : "Zoek knooppunten",
-            "nodeAttr" : "Attributen",
-            "nodes" : "Knooppunten",
-            "inLinks" : "Binnenkomende connecties van:",
-            "outLinks" : "Uitgaande connecties naar",
-            "undirLinks" : "Ongerichte connecties met",
-            "lensOn" : "Activeer lensmodus",
-            "lensOff" : "Deactiveer lensmodus",
-            "edgeOn" : "Toon grafen",
-            "edgeOff" : "Verberg grafen",
-            "zoomIn" : "Inzoomen",
-            "zoomOut" : "Uitzoomen",
-            "browserErr" : 'Uw browser kan deze pagina niet correct tonen.<br />We raden aan om up te daten naar de nieuwe versie van <a href="http://www.mozilla.com/" target="_blank">Firefox</a> of <a href="http://www.google.com/chrome/" target="_blank">Chrome</a>'
-        },
         "tr" : {
             "search" : "Düğüm ara",
             "nodeAttr" : "Özellikler",
@@ -208,6 +197,21 @@ var GexfJS = {
             "zoomIn" : "Inzoomen",
             "zoomOut" : "Uitzoomen",
             "browserErr" : 'Uw browser kan deze pagina niet correct tonen.<br />We raden aan de meest recente versie van <a href="http://www.mozilla.com/" target="_blank">Firefox</a> of <a href="http://www.google.com/chrome/" target="_blank">Chrome</a> te gebruiken'
+        },
+        "pt": {
+            "search" : "Pesquisar nós",
+            "nodeAttr" : "Atributos",
+            "nodes" : "Nós",
+            "inLinks" : "Ligações de entrada",
+            "outLinks" : "Ligações de saída",
+            "undirLinks" : "Ligações sem direção",
+            "lensOn" : "Ativar modo lente",
+            "lensOff" : "Ativar modo lente",
+            "edgeOn" : "Mostrar arestas",
+            "edgeOff" : "Esconder arestas",
+            "zoomIn" : "Aumentar zoom",
+            "zoomOut" : "Diminuir zoom",
+            "browserErr" : "Seu navegador não pode exibir esta página corretamente.<br />Recomendamos que você use a versão mais recente do navegador Firefox ou Chrome."
         }
     },
     lang : "en"
