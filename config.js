@@ -47,6 +47,10 @@ setParams({
             this setting can't be changed from the User Interface
         */
     showEdgeLabel : true,
+    sortNodeAttributes: true,
+        /*
+            Alphabetically sort node attributes
+         */
     showId : true,
         /*
             Show the id of the node in the list

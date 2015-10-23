@@ -258,10 +258,11 @@ function displayNode(_nodeIndex, _recentre) {
 	if (GexfJS.params.showId) {
 	    _str += '<li><b>id</b> : ' + _d.id + '</li>';
 	}
-        for (var i in _d.attributes) {
-            _str += '<li><b>' + strLang(i) + '</b> : ' + replaceURLWithHyperlinks( _d.attributes[i] ) + '</li>';
-        }
-	_str += '</ul>';
+    for (var i = 0, l = _d.attributes.length; i < l; i++) {
+        var attr = _d.attributes[i];
+        _str += '<li><b>' + strLang(attr.key) + '</b> : ' + replaceURLWithHyperlinks(attr.value) + '</li>';
+    }
+    _str += '</ul>';
 	var _str_in = "",
 	    _str_out = "",
 	    _str_undir = "";
@@ -630,8 +631,16 @@ function loadGraph() {
                 $(_attr).each(function() {
                     var _a = $(this),
                         _for = _a.attr("for");                    
-                    _d.attributes[ _for ? _for : 'attribute_' + _a.attr("id") ] = _a.attr("value");
+                    _d.attributes.push({
+                        key: _for ? _for : 'attribute_' + _a.attr("id"),
+                        value:_a.attr("value")
+                    });
                 });
+                if (GexfJS.params.sortNodeAttributes) {
+                    _d.attributes.sort(function(a,b) {
+                        return (a.key < b.key ? -1 : (a.key > b.key ? 1 : 0));
+                    });
+                }
                 GexfJS.graph.nodeIndexById.push(_id);
                 GexfJS.graph.nodeIndexByLabel.push(_label.toLowerCase());
                 GexfJS.graph.nodeList.push(_d);
