@@ -61,6 +61,10 @@ Gexf-JS now speaks 9 languages: Dutch, English, French, Finnish, German, Greek, 
 
 #### Bruna Delzari (Portuguese translation)
 
+#### Adil Aliyev (Azerbaijani translation)
+* https://github.com/adilek
+* Twitter: [@adilaliyev](http://twitter.com/adilaliyev)
+
 ### How to use ?
 
 1. Export your graph from Gephi as a GEXF file

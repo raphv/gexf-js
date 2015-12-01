@@ -11,6 +11,7 @@
  *    Martin Eckert (German)
  *    Jan de Mooij (Dutch)
  *    Bruna Delazeri (Brazilian Portuguese)
+ *    Adil Aliyev (Azerbaijani)
  * */
 
 // Namespace
@@ -39,6 +40,23 @@ var GexfJS = {
     totalScroll : 0,
     autoCompletePosition : 0,
     i18n : {
+        "az" : {
+            "search" : "Təpələri axtar",
+            "nodeAttr" : "Attributlar",
+            "nodes" : "Təpə nöqtələri",
+            "inLinks" : "Daxil olan əlaqələr:",
+            "outLinks" : "Çıxan əlaqələr:",
+            "undirLinks" : "İstiqamətsiz əlaqələr:",
+            "lensOn" : "Linza rejiminə keç",
+            "lensOff" : "Linza rejimindən çıx",
+            "edgeOn" : "Tilləri göstər",
+            "edgeOff" : "Tilləri gizlət",
+            "zoomIn" : "Yaxınlaşdır",
+            "zoomOut" : "Uzaqlaşdır",
+            "browserErr" : 'Sizin brauzeriniz bu səhifəni düzgün göstərə bilmir.<br />Sizə <a href="http://www.mozilla.com/" target="_blank">Firefox</a> və ya <a href="http://www.google.com/chrome/" target="_blank">Chrome</a> brauzerlərinin sonuncu versiyasını yükləməyi tövsiyyə edirik.',
+            "modularity_class" : "Modullaşma sinfi",
+            "degree" : "Dərəcə"
+        },    	
         "de": {
             "search" : "Suche Knoten",
             "nodeAttr" : "Attribute",
