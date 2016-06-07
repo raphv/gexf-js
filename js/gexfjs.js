@@ -950,7 +950,12 @@ function traceMap() {
                     }
                 }
                 if (_fs > GexfJS.params.textDisplayThreshold) {
-                    GexfJS.ctxGraphe.fillStyle = ( ( i != GexfJS.params.activeNode ) && _tagsMisEnValeur.length && ( ( !_d.isTag ) || ( _centralNode != -1 ) ) ? "rgba(60,60,60,0.7)" : "rgb(0,0,0)" );
+                    if (typeof GexfJS.params.darkBackground != "undefined" && GexfJS.params.darkBackground) {
+                        GexfJS.ctxGraphe.fillStyle = ( ( i != GexfJS.params.activeNode ) && _tagsMisEnValeur.length && ( ( !_d.isTag ) || ( _centralNode != -1 ) ) ? "rgba(210,210,210,0.7)" : "rgb(215,215,215)" );    
+                    } else {
+                        GexfJS.ctxGraphe.fillStyle = ( ( i != GexfJS.params.activeNode ) && _tagsMisEnValeur.length && ( ( !_d.isTag ) || ( _centralNode != -1 ) ) ? "rgba(60,60,60,0.7)" : "rgb(0,0,0)" );
+                    }
+                    // GexfJS.ctxGraphe.fillStyle = ( ( i != GexfJS.params.activeNode ) && _tagsMisEnValeur.length && ( ( !_d.isTag ) || ( _centralNode != -1 ) ) ? "rgba(60,60,60,0.7)" : "rgb(0,0,0)" );
                     GexfJS.ctxGraphe.font = Math.floor( _fs )+"px Arial";
                     GexfJS.ctxGraphe.textAlign = "center";
                     GexfJS.ctxGraphe.textBaseline = "middle";
@@ -971,12 +976,22 @@ function traceMap() {
         GexfJS.ctxGraphe.font = "bold " + Math.floor( _fs )+"px Arial";
         GexfJS.ctxGraphe.textAlign = "center";
         GexfJS.ctxGraphe.textBaseline = "middle";
-        GexfJS.ctxGraphe.fillStyle = "rgba(255,255,250,0.8)";
+        if (typeof GexfJS.params.darkBackground != "undefined" && GexfJS.params.darkBackground) {
+            GexfJS.ctxGraphe.fillStyle = "rgb(0,0,0)";
+        } else {
+            GexfJS.ctxGraphe.fillStyle = "rgba(255,255,250,0.8)";
+        }
+        // GexfJS.ctxGraphe.fillStyle = "rgba(255,255,250,0.8)";
         GexfJS.ctxGraphe.fillText(_dnc.label, _dnc.coords.real.x - 2, _dnc.coords.real.y);
         GexfJS.ctxGraphe.fillText(_dnc.label, _dnc.coords.real.x + 2, _dnc.coords.real.y);
         GexfJS.ctxGraphe.fillText(_dnc.label, _dnc.coords.real.x, _dnc.coords.real.y - 2);
         GexfJS.ctxGraphe.fillText(_dnc.label, _dnc.coords.real.x, _dnc.coords.real.y + 2);
-        GexfJS.ctxGraphe.fillStyle = "rgb(0,0,0)";
+        if (typeof GexfJS.params.darkBackground != "undefined" && GexfJS.params.darkBackground) {
+            GexfJS.ctxGraphe.fillStyle = "rgba(255,255,250,0.8)";
+        } else {
+            GexfJS.ctxGraphe.fillStyle = "rgb(0,0,0)";
+        }
+        // GexfJS.ctxGraphe.fillStyle = "rgb(0,0,0)";
         GexfJS.ctxGraphe.fillText(_dnc.label, _dnc.coords.real.x, _dnc.coords.real.y);
     }
     
@@ -1045,6 +1060,26 @@ function setParams(paramlist) {
 }
 
 $(document).ready(function() {
+    // setup background css
+    var gradient_style_dark = [
+        "background-color:#070813",
+        "background-image:-webkit-radial-gradient(#263458, #070813)",
+        "background-image:-moz-radial-gradient(#ffffff, #d8d8e0)",
+        "color:white"
+    ].join(';');
+
+    var gradient_style_light = [
+        "background-color: #f0f0f8",
+        "background-image: -webkit-radial-gradient(#ffffff, #d8d8e0)",
+        "background-image: -moz-radial-gradient(#ffffff, #d8d8e0)",
+        "color:black"
+    ].join(';');
+
+    if (typeof GexfJS.params.darkBackground != "undefined" && GexfJS.params.darkBackground) {
+        $(".gradient").attr('style',gradient_style_dark);
+    } else {
+        $(".gradient").attr('style',gradient_style_light);    
+    }
     
     var lang = (
         typeof GexfJS.params.language != "undefined" && GexfJS.params.language
