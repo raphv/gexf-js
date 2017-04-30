@@ -102,6 +102,8 @@
       <node id="11.0" label="Valjean">
         <attvalues>
           <attvalue for="modularity_class" value="0"></attvalue>
+          <attvalue for="image" value="https://upload.wikimedia.org/wikipedia/commons/6/6c/Jean_Valjean.JPG"></attvalue>
+          <attvalue for="url" value="Wikipedia: https://en.wikipedia.org/wiki/Jean_Valjean"></attvalue>
         </attvalues>
         <viz:size value="60.0"></viz:size>
         <viz:position x="-65.40625" y="-73.33225"></viz:position>
@@ -398,6 +400,7 @@
       <node id="48.0" label="Gavroche">
         <attvalues>
           <attvalue for="modularity_class" value="4"></attvalue>
+          <attvalue for="image" value="https://upload.wikimedia.org/wikipedia/commons/e/e6/Gavroche_%28Les_Mis%C3%A9rables%29.jpg"></attvalue>
         </attvalues>
         <viz:size value="39.2"></viz:size>
         <viz:position x="337.5744" y="158.33633"></viz:position>

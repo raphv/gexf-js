@@ -226,6 +226,11 @@ div.smallpill {
     margin: 2px 0; padding: 0; font-size: 12px;
 }
 
+#leftcontent img {
+    max-width: 100%;
+    max-height: 300px;
+}
+
 a {
     color: #06a8de; font-weight: bold; text-decoration: none;
 }
@@ -254,19 +259,19 @@ a:hover {
 }
 
 #autocomplete li {
-    margin: 0; width: 240px; height: 28px; font-size: 12px; clear: both;
+    display: block; margin: 0; width: 240px; padding: 6px 0; font-size: 12px;
 }
 
-#autocomplete li a {
-    display: block; width: 240px; height: 28px; background: #fff; color: #06a8de;
+#autocomplete li.a {
+    color: #06a8de;
+}
+
+#autocomplete li.hover {
+    background: #06a8de;
 }
 
 #autocomplete li.hover a {
-    color: #fff; background: #06a8de;
-}
-
-#autocomplete span {
-    float: left; margin: 0; padding: 6px 2px 0;
+    color: #ffffff;
 }
 
 #autocomplete img {
