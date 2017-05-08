@@ -61,6 +61,10 @@ setParams({
             Show the edge arrows when the edge is directed
             this setting can't be changed from the User Interface
         */
+    darkBackground:true,
+        /*
+            Switch background to dark
+        */
     language: false,
         /*
             Set to an ISO language code to switch the interface to that language.
