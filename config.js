@@ -1,18 +1,20 @@
 /*** USE THIS FILE TO SET OPTIONS ***/
 
-setParams({
+GexfJS.setParams({
     graphFile : "miserables.gexf",
         /*
             The GEXF file to show ! -- can be overriden by adding
             a hash to the document location, e.g. index.html#celegans.gexf
+            GEXF files can now be replaced by pre-processed JSON files (use gexf2json.py)
+            for faster load time
         */
 	showEdges : true,
         /*
-            Default state of the "show edges" button
+            Default state of the "show edges" button. Set to null to disable button.
         */
     useLens : false,
         /*
-            Default state of the "use lens" button
+            Default state of the "use lens" button. Set to null to disable button.
         */
     zoomLevel : 0,
         /*

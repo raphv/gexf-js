@@ -897,7 +897,7 @@
           <attvalue for="weight" value="2.6"></attvalue>
         </attvalues>
       </edge>
-      <edge source="26.0" target="11.0" weight="5.0">
+      <edge source="26.0" target="11.0" weight="5.0" label="Cosette is Valjean's surrogate daughter">
         <attvalues>
           <attvalue for="weight" value="5.0"></attvalue>
         </attvalues>
