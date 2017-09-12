@@ -385,7 +385,7 @@
             });
             if (_str_in.length) {
                 $('<h4>').text(strLang("inLinks")).appendTo(_html);
-                $('<ul>').html(_str_out).appendTo(_html);
+                $('<ul>').html(_str_in).appendTo(_html);
             }
             if (_str_out.length) {
                 $('<h4>').text(strLang("outLinks")).appendTo(_html);
