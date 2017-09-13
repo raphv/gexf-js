@@ -55,7 +55,6 @@
                 "edgeOff": "Tilləri gizlət",
                 "zoomIn": "Yaxınlaşdır",
                 "zoomOut": "Uzaqlaşdır",
-                "browserErr": 'Sizin brauzeriniz bu səhifəni düzgün göstərə bilmir.<br />Sizə <a href="http://www.mozilla.com/" target="_blank">Firefox</a> və ya <a href="http://www.google.com/chrome/" target="_blank">Chrome</a> brauzerlərinin sonuncu versiyasını yükləməyi tövsiyyə edirik.',
                 "modularity_class": "Modullaşma sinfi",
                 "degree": "Dərəcə"
             },
@@ -72,7 +71,6 @@
                 "edgeOff": "Kanten verstecken",
                 "zoomIn": "Vergrößern",
                 "zoomOut": "Verkleinern",
-                "browserErr": 'Ihr Browser kann die Seite nicht richtig anzeigen.<br />Wir empfehlen die Verwendung der neusten <a href="http://www.mozilla.com/" target="_blank">Firefox</a> oder <a href="http://www.google.com/chrome/" target="_blank">Chrome</a> Version.'
             },
             "el": {
                 "search": "Αναζήτηση Κόμβων",
@@ -87,7 +85,6 @@
                 "edgeOff": "Απόκρυψη ακμών",
                 "zoomIn": "Μεγέθυνση",
                 "zoomOut": "Σμίκρυνση",
-                "browserErr": 'Ο περιηγητής σας δεν μπορεί να εμφανίσει σωστά αυτή τη σελίδα.<br />Σας προτείνουμε να χρησιμοποιήσετε την τελευταία έκδοση του <a href="http://www.mozilla.com/" target="_blank">Firefox</a> ή του <a href="http://www.google.com/chrome/" target="_blank">Chrome</a>'
             },
             "en": {
                 "search": "Search nodes",
@@ -102,7 +99,6 @@
                 "edgeOff": "Hide edges",
                 "zoomIn": "Zoom In",
                 "zoomOut": "Zoom Out",
-                "browserErr": 'Your browser cannot properly display this page.<br />We recommend you use the latest <a href="http://www.mozilla.com/" target="_blank">Firefox</a> or <a href="http://www.google.com/chrome/" target="_blank">Chrome</a> version'
             },
             "es": {
                 "search": "Buscar un nodo",
@@ -117,7 +113,6 @@
                 "edgeOff": "Ocultar aristas",
                 "zoomIn": "Acercar",
                 "zoomOut": "Alejar",
-                "browserErr": 'Tu navegador no es capaz de mostrar esta p&aacute;gina correctamente.<br />Le recomendamos utilizar la &uacute;ltima versi&oacute;n de <a href="http://www.mozilla.com/" target="_blank">Firefox</a> o <a href="http://www.google.com/chrome/" target="_blank">Chrome</a>',
                 "modularity_class": "Clase de modularidad",
                 "degree": "Grado",
                 "indegree": "Grado de entrada",
@@ -125,11 +120,11 @@
                 "weighted degree": "Grado ponderado",
                 "weighted indegree": "Grado de entrada ponderado",
                 "weighted outdegree": "Grado de salida ponderado",
-                "closnesscentrality": "Cercan&iacute;a",
-                "betweenesscentrality": "Intermediaci&oacute;n",
-                "authority": "Puntuaci&oacute;n de autoridad (HITS)",
-                "hub": "Puntuaci&oacute; de hub (HITS)",
-                "pageranks": "Puntuaci&oacute; de PageRank"
+                "closnesscentrality": "Cercanía",
+                "betweenesscentrality": "Intermediación",
+                "authority": "Puntuación de autoridad (HITS)",
+                "hub": "Puntuación de hub (HITS)",
+                "pageranks": "Puntuación de PageRank"
             },
             "fi": {
                 "search": "Etsi solmuja",
@@ -144,12 +139,11 @@
                 "edgeOff": "Näytä vain valitun solmun yhteydet",
                 "zoomIn": "Suurenna",
                 "zoomOut": "Pienennä",
-                "browserErr": 'Selaimesi ei voi näyttää tätä sivua.<br />Suosittelemme käyttämään uusinta versiota <a href="http://www.mozilla.com/" target="_blank">Firefox</a>- tai <a href="http://www.google.com/chrome/" target="_blank">Chrome</a>-selaimesta'
             },
             "fr": {
-                "search": "Rechercher un n&oelig;ud",
+                "search": "Rechercher un nœud",
                 "nodeAttr": "Attributs",
-                "nodes": "N&oelig;uds",
+                "nodes": "Nœuds",
                 "inLinks": "Liens entrants depuis :",
                 "outLinks": "Liens sortants vers :",
                 "undirLinks": "Liens non-dirigés avec :",
@@ -159,17 +153,16 @@
                 "edgeOff": "Cacher les sommets",
                 "zoomIn": "S'approcher",
                 "zoomOut": "S'éloigner",
-                "browserErr": 'Votre navigateur n\'est malheureusement pas compatible avec les fonctionnalités de ce site<br />Nous vous suggérons d\'utiliser une version récente de <a href="http://www.mozilla.com/" target="_blank">Firefox</a> ou <a href="http://www.google.com/chrome/" target="_blank">Chrome</a>',
                 "modularity_class": "Classe de modularité",
-                "degree": "Degr&eacute;",
-                "indegree": "&frac12; degr&eacute; int&eacute;rieur",
-                "outdegree": "&frac12; degr&eacute; ext&eacute;rieur",
-                "weighted degree": "Degr&eacute; pond&eacute;r&eacute;",
-                "weighted indegree": "&frac12; degr&eacute; int&eacute;rieur pond&eacute;r&eacute;",
-                "weighted outdegree": "&frac12; degr&eacute; ext&eacute;rieur pond&eacute;r&eacute;",
-                "closnesscentrality": "Centralit&eacute; de proximit&eacute;",
-                "betweenesscentrality": "Centralit&eacute; d'interm&eacute;diarit&eacute;",
-                "authority": "Score d'autorit&eacute; (HITS)",
+                "degree": "Degré",
+                "indegree": "Demi-degré intérieur",
+                "outdegree": "Demi-degré extérieur",
+                "weighted degree": "Degré pondéré",
+                "weighted indegree": "Demi-degré intérieur pondéré",
+                "weighted outdegree": "Demi-degré extérieur pondéré",
+                "closnesscentrality": "Centralité de proximité",
+                "betweenesscentrality": "Centralité d’intermédiarité",
+                "authority": "Score d’autorité (HITS)",
                 "hub": "Score de hub (HITS)",
                 "pageranks": "Score de PageRank"
             },
@@ -180,13 +173,12 @@
                 "inLinks": "Link in entrata da :",
                 "outLinks": "Link in uscita verso :",
                 "undirLinks": "Link non direzionati con :",
-                "lensOn": "Attiva la lente d'ingrandimento",
-                "lensOff": "Disattiva la lente d'ingrandimento",
+                "lensOn": "Attiva la lente d’ingrandimento",
+                "lensOff": "Disattiva la lente d’ingrandimento",
                 "edgeOn": "Mostra gli spigoli",
                 "edgeOff": "Nascondi gli spigoli",
                 "zoomIn": "Zoom in avanti",
                 "zoomOut": "Zoom indietro",
-                "browserErr": 'Il tuo browser non pu&ograve; visualizzare correttamente questa pagina.<br />Ti raccomandiamo l\'uso dell\'ultima versione di  <a href="http://www.mozilla.com/" target="_blank">Firefox</a> o <a href="http://www.google.com/chrome/" target="_blank">Chrome</a>'
             },
             "tr": {
                 "search": "Düğüm ara",
@@ -201,7 +193,6 @@
                 "edgeOff": "Kenar çizgilerini gizle",
                 "zoomIn": "Yaklaştır",
                 "zoomOut": "Uzaklaştır",
-                "browserErr": "Tarayıcınız sayfayı doğru bir biçimde görüntüleyemiyor.<br />En son Firefox veya Chrome sürümünü kullanmanızı tavsiye ederiz."
             },
             "nl": {
                 "search": "Knooppunten doorzoeken",
@@ -216,7 +207,6 @@
                 "edgeOff": "Kanten verbergen",
                 "zoomIn": "Inzoomen",
                 "zoomOut": "Uitzoomen",
-                "browserErr": 'Uw browser kan deze pagina niet correct tonen.<br />We raden aan de meest recente versie van <a href="http://www.mozilla.com/" target="_blank">Firefox</a> of <a href="http://www.google.com/chrome/" target="_blank">Chrome</a> te gebruiken'
             },
             "pt": {
                 "search": "Pesquisar nós",
@@ -231,7 +221,6 @@
                 "edgeOff": "Esconder arestas",
                 "zoomIn": "Aumentar zoom",
                 "zoomOut": "Diminuir zoom",
-                "browserErr": "Seu navegador não pode exibir esta página corretamente.<br />Recomendamos que você use a versão mais recente do navegador Firefox ou Chrome."
             }
         },
         lang: "en"
@@ -1167,11 +1156,6 @@
                 )
         );
         GexfJS.lang = (GexfJS.i18n[lang] ? lang : "en");
-
-        if (!document.createElement('canvas').getContext) {
-            $("#bulle").html('<p><b>' + strLang("browserErr") + '</b></p>');
-            return;
-        }
 
         updateButtonStates();
 
