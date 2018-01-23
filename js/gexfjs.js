@@ -677,15 +677,28 @@
                         attributes: {},
                     };
                     var _xmin = 1e9, _xmax = -1e9, _ymin = 1e9, _ymax = -1e9; _marge = 30;
-                    $(_nodes).each(function () {
+                    $(_nodes).each(function (index) {
                         var _n = $(this),
                             _pos = _n.find("viz\\:position,position"),
                             _x = _pos.attr("x"),
                             _y = _pos.attr("y");
-                        _xmin = Math.min(_x, _xmin);
-                        _xmax = Math.max(_x, _xmax);
-                        _ymin = Math.min(_y, _ymin);
-                        _ymax = Math.max(_y, _ymax);
+                        function isGraphable(val) {
+                            val = Number(val)
+                            return !isNaN(val) && Math.abs(val) != Infinity && val != null;
+                        }
+                        function isGraphable(val) {
+                            val = Number(val)
+                            return !isNaN(val) && Math.abs(val) != Infinity && val != null;
+                        }
+                        if (isGraphable(_x) && isGraphable(_y)) {
+                            _xmin = Math.min(_x, _xmin);
+                            _xmax = Math.max(_x, _xmax);
+                            _ymin = Math.min(_y, _ymin);
+                            _ymax = Math.max(_y, _ymax);
+                        } else {
+                            console.log("Node " + index + " has invalid position. Not drawn.")
+                        }
+
                     });
 
                     var _scale = Math.min((GexfJS.baseWidth - _marge) / (_xmax - _xmin), (GexfJS.baseHeight - _marge) / (_ymax - _ymin));
@@ -733,7 +746,7 @@
                         GexfJS.graph.indexOfLabels.push(_d.l.toLowerCase());
                     });
 
-                    $(_edges).each(function () {
+                    $(_edges).each(function (index) {
                         var _e = $(this),
                             _sid = _e.attr("source"),
                             _six = nodeIndexById.indexOf(_sid),
@@ -748,32 +761,36 @@
                         if (_e.attr("type") == "undirected") {
                             _directed = false;
                         }
-                        if (_col.length) {
-                            var _r = _col.attr("r"),
-                                _g = _col.attr("g"),
-                                _b = _col.attr("b");
-                        } else {
-                            var _scol = GexfJS.graph.nodeList[_six].rgb;
-                            if (_directed) {
-                                var _r = _scol[0],
-                                    _g = _scol[1],
-                                    _b = _scol[2];
+                        try {
+                            if (_col.length) {
+                                var _r = _col.attr("r"),
+                                    _g = _col.attr("g"),
+                                    _b = _col.attr("b");
                             } else {
-                                var _tcol = GexfJS.graph.nodeList[_tix].rgb,
-                                    _r = Math.floor(.5 * _scol[0] + .5 * _tcol[0]),
-                                    _g = Math.floor(.5 * _scol[1] + .5 * _tcol[1]),
-                                    _b = Math.floor(.5 * _scol[2] + .5 * _tcol[2]);
+                                var _scol = GexfJS.graph.nodeList[_six].rgb;
+                                if (_directed) {
+                                    var _r = _scol[0],
+                                        _g = _scol[1],
+                                        _b = _scol[2];
+                                } else {
+                                    var _tcol = GexfJS.graph.nodeList[_tix].rgb,
+                                        _r = Math.floor(.5 * _scol[0] + .5 * _tcol[0]),
+                                        _g = Math.floor(.5 * _scol[1] + .5 * _tcol[1]),
+                                        _b = Math.floor(.5 * _scol[2] + .5 * _tcol[2]);
+                                }
                             }
+                            GexfJS.graph.edgeList.push({
+                                s: _six,
+                                t: _tix,
+                                W: Math.max(GexfJS.params.minEdgeWidth, Math.min(GexfJS.params.maxEdgeWidth, (_w || 1))) * _scale,
+                                w: parseFloat(_w || 0),
+                                C: "rgba(" + _r + "," + _g + "," + _b + ",.7)",
+                                l: _e.attr("label") || "",
+                                d: _directed
+                            });
+                        } catch(err) {
+                            console.log("Edge " + index + " is invalid. Skipped.")
                         }
-                        GexfJS.graph.edgeList.push({
-                            s: _six,
-                            t: _tix,
-                            W: Math.max(GexfJS.params.minEdgeWidth, Math.min(GexfJS.params.maxEdgeWidth, (_w || 1))) * _scale,
-                            w: parseFloat(_w || 0),
-                            C: "rgba(" + _r + "," + _g + "," + _b + ",.7)",
-                            l: _e.attr("label") || "",
-                            d: _directed
-                        });
                     });
                 }
                 measureTime("Pre-processing graph");
