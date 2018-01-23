@@ -746,7 +746,7 @@
                         GexfJS.graph.indexOfLabels.push(_d.l.toLowerCase());
                     });
 
-                    $(_edges).each(function () {
+                    $(_edges).each(function (index) {
                         var _e = $(this),
                             _sid = _e.attr("source"),
                             _six = nodeIndexById.indexOf(_sid),
@@ -761,32 +761,36 @@
                         if (_e.attr("type") == "undirected") {
                             _directed = false;
                         }
-                        if (_col.length) {
-                            var _r = _col.attr("r"),
-                                _g = _col.attr("g"),
-                                _b = _col.attr("b");
-                        } else {
-                            var _scol = GexfJS.graph.nodeList[_six].rgb;
-                            if (_directed) {
-                                var _r = _scol[0],
-                                    _g = _scol[1],
-                                    _b = _scol[2];
+                        try {
+                            if (_col.length) {
+                                var _r = _col.attr("r"),
+                                    _g = _col.attr("g"),
+                                    _b = _col.attr("b");
                             } else {
-                                var _tcol = GexfJS.graph.nodeList[_tix].rgb,
-                                    _r = Math.floor(.5 * _scol[0] + .5 * _tcol[0]),
-                                    _g = Math.floor(.5 * _scol[1] + .5 * _tcol[1]),
-                                    _b = Math.floor(.5 * _scol[2] + .5 * _tcol[2]);
+                                var _scol = GexfJS.graph.nodeList[_six].rgb;
+                                if (_directed) {
+                                    var _r = _scol[0],
+                                        _g = _scol[1],
+                                        _b = _scol[2];
+                                } else {
+                                    var _tcol = GexfJS.graph.nodeList[_tix].rgb,
+                                        _r = Math.floor(.5 * _scol[0] + .5 * _tcol[0]),
+                                        _g = Math.floor(.5 * _scol[1] + .5 * _tcol[1]),
+                                        _b = Math.floor(.5 * _scol[2] + .5 * _tcol[2]);
+                                }
                             }
+                            GexfJS.graph.edgeList.push({
+                                s: _six,
+                                t: _tix,
+                                W: Math.max(GexfJS.params.minEdgeWidth, Math.min(GexfJS.params.maxEdgeWidth, (_w || 1))) * _scale,
+                                w: parseFloat(_w || 0),
+                                C: "rgba(" + _r + "," + _g + "," + _b + ",.7)",
+                                l: _e.attr("label") || "",
+                                d: _directed
+                            });
+                        } catch(err) {
+                            console.log("Edge " + index + " is invalid. Skipped.")
                         }
-                        GexfJS.graph.edgeList.push({
-                            s: _six,
-                            t: _tix,
-                            W: Math.max(GexfJS.params.minEdgeWidth, Math.min(GexfJS.params.maxEdgeWidth, (_w || 1))) * _scale,
-                            w: parseFloat(_w || 0),
-                            C: "rgba(" + _r + "," + _g + "," + _b + ",.7)",
-                            l: _e.attr("label") || "",
-                            d: _directed
-                        });
                     });
                 }
                 measureTime("Pre-processing graph");
