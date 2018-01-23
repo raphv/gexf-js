@@ -677,15 +677,28 @@
                         attributes: {},
                     };
                     var _xmin = 1e9, _xmax = -1e9, _ymin = 1e9, _ymax = -1e9; _marge = 30;
-                    $(_nodes).each(function () {
+                    $(_nodes).each(function (index) {
                         var _n = $(this),
                             _pos = _n.find("viz\\:position,position"),
                             _x = _pos.attr("x"),
                             _y = _pos.attr("y");
-                        _xmin = Math.min(_x, _xmin);
-                        _xmax = Math.max(_x, _xmax);
-                        _ymin = Math.min(_y, _ymin);
-                        _ymax = Math.max(_y, _ymax);
+                        function isGraphable(val) {
+                            val = Number(val)
+                            return !isNaN(val) && Math.abs(val) != Infinity && val != null;
+                        }
+                        function isGraphable(val) {
+                            val = Number(val)
+                            return !isNaN(val) && Math.abs(val) != Infinity && val != null;
+                        }
+                        if (isGraphable(_x) && isGraphable(_y)) {
+                            _xmin = Math.min(_x, _xmin);
+                            _xmax = Math.max(_x, _xmax);
+                            _ymin = Math.min(_y, _ymin);
+                            _ymax = Math.max(_y, _ymax);
+                        } else {
+                            console.log("Node " + index + " has invalid position. Not drawn.")
+                        }
+
                     });
 
                     var _scale = Math.min((GexfJS.baseWidth - _marge) / (_xmax - _xmin), (GexfJS.baseHeight - _marge) / (_ymax - _ymin));
