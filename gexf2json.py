@@ -10,6 +10,7 @@ BASE_H = 700
 PADDING = 30
 MIN_EDGE_WIDTH = 1
 MAX_EDGE_WIDTH = 50
+DEFAULT_COLOR = {'r': 127, 'g': 127, 'b': 127}
 
 parser = argparse.ArgumentParser()
 parser.add_argument('input', type=argparse.FileType('r'), help='Input GEXF File')
@@ -60,7 +61,7 @@ for node in tree.xpath('//g:node', namespaces=nsmap):
     x = float(pos.get('x'))
     y = float(pos.get('y'))
     size = float(node.xpath('viz:size', namespaces=nsmap)[0].get('value'))
-    color = node.xpath('viz:color', namespaces=nsmap)[0]
+    color = (node.xpath('viz:color', namespaces=nsmap) or [DEFAULT_COLOR])[0]
     r = int(color.get('r'))
     g = int(color.get('g'))
     b = int(color.get('b'))
