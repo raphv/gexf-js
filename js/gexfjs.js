@@ -769,7 +769,7 @@
                             s: _six,
                             t: _tix,
                             W: Math.max(GexfJS.params.minEdgeWidth, Math.min(GexfJS.params.maxEdgeWidth, (_w || 1))) * _scale,
-                            w: parseFloat(_w || 0),
+                            w: parseFloat(_w || "1"),
                             C: "rgba(" + _r + "," + _g + "," + _b + ",.7)",
                             l: _e.attr("label") || "",
                             d: _directed
