@@ -926,7 +926,7 @@
         var _sizeFactor = GexfJS.globalScale * Math.pow(GexfJS.globalScale, -.15),
             _edgeSizeFactor = _sizeFactor * GexfJS.params.edgeWidthFactor,
             _nodeSizeFactor = _sizeFactor * GexfJS.params.nodeSizeFactor,
-            _textSizeFactor = 1;
+            _textSizeFactor = GexfJS.params.fontSizeFactor || 1;
 
         GexfJS.ctxGraphe.clearRect(0, 0, GexfJS.graphZone.width, GexfJS.graphZone.height);
 
