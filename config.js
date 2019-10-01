@@ -30,6 +30,7 @@ GexfJS.setParams({
             Change this parameter for wider or narrower edges
             this setting can't be changed from the User Interface
         */
+    edgeOpacity : 0.2,
     minEdgeWidth : 1,
     maxEdgeWidth : 50,
     textDisplayThreshold: 9,
