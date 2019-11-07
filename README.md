@@ -6,16 +6,16 @@
 
 **The issue below is the source of 90% of support emails I receive, please read carefully**
 
-Gexf-JS won't work on chrome if launched from your local drive (with a file:/// URI scheme).
-This is a known security limitation, and there are 2 known workarounds:
+Gexf-JS won't work if launched from your local drive (with a file:/// URI scheme) because AJAX is disabled by default on local URIs.
+This is a known security limitation, part of the Cross-Origin Resource Sharing security model, and there are 2 known workarounds:
 
-1. Use Firefox.
+1. Change the security settings of your browser - check https://www.thepolyglotdeveloper.com/2014/08/bypass-cors-errors-testing-apis-locally/ for details.
 2. Use a server (upload it or use a local server). If you have Python on your computer, the simplest is to launch a SimpleHTTPServer with the Command Line:
 
     $ cd /path/to/gexf-js
     $ python -m SimpleHTTPServer
 
-There used to a third workaround (The --allow-file-access-from-files flag), but it is no longer available on newest Chrome versions since 2014.
+Firefox used to support AJAX from local files, but it is now disabled as of version 68 - unless you set **security.fileuri.strict_origin_policy** to **false**
 
 ### Newest features
 
