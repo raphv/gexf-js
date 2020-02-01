@@ -473,6 +473,9 @@
 
     function onGraphClick(evt) {
         if (!GexfJS.mouseHasMoved && !GexfJS.pinchOn) {
+	    if(GexfJS.params.activeNode == GexfJS.params.currentNode){ 
+		GexfJS.params.activeNode = -1
+	    }
             displayNode(GexfJS.params.activeNode);
         }
         endMove();
